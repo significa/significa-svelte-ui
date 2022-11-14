@@ -1,6 +1,116 @@
 [data-theme],
 .theme-light,
-.theme-dark {
-	background-color: var(--sui-color-background);
-	color: var(--sui-color-foreground);
+.theme-dark,
+.theme-yellow {
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+}
+
+:root,
+.theme-light,
+[data-theme='light'] {
+	--color-background-hsl: var(--color-palette-gray-25-hsl);
+	--color-background: hsl(var(--color-background-hsl));
+
+	--color-foreground-hsl: var(--color-palette-gray-900-hsl);
+	--color-foreground: hsl(var(--color-foreground-hsl));
+
+	--color-secondary-hsl: var(--color-palette-gray-400-hsl);
+	--color-secondary: hsl(var(--color-secondary-hsl));
+
+	--color-tertiary-hsl: var(--color-palette-gray-300-hsl);
+	--color-tertiary: hsl(var(--color-tertiary-hsl));
+
+	--color-offset-hsl: var(--color-palette-gray-50-hsl);
+	--color-offset: hsl(var(--color-offset-hsl));
+
+	--color-smooth-hsl: var(--color-palette-gray-75-hsl);
+	--color-smooth: hsl(var(--color-smooth-hsl));
+
+	--color-muted-hsl: var(--color-palette-gray-100-hsl);
+	--color-muted: hsl(var(--color-muted-hsl));
+
+	--color-accent-hsl: var(--color-palette-white-hsl);
+	--color-accent: hsl(var(--color-accent-hsl));
+
+	--color-drawing-hsl: var(--color-palette-blue-hsl);
+	--color-drawing: hsl(var(--color-drawing-hsl));
+
+	--color-highlight-hsl: var(--color-palette-white-hsl);
+	--color-highlight: hsl(var(--color-highlight-hsl));
+
+	--color-danger-hsl: var(--color-palette-red-hsl);
+	--color-danger: hsl(var(--color-highlight-hsl));
+}
+
+.theme-dark,
+[data-theme='dark'] {
+	--color-background-hsl: var(--color-palette-gray-900-hsl);
+	--color-background: hsl(var(--color-background-hsl));
+
+	--color-foreground-hsl: var(--color-palette-gray-25-hsl);
+	--color-foreground: hsl(var(--color-foreground-hsl));
+
+	--color-secondary-hsl: var(--color-palette-gray-300-hsl);
+	--color-secondary: hsl(var(--color-secondary-hsl));
+
+	--color-tertiary-hsl: var(--color-palette-gray-400-hsl);
+	--color-tertiary: hsl(var(--color-tertiary-hsl));
+
+	--color-offset-hsl: var(--color-palette-gray-850-hsl);
+	--color-offset: hsl(var(--color-offset-hsl));
+
+	--color-smooth-hsl: var(--color-palette-gray-800-hsl);
+	--color-smooth: hsl(var(--color-smooth-hsl));
+
+	--color-muted-hsl: var(--color-palette-gray-700-hsl);
+	--color-muted: hsl(var(--color-muted-hsl));
+
+	--color-accent-hsl: var(--color-palette-gray-850-hsl);
+	--color-accent: hsl(var(--color-accent-hsl));
+
+	--color-drawing-hsl: var(--color-palette-gray-25-hsl);
+	--color-drawing: hsl(var(--color-drawing-hsl));
+
+	--color-highlight-hsl: var(--color-palette-gray-850-hsl);
+	--color-highlight: hsl(var(--color-highlight-hsl));
+
+	--color-danger-hsl: var(--color-palette-red-hsl);
+	--color-danger: hsl(var(--color-highlight-hsl));
+}
+
+.theme-yellow,
+[data-theme='yellow'] {
+	--color-background-hsl: var(--color-palette-yellow-hsl);
+	--color-background: hsl(var(--color-background-hsl));
+
+	--color-foreground-hsl: var(--color-palette-gray-900-hsl);
+	--color-foreground: hsl(var(--color-foreground-hsl) / var(--opacity-90));
+
+	--color-secondary-hsl: var(--color-palette-gray-900-hsl);
+	--color-secondary: hsl(var(--color-secondary-hsl) / var(--opacity-60));
+
+	--color-tertiary-hsl: var(--color-palette-gray-900-hsl);
+	--color-tertiary: hsl(var(--color-tertiary-hsl) / var(--opacity-40));
+
+	--color-offset-hsl: var(--color-palette-gray-900-hsl);
+	--color-offset: hsl(var(--color-offset-hsl) / var(--opacity-5));
+
+	--color-smooth-hsl: var(--color-palette-gray-900-hsl);
+	--color-smooth: hsl(var(--color-smooth-hsl) / var(--opacity-10));
+
+	--color-muted-hsl: var(--color-palette-gray-900-hsl);
+	--color-muted: hsl(var(--color-muted-hsl) / var(--opacity-20));
+
+	--color-accent-hsl: var(--color-palette-yellow-hsl);
+	--color-accent: hsl(var(--color-accent-hsl));
+
+	--color-drawing-hsl: var(--color-palette-gray-900-hsl);
+	--color-drawing: hsl(var(--color-drawing-hsl));
+
+	--color-highlight-hsl: var(--color-palette-white-hsl);
+	--color-highlight: hsl(var(--color-highlight-hsl));
+
+	--color-danger-hsl: var(--color-palette-red-hsl);
+	--color-danger: hsl(var(--color-highlight-hsl));
 }
