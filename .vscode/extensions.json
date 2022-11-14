@@ -1,4 +1,4 @@
 {
-	"recommendations": ["phoenisx.cssvar"],
+	"recommendations": ["svelte.svelte-vscode", "vunguyentuan.vscode-css-variables"],
 	"unwantedRecommendations": []
 }
