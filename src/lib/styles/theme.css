@@ -1,0 +1,6 @@
+[data-theme],
+.theme-light,
+.theme-dark {
+	background-color: var(--sui-color-background);
+	color: var(--sui-color-foreground);
+}
