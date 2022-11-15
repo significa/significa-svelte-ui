@@ -109,13 +109,13 @@
 	--font-size-lg: 1.125rem; /* 18px */
 	--font-size-xl: 1.25rem; /* 20px */
 	--font-size-2xl: 1.5rem; /* 24px */
-	--font-size-3xl: 1.875rem; /* 30px */
-	--font-size-4xl: 2.25rem; /* 36px */
-	--font-size-5xl: 3rem; /* 48px */
-	--font-size-6xl: 3.75rem; /* 60px */
-	--font-size-7xl: 4.5rem; /* 72px */
-	--font-size-8xl: 6rem; /* 96px */
-	--font-size-9xl: 8rem; /* 128px */
+	--font-size-3xl: clamp(1.625rem, 3.9vw, 1.875rem); /* 26px - 30px */
+	--font-size-4xl: clamp(1.75rem, 4.68vw, 2.25rem); /* 28px - 36px */
+	--font-size-5xl: clamp(1.875rem, 6.25vw, 3rem); /* 30px - 48px */
+	--font-size-6xl: clamp(2rem, 7.81vw, 3.75rem); /* 32px - 60px */
+	--font-size-7xl: clamp(2.25rem, 9.375vw, 4.5rem); /* 36px - 72px */
+	--font-size-8xl: clamp(3rem, 12.5vw, 6rem); /* 48px - 96px */
+	--font-size-9xl: clamp(3.75rem, 16.6vw, 8rem); /* 60px - 128px */
 
 	/* line-height */
 	--font-line-height-none: 1;
