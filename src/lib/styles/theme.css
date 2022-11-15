@@ -30,17 +30,17 @@
 	--color-muted-hsl: var(--color-palette-gray-100-hsl);
 	--color-muted: hsl(var(--color-muted-hsl));
 
-	--color-accent-hsl: var(--color-palette-white-hsl);
+	--color-accent-hsl: var(--color-palette-yellow-hsl);
 	--color-accent: hsl(var(--color-accent-hsl));
 
 	--color-drawing-hsl: var(--color-palette-blue-hsl);
 	--color-drawing: hsl(var(--color-drawing-hsl));
 
-	--color-highlight-hsl: var(--color-palette-white-hsl);
-	--color-highlight: hsl(var(--color-highlight-hsl));
+	--color-panel-hsl: var(--color-palette-white-hsl);
+	--color-panel: hsl(var(--color-panel-hsl));
 
 	--color-danger-hsl: var(--color-palette-red-hsl);
-	--color-danger: hsl(var(--color-highlight-hsl));
+	--color-danger: hsl(var(--color-danger-hsl));
 }
 
 .theme-dark,
@@ -66,17 +66,17 @@
 	--color-muted-hsl: var(--color-palette-gray-700-hsl);
 	--color-muted: hsl(var(--color-muted-hsl));
 
-	--color-accent-hsl: var(--color-palette-gray-850-hsl);
+	--color-accent-hsl: var(--color-palette-gray-yellow-hsl);
 	--color-accent: hsl(var(--color-accent-hsl));
 
 	--color-drawing-hsl: var(--color-palette-gray-25-hsl);
 	--color-drawing: hsl(var(--color-drawing-hsl));
 
-	--color-highlight-hsl: var(--color-palette-gray-850-hsl);
-	--color-highlight: hsl(var(--color-highlight-hsl));
+	--color-panel-hsl: var(--color-palette-gray-850-hsl);
+	--color-panel: hsl(var(--color-panel-hsl));
 
 	--color-danger-hsl: var(--color-palette-red-hsl);
-	--color-danger: hsl(var(--color-highlight-hsl));
+	--color-danger: hsl(var(--color-danger-hsl));
 }
 
 .theme-yellow,
@@ -102,15 +102,15 @@
 	--color-muted-hsl: var(--color-palette-gray-900-hsl);
 	--color-muted: hsl(var(--color-muted-hsl) / var(--opacity-20));
 
-	--color-accent-hsl: var(--color-palette-yellow-hsl);
+	--color-accent-hsl: var(--color-palette-gray-25-hsl);
 	--color-accent: hsl(var(--color-accent-hsl));
 
 	--color-drawing-hsl: var(--color-palette-gray-900-hsl);
 	--color-drawing: hsl(var(--color-drawing-hsl));
 
-	--color-highlight-hsl: var(--color-palette-white-hsl);
-	--color-highlight: hsl(var(--color-highlight-hsl));
+	--color-panel-hsl: var(--color-palette-gray-900-hsl);
+	--color-panel: hsl(var(--color-panel-hsl) / var(--opacity-10));
 
 	--color-danger-hsl: var(--color-palette-red-hsl);
-	--color-danger: hsl(var(--color-highlight-hsl));
+	--color-danger: hsl(var(--color-danger-hsl));
 }
