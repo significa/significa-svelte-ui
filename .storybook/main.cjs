@@ -1,5 +1,4 @@
-const preprocess = require('svelte-preprocess');
-
+const path = require('path');
 module.exports = {
 	stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.@(js|jsx|ts|tsx|svelte)'],
 	addons: [
@@ -7,16 +6,11 @@ module.exports = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions'
 	],
-	framework: '@storybook/svelte',
-	core: {
-		builder: '@storybook/builder-vite'
+	framework: {
+		name: '@storybook/svelte-vite',
+		options: {}
 	},
-	svelteOptions: {
-		preprocess: preprocess({
-			postcss: true
-		})
-	},
-	features: {
-		storyStoreV7: true
+	docs: {
+		docsPage: true
 	}
 };

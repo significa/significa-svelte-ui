@@ -11,17 +11,16 @@
 		"format": "prettier --plugin-search-dir . --write .",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.20.2",
-		"@storybook/addon-actions": "^6.5.13",
-		"@storybook/addon-essentials": "^6.5.13",
-		"@storybook/addon-interactions": "^6.5.13",
-		"@storybook/addon-links": "^6.5.13",
-		"@storybook/builder-vite": "^0.2.5",
-		"@storybook/svelte": "^6.5.13",
+		"@storybook/addon-essentials": "^7.0.0-alpha.49",
+		"@storybook/addon-interactions": "^7.0.0-alpha.49",
+		"@storybook/addon-links": "^7.0.0-alpha.49",
+		"@storybook/svelte": "^7.0.0-alpha.49",
+		"@storybook/svelte-vite": "^7.0.0-alpha.49",
 		"@storybook/testing-library": "^0.0.13",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
@@ -40,6 +39,7 @@
 		"postcss-preset-env": "^7.8.3",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
+		"storybook": "^7.0.0-alpha.49",
 		"svelte": "^3.53.1",
 		"svelte-check": "^2.7.1",
 		"svelte-loader": "^3.1.4",
@@ -49,5 +49,6 @@
 		"vite": "^3.1.0",
 		"vitest": "^0.25.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {}
 }
