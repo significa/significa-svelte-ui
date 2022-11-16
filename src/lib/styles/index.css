@@ -1,6 +1,7 @@
 @import './fonts.css';
 @import './tokens.css';
 @import './theme.css';
+@import './typography.css';
 
 body {
 	font-family: var(--font-family-body);
