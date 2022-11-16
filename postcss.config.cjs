@@ -11,6 +11,9 @@ module.exports = {
 				'nesting-rules': true,
 				'custom-properties': false
 			}
+		}),
+		require('postcss-mixins')({
+			mixinsDir: ['./src/lib/styles/mixins']
 		})
 	]
 };
