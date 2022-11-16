@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
-import Button from '../src/lib/components/button.svelte';
+import Button from '../src/lib/components/Button.svelte';
 
 describe('Button', () => {
 	const label = 'Click me';
