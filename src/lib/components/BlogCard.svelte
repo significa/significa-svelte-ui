@@ -22,9 +22,9 @@
 <div class="container elevated-link">
 	<a href={post.slug}>
 		<img src={post.image} alt={post.title} />
-		<p class="text-2xl-beast">{post.title}</p>
+		<p>{post.title}</p>
 	</a>
-	<div class="links text-lg">
+	<div class="links">
 		<Avatar style="margin-right: var(--space-6px" size={AvatarSize.XS} image={post.author.image} />
 		<Link href={post.author.slug} label={post.author.name} />
 		{#each post.categories as category}
@@ -64,6 +64,8 @@
 		& .links {
 			display: flex;
 			align-items: center;
+
+			@mixin text-lg;
 
 			& .divider {
 				margin: 0px var(--space-8px);
