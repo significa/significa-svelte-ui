@@ -14,8 +14,12 @@
 		padding: 10px;
 		font-size: 1rem;
 
+		@mixin text-5xl;
+
 		@media (--md) {
 			background-color: blue;
+
+			@mixin text-xs;
 		}
 	}
 </style>
