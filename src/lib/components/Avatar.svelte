@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let image: string;
+	export let style: string = '';
 </script>
 
 <svg
@@ -9,6 +10,7 @@
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
+	{style}
 >
 	<path
 		d="M16 10.0935C16 14.4601 12.4183 18 8 18C3.58172 18 0 14.4601 0 10.0935C0 5.7268 3.58172 0 8 0C12.4183 0 16 5.7268 16 10.0935Z"
