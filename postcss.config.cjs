@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	plugins: [
 		require('postcss-preset-env')({
@@ -13,7 +15,7 @@ module.exports = {
 			}
 		}),
 		require('postcss-mixins')({
-			mixinsDir: ['./src/lib/styles/mixins']
+			mixinsDir: path.join(__dirname, 'src/lib/styles/mixins')
 		})
 	]
 };

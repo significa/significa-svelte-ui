@@ -41,6 +41,8 @@
 		& a {
 			text-decoration: none;
 
+			@mixin text-5xl;
+
 			& img {
 				width: 100%;
 				aspect-ratio: var(--aspect-ratio-landscape);
