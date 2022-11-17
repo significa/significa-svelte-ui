@@ -1,151 +1,151 @@
-.text-xs {
+@define-mixin text-xs {
 	font-size: var(--font-size-xs);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-sm {
+@define-mixin text-sm {
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-sm-beast {
+@define-mixin text-sm-beast {
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-md {
+@define-mixin text-md {
 	font-size: var(--font-size-md);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-md-body {
+@define-mixin text-md-body {
 	font-size: var(--font-size-md);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-relaxed);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-md-beast {
+@define-mixin text-md-beast {
 	font-size: var(--font-size-md);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-lg {
+@define-mixin text-lg {
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-tight);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-lg-body {
+@define-mixin text-lg-body {
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-normal);
 	line-height: var(--font-line-height-loose);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-lg-beast {
+@define-mixin text-lg-beast {
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-tight);
 	letter-spacing: var(--font-letter-spacing-wide);
 }
 
-.text-xl {
+@define-mixin text-xl {
 	font-size: var(--font-size-xl);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-normal);
 }
 
-.text-xl-body {
+@define-mixin text-xl-body {
 	font-size: var(--font-size-xl);
 	font-weight: var(--font-weight-regular);
 	line-height: var(--font-line-height-relaxed);
 	letter-spacing: var(--font-letter-spacing-normal);
 }
 
-.text-xl-beast {
+@define-mixin text-xl-beast {
 	font-size: var(--font-size-xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-normal);
 }
 
-.text-2xl {
+@define-mixin text-2xl {
 	font-size: var(--font-size-2xl);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-normal);
 }
 
-.text-2xl-body {
+@define-mixin text-2xl-body {
 	font-size: var(--font-size-2xl);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-relaxed);
 	letter-spacing: var(--font-letter-spacing-normal);
 }
 
-.text-2xl-beast {
+@define-mixin text-2xl-beast {
 	font-size: var(--font-size-2xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-normal);
 }
 
-.text-3xl {
+@define-mixin text-3xl {
 	font-size: var(--font-size-3xl);
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-line-height-normal);
 	letter-spacing: var(--font-letter-spacing-tight);
 }
 
-.text-3xl-beast {
+@define-mixin text-3xl-beast {
 	font-size: var(--font-size-3xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-tight);
 	letter-spacing: var(--font-letter-spacing-tight);
 }
 
-.text-4xl {
+@define-mixin text-4xl {
 	font-size: var(--font-size-4xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-tight);
 	letter-spacing: var(--font-letter-spacing-tight);
 }
 
-.text-5xl {
+@define-mixin text-5xl {
 	font-size: var(--font-size-5xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-none);
 	letter-spacing: var(--font-letter-spacing-tight);
 }
 
-.text-6xl {
+@define-mixin text-6xl {
 	font-size: var(--font-size-6xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-tight);
 	letter-spacing: var(--font-letter-spacing-tight);
 }
 
-.text-7xl {
+@define-mixin text-7xl {
 	font-size: var(--font-size-7xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-tight);
 	letter-spacing: var(--font-letter-spacing-tight);
 }
 
-.text-8xl {
+@define-mixin text-8xl {
 	font-size: var(--font-size-8xl);
 	font-weight: var(--font-weight-semibold);
 	line-height: var(--font-line-height-tight);
