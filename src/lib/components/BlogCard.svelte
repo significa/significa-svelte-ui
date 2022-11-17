@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { AvatarSize } from '../types/types';
 	import Avatar from './Avatar.svelte';
 	import Link from './Link.svelte';
 
@@ -24,7 +25,7 @@
 		<p class="text-2xl-beast">{post.title}</p>
 	</a>
 	<div class="links text-lg">
-		<Avatar style="margin-right: var(--space-6px" image={post.author.image} />
+		<Avatar style="margin-right: var(--space-6px" size={AvatarSize.XS} image={post.author.image} />
 		<Link href={post.author.slug} label={post.author.name} />
 		{#each post.categories as category}
 			<span class="divider">·</span>

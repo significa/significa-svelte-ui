@@ -1,11 +1,21 @@
 <script lang="ts">
+	import { AvatarSize } from '../types/types';
+
 	export let image: string;
 	export let style: string = '';
+	export let size: AvatarSize = AvatarSize.MD;
+
+	const sizes = {
+		[AvatarSize.XS]: [16, 18],
+		[AvatarSize.SM]: [38, 44],
+		[AvatarSize.MD]: [48, 56],
+		[AvatarSize.XL]: [68, 80]
+	};
 </script>
 
 <svg
-	width="16"
-	height="18"
+	width={sizes[size][0]}
+	height={sizes[size][1]}
 	viewBox="0 0 16 18"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
