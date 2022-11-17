@@ -41,7 +41,7 @@
 		& a {
 			text-decoration: none;
 
-			@mixin text-5xl;
+			@mixin text-xl-beast;
 
 			& img {
 				width: 100%;
@@ -54,6 +54,10 @@
 				margin: var(--space-12px) 0px var(--space-6px);
 
 				color: var(--color-foreground);
+			}
+
+			@media (--md) {
+				@mixin text-2xl-beast;
 			}
 		}
 
