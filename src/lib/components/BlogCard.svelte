@@ -19,7 +19,7 @@
 </script>
 
 <div class="container elevated-link">
-	<a href={post.href}>
+	<a href={post.href} data-elevated>
 		<img src={post.image} alt={post.title} />
 		<p>{post.title}</p>
 	</a>
