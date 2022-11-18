@@ -24,7 +24,7 @@
 		}
 
 		&:disabled {
-			opacity: 0.44;
+			opacity: var(--opacity-40);
 
 			box-shadow: inset 0 -1px 0 var(--color-foreground);
 		}
