@@ -1,25 +1,25 @@
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 
-import Link from '../src/lib/components/Link.svelte';
+import NavLink from '../src/lib/components/NavLink.svelte';
 
-describe('Link', () => {
+describe('NavLink', () => {
 	const label = 'Click me';
 	const href = 'https://example.com';
 
 	beforeEach(() => {
-		render(Link, { label: label, href: href });
+		render(NavLink, { label: label, href: href });
 	});
 
-	it('Renders a Link', () => {
+	it('Renders a NavLink', () => {
 		expect(screen.getByRole('link')).toBeInTheDocument();
 	});
 
-	it('Renders a Link with a label', () => {
+	it('Renders a NavLink with a label', () => {
 		expect(screen.getByText(label)).toBeInTheDocument();
 	});
 
-	it('Link has an href attribute', () => {
+	it('NavLink has an href attribute', () => {
 		expect(screen.getByRole('link')).toHaveAttribute('href', href);
 	});
 });
