@@ -5,39 +5,37 @@
 
 	export let post: {
 		image: string;
-		slug: string;
+		href: string;
 		title: string;
 		author: {
 			image: string;
-			slug: string;
+			href: string;
 			name: string;
 		};
 		categories: {
-			slug: string;
+			href: string;
 			name: string;
 		}[];
 	};
 </script>
 
 <div class="container elevated-link">
-	<a href={post.slug}>
+	<a href={post.href}>
 		<img src={post.image} alt={post.title} />
 		<p>{post.title}</p>
 	</a>
 	<div class="links">
 		<Avatar style="margin-right: var(--space-6px" size={AvatarSize.XS} image={post.author.image} />
-		<Link href={post.author.slug} label={post.author.name} />
+		<Link href={post.author.href} label={post.author.name} />
 		{#each post.categories as category}
 			<span class="divider">·</span>
-			<Link href={category.slug} label={category.name} />
+			<Link href={category.href} label={category.name} />
 		{/each}
 	</div>
 </div>
 
 <style lang="postcss">
 	.container {
-		max-width: 684px;
-
 		& a {
 			text-decoration: none;
 
