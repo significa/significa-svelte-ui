@@ -7,47 +7,82 @@
 
 <style lang="postcss">
 	a {
-		padding: var(--space-4px) 0px;
+		position: relative;
 
 		text-decoration: none;
 
 		box-sizing: border-box;
 
-		box-shadow: inset 0 -1px 0 var(--color-muted);
-
 		color: var(--color-foreground);
 
-		transition: all var(--transition-in-out);
+		&:after {
+			content: '';
+
+			position: absolute;
+			left: 0px;
+			bottom: -2px;
+
+			width: 100%;
+			height: 2px;
+
+			background-color: hsl(var(--color-tertiary-hsl) / var(--opacity-0));
+
+			transition: background-color var(--transition-in-out);
+		}
 
 		&:hover {
-			box-shadow: inset 0 -1px 0 var(--color-foreground);
+			&:after {
+				content: '';
+
+				position: absolute;
+				left: 0px;
+				bottom: -2px;
+
+				width: 100%;
+				height: 2px;
+
+				background-color: hsl(var(--color-tertiary-hsl) / var(--opacity-100));
+			}
 		}
 
 		&:disabled {
 			opacity: 0.44;
 
-			box-shadow: inset 0 -1px 0 var(--color-foreground);
+			box-shadow: 0px 2px 0px var(--color-foreground);
 		}
 
-		/* &:focus {
+		&:focus {
 			outline: none;
 
-			position: relative;
+			&:before {
+				content: '';
+
+				position: absolute;
+				left: 0px;
+				top: -2px;
+
+				width: 100%;
+				height: calc(100% + 4px);
+
+				border-radius: 6px;
+				border: 1px solid var(--color-accent);
+			}
 
 			&:after {
 				content: '';
 
 				position: absolute;
+				left: -2px;
+				top: -4px;
 
-				top: -2px;
-				left: -4px;
+				width: calc(100% + 2px);
+				height: calc(100% + 6px);
 
-				width: calc(100% + 4px);
-				height: calc(100% + 4px);
+				border-radius: var(--radii-md);
+				border: 2px solid hsl(var(--color-accent-hsl) / var(--opacity-60));
 
-				border-radius: var(--radii-full);
-				border: 2px solid var(--color-accent);
+				background-color: hsl(var(--color-tertiary-hsl) / var(--opacity-0));
 			}
-		} */
+		}
 	}
 </style>

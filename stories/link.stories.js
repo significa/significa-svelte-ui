@@ -16,6 +16,6 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-	label: 'A link',
+	label: 'This is a link',
 	href: 'https://www.google.com'
 };
