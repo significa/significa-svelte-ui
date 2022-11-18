@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { AvatarSize } from '../types/types';
 	import Avatar from './Avatar.svelte';
 	import Link from './Link.svelte';
 
@@ -25,7 +24,7 @@
 		<p>{post.title}</p>
 	</a>
 	<div class="links">
-		<Avatar class="avatar" size={AvatarSize.XS} image={post.author.image} />
+		<Avatar class="avatar" size="xs" image={post.author.image} />
 		<Link href={post.author.href} label={post.author.name} />
 		{#each post.categories as category}
 			<span class="divider">·</span>
