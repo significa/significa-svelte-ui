@@ -3,7 +3,7 @@
 	export let label: string;
 </script>
 
-<a {href}>{label}</a>
+<a {href} {...$$restProps}>{label}</a>
 
 <style lang="postcss">
 	a {
