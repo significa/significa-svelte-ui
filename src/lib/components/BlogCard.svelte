@@ -25,7 +25,7 @@
 		<p>{post.title}</p>
 	</a>
 	<div class="links">
-		<Avatar style="margin-right: var(--space-6px" size={AvatarSize.XS} image={post.author.image} />
+		<Avatar class="avatar" size={AvatarSize.XS} image={post.author.image} />
 		<Link href={post.author.href} label={post.author.name} />
 		{#each post.categories as category}
 			<span class="divider">·</span>
@@ -64,6 +64,10 @@
 			align-items: center;
 
 			@mixin text-lg;
+
+			& :global(.avatar) {
+				margin-right: var(--space-6px);
+			}
 
 			& .divider {
 				margin: 0px var(--space-8px);
