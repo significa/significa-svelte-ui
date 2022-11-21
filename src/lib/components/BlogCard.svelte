@@ -19,16 +19,16 @@
 </script>
 
 <div class="container elevated-link">
-	<a href={post.href}>
+	<a href={post.href} data-elevated>
 		<img src={post.image} alt={post.title} />
 		<p>{post.title}</p>
 	</a>
 	<div class="links">
 		<Avatar class="avatar" size="xs" image={post.author.image} />
-		<Link href={post.author.href} label={post.author.name} />
+		<Link href={post.author.href}>{post.author.name}</Link>
 		{#each post.categories as category}
 			<span class="divider">·</span>
-			<Link href={category.href} label={category.name} />
+			<Link href={category.href}>{category.name}</Link>
 		{/each}
 	</div>
 </div>
