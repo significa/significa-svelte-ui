@@ -4,8 +4,8 @@ export default {
 	title: 'Link',
 	component: Link,
 	argTypes: {
-		label: { control: 'text' },
-		href: { control: 'text' }
+		href: { control: 'text' },
+		variant: { control: 'select', options: ['subtle', 'accent'] }
 	}
 };
 
@@ -16,6 +16,6 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-	label: 'This is a link',
-	href: 'https://www.google.com'
+	href: 'https://www.google.com',
+	variant: 'subtle'
 };
