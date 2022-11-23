@@ -2,6 +2,7 @@
 	import type { ComponentType } from 'svelte';
 	import ArrowRight from './icons/ArrowRight.svelte';
 	import Handbook from './icons/Handbook.svelte';
+	import Loading from './icons/Loading.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
@@ -34,6 +35,9 @@
 	{/if}
 	{#if hasArrow}
 		<i class="arrow"><ArrowRight /></i>
+	{/if}
+	{#if loading}
+		<i class="loadingIcon"><Loading /></i>
 	{/if}
 </svelte:element>
 
@@ -70,15 +74,11 @@
 		}
 
 		&.outline {
-			background-color: var(--color-background);
-
 			border: 1px solid var(--color-smooth);
 
 			color: var(--color-foreground);
 
 			&.loading {
-				background-color: var(--color-background);
-
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
 			}
 		}
@@ -194,6 +194,10 @@
 
 					right: 0px;
 				}
+
+				&.loadingIcon {
+					display: inline;
+				}
 			}
 
 			&:hover {
@@ -201,6 +205,33 @@
 					padding: 0px var(--space-24px) 0px 0px;
 				}
 			}
+		}
+
+		& .loadingIcon {
+			position: absolute;
+			left: 0px;
+			right: 0px;
+
+			color: var(--color-secondary);
+
+			animation: rotating 2s linear infinite;
+		}
+	}
+
+	@keyframes rotating {
+		from {
+			-ms-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-ms-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
 		}
 	}
 </style>
