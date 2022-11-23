@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { ComponentType } from 'svelte';
-	import ArrowRight from './icons/ArrowRight.svelte';
-	import Handbook from './icons/Handbook.svelte';
-	import Loading from './icons/Loading.svelte';
+	import ArrowRight from './Icons/ArrowRight.svelte';
+	import Handbook from './Icons/Handbook.svelte';
+	import Loading from './Icons/Loading.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
