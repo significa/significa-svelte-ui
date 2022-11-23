@@ -71,6 +71,12 @@
 
 				color: hsl(var(--color-background-hsl) / var(--opacity-0));
 			}
+
+			&.disabled {
+				background-color: var(--color-muted);
+
+				color: var(--color-secondary);
+			}
 		}
 
 		&.outline {
@@ -80,6 +86,10 @@
 
 			&.loading {
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
+			}
+
+			&.disabled {
+				color: var(--color-secondary);
 			}
 		}
 
@@ -175,6 +185,20 @@
 
 		&.loading {
 			pointer-events: none;
+
+			& .loadingIcon {
+				position: absolute;
+				left: 0px;
+				right: 0px;
+
+				color: var(--color-secondary);
+
+				animation: rotating 2s linear infinite;
+			}
+		}
+
+		&.disabled {
+			pointer-events: none;
 		}
 
 		&.icon {
@@ -205,16 +229,6 @@
 					padding: 0px var(--space-24px) 0px 0px;
 				}
 			}
-		}
-
-		& .loadingIcon {
-			position: absolute;
-			left: 0px;
-			right: 0px;
-
-			color: var(--color-secondary);
-
-			animation: rotating 2s linear infinite;
 		}
 	}
 
