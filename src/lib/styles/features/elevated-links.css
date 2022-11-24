@@ -20,7 +20,6 @@
 }
 
 .elevated-link a[href] {
-	position: static;
 	z-index: 1;
 }
 
