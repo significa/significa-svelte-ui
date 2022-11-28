@@ -193,13 +193,13 @@
 			& .label {
 				padding: 0px 0px 0px var(--space-24px);
 
-				transition: all var(--transition-motion);
+				transition: padding var(--transition-motion);
 			}
 
 			& :global([data-icon]) {
 				display: flex;
 
-				transition: all var(--transition-motion);
+				transition: right var(--transition-motion), left var(--transition-motion);
 			}
 
 			& :global([data-icon='arrow-right']) {
