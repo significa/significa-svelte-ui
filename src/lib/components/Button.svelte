@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { ComponentType } from 'svelte';
-	import ArrowRight from './Icons/ArrowRight.svelte';
-	import Handbook from './Icons/Handbook.svelte';
-	import Loading from './Icons/Loading.svelte';
+	import Icon from './Icon.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
@@ -10,7 +8,7 @@
 	export let loading: boolean = false;
 	export let hasArrow: boolean = true;
 	export let label: string | undefined = undefined;
-	export let icon: ComponentType | undefined = undefined;
+	export let icon: 'handbook' | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
 </script>
 
@@ -28,16 +26,16 @@
 	{...$$restProps}
 >
 	{#if icon}
-		<i class="handbook"><svelte:component this={icon} /></i>
+		<Icon {icon} class="leftIcon" />
 	{/if}
 	{#if label}
 		<span class="label">{label}</span>
 	{/if}
 	{#if hasArrow}
-		<i class="arrow"><ArrowRight /></i>
+		<Icon icon="arrow-right" />
 	{/if}
 	{#if loading}
-		<i class="loadingIcon"><Loading /></i>
+		<Icon icon="loading" />
 	{/if}
 </svelte:element>
 
@@ -74,7 +72,7 @@
 				color: hsl(var(--color-background-hsl) / var(--opacity-0));
 			}
 
-			&.disabled {
+			&:disabled {
 				background-color: var(--color-muted);
 
 				color: var(--color-secondary);
@@ -90,7 +88,7 @@
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
 			}
 
-			&.disabled {
+			&:disabled {
 				color: var(--color-secondary);
 			}
 		}
@@ -99,27 +97,23 @@
 			padding: var(--space-14px) var(--space-20px);
 
 			&.icon {
-				& i {
-					&.arrow {
-						right: calc(var(--space-20px) * -1);
-					}
+				& :global([data-icon='arrow-right']) {
+					right: calc(var(--space-20px) * -1);
+				}
 
-					&.handbook {
-						position: absolute;
+				& :global(.leftIcon) {
+					position: absolute;
 
-						left: var(--space-20px);
-					}
+					left: var(--space-20px);
 				}
 
 				&:hover {
-					& i {
-						&.arrow {
-							right: var(--space-20px);
-						}
+					& :global([data-icon='arrow-right']) {
+						right: var(--space-20px);
+					}
 
-						&.handbook {
-							left: calc(var(--space-20px) * -1);
-						}
+					& :global(.leftIcon) {
+						left: calc(var(--space-20px) * -1);
 					}
 				}
 			}
@@ -129,27 +123,23 @@
 			padding: var(--space-16px) var(--space-20px);
 
 			&.icon {
-				& i {
-					&.arrow {
-						right: calc(var(--space-20px) * -1);
-					}
+				& :global([data-icon='arrow-right']) {
+					right: calc(var(--space-20px) * -1);
+				}
 
-					&.handbook {
-						position: absolute;
+				& :global(.leftIcon) {
+					position: absolute;
 
-						left: var(--space-20px);
-					}
+					left: var(--space-20px);
 				}
 
 				&:hover {
-					& i {
-						&.arrow {
-							right: var(--space-20px);
-						}
+					& :global([data-icon='arrow-right']) {
+						right: var(--space-20px);
+					}
 
-						&.handbook {
-							left: calc(var(--space-20px) * -1);
-						}
+					& :global(.leftIcon) {
+						left: calc(var(--space-20px) * -1);
 					}
 				}
 			}
@@ -159,34 +149,30 @@
 			padding: var(--space-20px) var(--space-24px);
 
 			&.icon {
-				& i {
-					&.arrow {
-						right: calc(var(--space-24px) * -1);
-					}
+				& :global([data-icon='arrow-right']) {
+					right: calc(var(--space-24px) * -1);
+				}
 
-					&.handbook {
-						position: absolute;
+				& :global(.leftIcon) {
+					position: absolute;
 
-						left: var(--space-24px);
-					}
+					left: var(--space-24px);
 				}
 
 				&:hover {
-					& i {
-						&.arrow {
-							right: var(--space-24px);
-						}
+					& :global([data-icon='arrow-right']) {
+						right: var(--space-24px);
+					}
 
-						&.handbook {
-							left: calc(var(--space-24px) * -1);
-						}
+					& :global(.leftIcon) {
+						left: calc(var(--space-24px) * -1);
 					}
 				}
 			}
 		}
 
 		&.loading {
-			& .loadingIcon {
+			& :global([data-icon='loading']) {
 				position: absolute;
 				left: 0px;
 				right: 0px;
@@ -208,20 +194,20 @@
 				transition: all var(--transition-motion);
 			}
 
-			& i {
+			& :global([data-icon]) {
 				display: flex;
 
 				transition: all var(--transition-motion);
+			}
 
-				&.arrow {
-					position: absolute;
+			& :global([data-icon='arrow-right']) {
+				position: absolute;
 
-					right: 0px;
-				}
+				right: 0px;
+			}
 
-				&.loadingIcon {
-					display: inline;
-				}
+			& :global([data-icon='loading']) {
+				display: inline;
 			}
 
 			&:hover {
