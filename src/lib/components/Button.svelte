@@ -41,6 +41,8 @@
 
 <style lang="postcss">
 	.root {
+		all: unset;
+
 		border-radius: var(--radii-full);
 
 		display: flex;
