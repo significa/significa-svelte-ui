@@ -9,9 +9,12 @@
 		loading
 	};
 
+	let className: string;
+
+	export { className as class };
 	export let icon: keyof typeof icons;
 </script>
 
-<i data-icon={icon}>
+<i data-icon={icon} class={className}>
 	{@html icons[icon]}
 </i>
