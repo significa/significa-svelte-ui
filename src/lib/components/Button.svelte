@@ -43,6 +43,9 @@
 	.root {
 		all: unset;
 
+		writing-mode: horizontal-tb;
+		direction: ltr;
+
 		border-radius: var(--radii-full);
 
 		display: flex;
@@ -191,9 +194,10 @@
 
 		&.icon {
 			& .label {
-				padding: 0px 0px 0px var(--space-24px);
+				padding-left: var(--space-24px);
+				padding-right: 0px;
 
-				transition: padding var(--transition-motion);
+				transition: padding-left var(--transition-motion), padding-right var(--transition-motion);
 			}
 
 			& :global([data-icon]) {
@@ -214,7 +218,8 @@
 
 			&:hover {
 				& .label {
-					padding: 0px var(--space-24px) 0px 0px;
+					padding-left: 0px;
+					padding-right: var(--space-24px);
 				}
 			}
 		}
