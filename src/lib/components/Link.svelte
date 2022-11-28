@@ -13,8 +13,6 @@
 
 		box-sizing: border-box;
 
-		transition: all var(--transition-in-out);
-
 		&:after {
 			content: '';
 
@@ -22,22 +20,15 @@
 			left: 0px;
 			bottom: -2px;
 
-			width: 100%;
+			width: 0%;
 			height: 2px;
 
-			transition: background-color var(--transition-in-out);
+			transition: width var(--transition-smooth);
 		}
 
 		&:hover {
 			&:after {
-				content: '';
-
-				position: absolute;
-				left: 0px;
-				bottom: -2px;
-
 				width: 100%;
-				height: 2px;
 			}
 		}
 
