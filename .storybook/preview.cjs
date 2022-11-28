@@ -8,5 +8,13 @@ export const parameters = {
 			color: /(background|color)$/i,
 			date: /Date$/
 		}
+	},
+	backgrounds: { disable: true },
+	themes: {
+		default: 'light',
+		list: [
+			{ name: 'light', class: ['theme-light'], color: '#ffffff' },
+			{ name: 'dark', class: ['theme-dark'], color: '#000000' }
+		]
 	}
 };
