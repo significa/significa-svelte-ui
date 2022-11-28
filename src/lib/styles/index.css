@@ -3,5 +3,5 @@
 @import './theme.css';
 
 body {
-	font-family: var(--font-family-body);
+  font-family: var(--font-family-body);
 }

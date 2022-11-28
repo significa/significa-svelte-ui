@@ -1,87 +1,87 @@
 .text-xs {
-	@mixin text-xs;
+  @mixin text-xs;
 }
 
 .text-sm {
-	@mixin text-sm;
+  @mixin text-sm;
 }
 
 .text-sm-beast {
-	@mixin text-sm-beast;
+  @mixin text-sm-beast;
 }
 
 .text-md {
-	@mixin text-md;
+  @mixin text-md;
 }
 
 .text-md-body {
-	@mixin text-md-body;
+  @mixin text-md-body;
 }
 
 .text-md-beast {
-	@mixin text-md-beast;
+  @mixin text-md-beast;
 }
 
 .text-lg {
-	@mixin text-lg;
+  @mixin text-lg;
 }
 
 .text-lg-body {
-	@mixin text-lg-body;
+  @mixin text-lg-body;
 }
 
 .text-lg-beast {
-	@mixin text-lg-beast;
+  @mixin text-lg-beast;
 }
 
 .text-xl {
-	@mixin text-xl;
+  @mixin text-xl;
 }
 
 .text-xl-body {
-	@mixin text-xl-body;
+  @mixin text-xl-body;
 }
 
 .text-xl-beast {
-	@mixin text-xl-beast;
+  @mixin text-xl-beast;
 }
 
 .text-2xl {
-	@mixin text-2xl;
+  @mixin text-2xl;
 }
 
 .text-2xl-body {
-	@mixin text-2xl-body;
+  @mixin text-2xl-body;
 }
 
 .text-2xl-beast {
-	@mixin text-2xl-beast;
+  @mixin text-2xl-beast;
 }
 
 .text-3xl {
-	@mixin text-3xl;
+  @mixin text-3xl;
 }
 
 .text-3xl-beast {
-	@mixin text-3xl-beast;
+  @mixin text-3xl-beast;
 }
 
 .text-4xl {
-	@mixin text-4xl;
+  @mixin text-4xl;
 }
 
 .text-5xl {
-	@mixin text-5xl;
+  @mixin text-5xl;
 }
 
 .text-6xl {
-	@mixin text-6xl;
+  @mixin text-6xl;
 }
 
 .text-7xl {
-	@mixin text-7xl;
+  @mixin text-7xl;
 }
 
 .text-8xl {
-	@mixin text-8xl;
+  @mixin text-8xl;
 }

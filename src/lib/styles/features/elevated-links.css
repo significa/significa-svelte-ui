@@ -16,19 +16,19 @@
 */
 
 .elevated-link {
-	position: relative;
+  position: relative;
 }
 
 .elevated-link a[href] {
-	position: static;
-	z-index: 1;
+  position: static;
+  z-index: 1;
 }
 
 .elevated-link a[href][data-elevated]::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
