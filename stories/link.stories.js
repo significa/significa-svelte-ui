@@ -1,4 +1,4 @@
-import Link from '../src/lib/components/Link.svelte';
+import Link from './components/link.story.svelte';
 
 export default {
 	title: 'Link',
