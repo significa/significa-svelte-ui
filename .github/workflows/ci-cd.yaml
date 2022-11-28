@@ -69,9 +69,7 @@ jobs:
     needs:
       - lint
       - test
-    if: |
-      github.event_name == 'release'
-      && github.ref_name.match(/^v[0-9]+\.[0-9]+\.[0-9]+((\-|\+).+)?$/)
+    if: github.event_name == 'release'
     concurrency: publish_package
     permissions:
       contents: read
