@@ -43,9 +43,6 @@
 	.root {
 		all: unset;
 
-		writing-mode: horizontal-tb;
-		direction: ltr;
-
 		border-radius: var(--radii-full);
 
 		display: flex;
