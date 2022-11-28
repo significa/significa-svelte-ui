@@ -1,6 +1,10 @@
 {
-	"name": "significa-svelte-ui",
-	"version": "0.0.1",
+	"name": "@significa/significa-svelte-ui",
+	"version": "0.0.1-development",
+	"repository": "github:significa/significa-svelte-ui",
+	"publishConfig": {
+		"@significa:registry": "https://npm.pkg.github.com"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package && npm run build:styles",
