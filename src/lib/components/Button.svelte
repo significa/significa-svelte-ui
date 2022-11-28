@@ -18,7 +18,7 @@
 	this={tag}
 	class="root"
 	class:loading
-	class:disabled
+	{disabled}
 	class:solid={variant === 'solid'}
 	class:outline={variant === 'outline'}
 	class:sm={size === 'sm'}
@@ -54,6 +54,8 @@
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
+
+		white-space: nowrap;
 
 		overflow: hidden;
 
@@ -184,8 +186,6 @@
 		}
 
 		&.loading {
-			pointer-events: none;
-
 			& .loadingIcon {
 				position: absolute;
 				left: 0px;
@@ -197,7 +197,7 @@
 			}
 		}
 
-		&.disabled {
+		&:disabled {
 			pointer-events: none;
 		}
 
