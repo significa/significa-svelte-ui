@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 
-	import ChevronCircleRight from './Icons/ChevronCircleRight.svelte';
+	import Icon from './Icon.svelte';
 
 	export let title: string;
 	export let items: any[];
@@ -13,13 +13,13 @@
 	}
 </script>
 
-<button class:isOpen on:click={toggle}><i><ChevronCircleRight /></i>{title}</button>
+<button class:isOpen on:click={toggle}><Icon icon="chevron-circle-right" />{title}</button>
 <ul>
 	{#if isOpen}
 		{#each items as item, i}
 			<li
-				in:fly={{ x: 100, duration: 200, delay: i * 100 }}
-				out:fly={{ x: 100, duration: 200, delay: (items.length - i) * 100 }}
+				in:fly={{ x: 20, duration: 250, delay: i * 50 }}
+				out:fly={{ x: 20, duration: 200, delay: (items.length - i) * 25 }}
 			>
 				{item}
 			</li>
@@ -29,6 +29,8 @@
 
 <style lang="postcss">
 	button {
+		all: unset;
+
 		display: flex;
 		align-items: center;
 		gap: 8px;
@@ -42,23 +44,25 @@
 
 		transition: color var(--transition-appearance);
 
-		& i {
+		& :global([data-icon='chevron-circle-right']) {
 			transition: transform var(--transition-motion);
 		}
 
 		&.isOpen {
 			color: var(--color-foreground);
 
-			& i {
+			& :global([data-icon='chevron-circle-right']) {
 				transform: rotate(90deg);
 			}
 		}
 
-		&:hover {
-			color: var(--color-foreground);
+		@media (hover: hover) {
+			&:hover {
+				color: var(--color-foreground);
+			}
 		}
 
-		&:focus {
+		&:focus-visible {
 			border-radius: var(--radii-full);
 
 			outline: 4px solid hsl(var(--color-palette-yellow-hsl) / var(--opacity-60));
