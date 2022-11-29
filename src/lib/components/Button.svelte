@@ -44,21 +44,26 @@
 	.root {
 		all: unset;
 
+		--button-vertical-padding: var(--space-14px);
+		--button-horizontal-padding: var(--space-20px);
+
+		padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+
+		position: relative;
+
+		overflow: hidden;
+
 		border-radius: var(--radii-full);
 
 		display: flex;
 		align-items: center;
 		gap: var(--space-6px);
 
-		position: relative;
-
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
 
 		white-space: nowrap;
-
-		overflow: hidden;
 
 		@media (hover: hover) {
 			&:hover {
@@ -98,95 +103,19 @@
 			}
 		}
 
-		&.sm {
-			padding: var(--space-14px) var(--space-20px);
-
-			&.icon {
-				& :global([data-icon='arrow-right']) {
-					right: calc(var(--space-20px) * -1);
-				}
-
-				& :global(.leftIcon) {
-					position: absolute;
-
-					left: var(--space-20px);
-				}
-
-				@media (hover: hover) {
-					&:hover {
-						& :global([data-icon='arrow-right']) {
-							right: var(--space-20px);
-						}
-
-						& :global(.leftIcon) {
-							left: calc(var(--space-20px) * -1);
-						}
-					}
-				}
-			}
-		}
-
 		&.md {
-			padding: var(--space-16px) var(--space-20px);
-
-			&.icon {
-				& :global([data-icon='arrow-right']) {
-					right: calc(var(--space-20px) * -1);
-				}
-
-				& :global(.leftIcon) {
-					position: absolute;
-
-					left: var(--space-20px);
-				}
-
-				@media (hover: hover) {
-					&:hover {
-						& :global([data-icon='arrow-right']) {
-							right: var(--space-20px);
-						}
-
-						& :global(.leftIcon) {
-							left: calc(var(--space-20px) * -1);
-						}
-					}
-				}
-			}
+			--button-vertical-padding: var(--space-16px);
 		}
 
 		&.lg {
-			padding: var(--space-20px) var(--space-24px);
-
-			&.icon {
-				& :global([data-icon='arrow-right']) {
-					right: calc(var(--space-24px) * -1);
-				}
-
-				& :global(.leftIcon) {
-					position: absolute;
-
-					left: var(--space-24px);
-				}
-
-				@media (hover: hover) {
-					&:hover {
-						& :global([data-icon='arrow-right']) {
-							right: var(--space-24px);
-						}
-
-						& :global(.leftIcon) {
-							left: calc(var(--space-24px) * -1);
-						}
-					}
-				}
-			}
+			--button-vertical-padding: var(--space-20px);
+			--button-horizontal-padding: var(--space-24px);
 		}
 
 		&.loading {
 			& :global([data-icon='loading']) {
 				position: absolute;
-				left: 0px;
-				right: 0px;
+				left: calc(50% - calc(var(--button-horizontal-padding) / 2));
 
 				color: var(--color-secondary);
 
@@ -212,10 +141,16 @@
 				transition: right var(--transition-motion), left var(--transition-motion);
 			}
 
+			& :global(.leftIcon) {
+				position: absolute;
+
+				left: var(--space-20px);
+			}
+
 			& :global([data-icon='arrow-right']) {
 				position: absolute;
 
-				right: 0px;
+				right: calc(var(--space-20px) * -1);
 			}
 
 			& :global([data-icon='loading']) {
@@ -227,6 +162,14 @@
 					& .label {
 						padding-left: 0px;
 						padding-right: var(--space-24px);
+					}
+
+					& :global([data-icon='arrow-right']) {
+						right: var(--space-20px);
+					}
+
+					& :global(.leftIcon) {
+						left: calc(var(--space-20px) * -1);
 					}
 				}
 			}
