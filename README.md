@@ -17,7 +17,7 @@ More instructions in [Working with the npm registry](https://docs.github.com/en/
 ## Development
 
 1. Ensure you are using the Node version in the [.nvmrc](./.nvmrc) file (ex: `nvm use`).
-2. Install the dependencies with `npm ci`.
+2. Install the dependencies with `npm install`.
 3. Start Storybook's component preview server with `npm run storybook`. Access it at `http://localhost:6006/`.
 
 ### Releasing new versions
