@@ -9,7 +9,6 @@
 	export let label: string | undefined = undefined;
 	export let icon: 'handbook' | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
-	export let onClick: () => void | undefined = undefined;
 </script>
 
 <svelte:element
@@ -23,7 +22,9 @@
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
-	on:click={onClick}
+	on:click
+	on:mouseenter
+	on:mouseleave
 	{...$$restProps}
 >
 	{#if icon}
@@ -65,12 +66,6 @@
 
 		white-space: nowrap;
 
-		@media (hover: hover) {
-			&:hover {
-				outline: 4px solid hsl(var(--color-accent-hsl) / var(--opacity-60));
-			}
-		}
-
 		&.solid {
 			background-color: var(--color-foreground);
 
@@ -87,12 +82,22 @@
 
 				color: var(--color-secondary);
 			}
+
+			@media (hover: hover) {
+				&:hover {
+					box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--opacity-60));
+				}
+			}
 		}
 
 		&.outline {
 			border: 1px solid var(--color-smooth);
 
+			box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--opacity-60));
+
 			color: var(--color-foreground);
+
+			transition: box-shadow var(--transition-motion);
 
 			&.loading {
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
@@ -100,6 +105,12 @@
 
 			&:disabled {
 				color: var(--color-secondary);
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--opacity-60));
+				}
 			}
 		}
 
