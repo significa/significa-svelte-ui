@@ -1,38 +1,17 @@
-# create-svelte
+# Significa Svelte UI
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This project is responsible for Significa's Svelte UI library.
 
-## Creating a project
+This package is published in the GitHub package registry as [@significa/significa-svelte-ui](https://github.com/significa/significa-svelte-ui/pkgs/npm/significa-svelte-ui).
 
-If you're seeing this, you've probably already done this step. Congrats!
+Storybook preview available at [significa-svelte-ui.vercel.app](https://significa-svelte-ui.vercel.app/).
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Development
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+1. Ensure you are using the Node version in the [.nvmrc](./.nvmrc) file (ex: `nvm use`).
+2. Install the dependencies with `npm ci`.
+3. Start Storybook's component preview server with `npm run storybook`. Access it at `http://localhost:6006/`.
 
-## Developing
+### Releasing new versions
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Just create a new [release](https://github.com/significa/significa-svelte-ui/releases) with a semver compliant name, prefixed by `v`. Ex: `v1.2.3`, `v1.2.3-sample`.
