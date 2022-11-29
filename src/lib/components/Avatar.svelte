@@ -1,8 +1,8 @@
 <script lang="ts">
-	let className: string | undefined;
+	let className: string | undefined = undefined;
 
 	export { className as class };
-	export let image: string;
+	export let image: string | undefined = undefined;
 	export let size: 'xs' | 'sm' | 'md' | 'xl' = 'md';
 </script>
 
