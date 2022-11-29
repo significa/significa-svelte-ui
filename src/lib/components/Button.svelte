@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { ComponentType } from 'svelte';
 	import Icon from './Icon.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
@@ -10,6 +9,7 @@
 	export let label: string | undefined = undefined;
 	export let icon: 'handbook' | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
+	export let onClick: () => void | undefined = undefined;
 </script>
 
 <svelte:element
@@ -23,6 +23,7 @@
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
+	on:click={onClick}
 	{...$$restProps}
 >
 	{#if icon}
@@ -59,8 +60,10 @@
 
 		overflow: hidden;
 
-		&:hover {
-			outline: 4px solid hsl(var(--color-accent-hsl) / var(--opacity-60));
+		@media (hover: hover) {
+			&:hover {
+				outline: 4px solid hsl(var(--color-accent-hsl) / var(--opacity-60));
+			}
 		}
 
 		&.solid {
@@ -109,13 +112,15 @@
 					left: var(--space-20px);
 				}
 
-				&:hover {
-					& :global([data-icon='arrow-right']) {
-						right: var(--space-20px);
-					}
+				@media (hover: hover) {
+					&:hover {
+						& :global([data-icon='arrow-right']) {
+							right: var(--space-20px);
+						}
 
-					& :global(.leftIcon) {
-						left: calc(var(--space-20px) * -1);
+						& :global(.leftIcon) {
+							left: calc(var(--space-20px) * -1);
+						}
 					}
 				}
 			}
@@ -135,13 +140,15 @@
 					left: var(--space-20px);
 				}
 
-				&:hover {
-					& :global([data-icon='arrow-right']) {
-						right: var(--space-20px);
-					}
+				@media (hover: hover) {
+					&:hover {
+						& :global([data-icon='arrow-right']) {
+							right: var(--space-20px);
+						}
 
-					& :global(.leftIcon) {
-						left: calc(var(--space-20px) * -1);
+						& :global(.leftIcon) {
+							left: calc(var(--space-20px) * -1);
+						}
 					}
 				}
 			}
@@ -161,13 +168,15 @@
 					left: var(--space-24px);
 				}
 
-				&:hover {
-					& :global([data-icon='arrow-right']) {
-						right: var(--space-24px);
-					}
+				@media (hover: hover) {
+					&:hover {
+						& :global([data-icon='arrow-right']) {
+							right: var(--space-24px);
+						}
 
-					& :global(.leftIcon) {
-						left: calc(var(--space-24px) * -1);
+						& :global(.leftIcon) {
+							left: calc(var(--space-24px) * -1);
+						}
 					}
 				}
 			}
@@ -213,10 +222,12 @@
 				display: inline;
 			}
 
-			&:hover {
-				& .label {
-					padding-left: 0px;
-					padding-right: var(--space-24px);
+			@media (hover: hover) {
+				&:hover {
+					& .label {
+						padding-left: 0px;
+						padding-right: var(--space-24px);
+					}
 				}
 			}
 		}
