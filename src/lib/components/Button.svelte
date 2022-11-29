@@ -9,7 +9,6 @@
 	export let label: string | undefined = undefined;
 	export let icon: 'handbook' | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
-	export let onClick: () => void | undefined = undefined;
 </script>
 
 <svelte:element
@@ -23,7 +22,9 @@
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
-	on:click={onClick}
+	on:click
+	on:mouseenter
+	on:mouseleave
 	{...$$restProps}
 >
 	{#if icon}
