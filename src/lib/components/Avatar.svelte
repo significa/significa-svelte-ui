@@ -6,7 +6,11 @@
 	export let size: 'xs' | 'sm' | 'md' | 'xl' = 'md';
 </script>
 
-<div style={image ? `background-image: url(${image})` : ''} class={`${size} ${className}`} />
+<div
+	style={image ? `background-image: url(${image})` : ''}
+	class={`${size} ${className}`}
+	data-testid="avatar"
+/>
 
 <style lang="postcss">
 	div {
