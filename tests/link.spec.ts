@@ -4,19 +4,14 @@ import { render, screen } from '@testing-library/svelte';
 import Link from '../src/lib/components/Link.svelte';
 
 describe('Link', () => {
-	const label = 'Click me';
 	const href = 'https://example.com';
 
 	beforeEach(() => {
-		render(Link, { label: label, href: href });
+		render(Link, { href: href });
 	});
 
 	it('Renders a Link', () => {
 		expect(screen.getByRole('link')).toBeInTheDocument();
-	});
-
-	it('Renders a Link with a label', () => {
-		expect(screen.getByText(label)).toBeInTheDocument();
 	});
 
 	it('Link has an href attribute', () => {

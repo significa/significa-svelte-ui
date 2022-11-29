@@ -1,19 +1,16 @@
 <script lang="ts">
-	let className: string;
+	let className: string | undefined = undefined;
 
 	export { className as class };
-	export let image: string;
+	export let image: string | undefined = undefined;
 	export let size: 'xs' | 'sm' | 'md' | 'xl' = 'md';
-
-	const sizes = {
-		xs: [16, 18],
-		sm: [38, 44],
-		md: [48, 56],
-		xl: [68, 80]
-	};
 </script>
 
-<div style={image ? `background-image: url(${image})` : ''} class={`${size} ${className}`} />
+<div
+	style={image ? `background-image: url(${image})` : ''}
+	class={`${size} ${className}`}
+	data-testid="avatar"
+/>
 
 <style lang="postcss">
 	div {
