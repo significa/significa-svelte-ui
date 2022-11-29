@@ -1,5 +1,4 @@
 import Button from '../src/lib/components/Button.svelte';
-import Handbook from '../src/lib/components/Icons/Handbook.svelte';
 
 export default {
 	title: 'Button',
@@ -51,7 +50,7 @@ WithIcon.args = {
 	disabled: false,
 	hasArrow: true,
 	tag: 'button',
-	icon: Handbook
+	icon: 'handbook'
 };
 
 export const WithArrow = Template.bind({});
