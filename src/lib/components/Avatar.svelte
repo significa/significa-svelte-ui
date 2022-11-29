@@ -4,13 +4,6 @@
 	export { className as class };
 	export let image: string;
 	export let size: 'xs' | 'sm' | 'md' | 'xl' = 'md';
-
-	const sizes = {
-		xs: [16, 18],
-		sm: [38, 44],
-		md: [48, 56],
-		xl: [68, 80]
-	};
 </script>
 
 <div style={image ? `background-image: url(${image})` : ''} class={`${size} ${className}`} />
