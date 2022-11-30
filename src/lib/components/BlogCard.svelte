@@ -49,7 +49,7 @@
 
 				border-radius: var(--radii-xl);
 
-				transition: transform var(--transition-appearance), filter var(--transition-appearance);
+				transition: transform var(--transition-motion), filter var(--transition-appearance);
 			}
 
 			& p {
