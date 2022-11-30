@@ -66,7 +66,7 @@
 	--color-muted-hsl: var(--color-palette-gray-700-hsl);
 	--color-muted: hsl(var(--color-muted-hsl));
 
-	--color-accent-hsl: var(--color-palette-gray-yellow-hsl);
+	--color-accent-hsl: var(--color-palette-yellow-hsl);
 	--color-accent: hsl(var(--color-accent-hsl));
 
 	--color-drawing-hsl: var(--color-palette-gray-25-hsl);
