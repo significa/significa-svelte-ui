@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from './Icon.svelte';
+	import Icon, { IconOptions } from './Icon.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
@@ -7,7 +7,7 @@
 	export let loading: boolean = false;
 	export let hasArrow: boolean = true;
 	export let label: string | undefined = undefined;
-	export let icon: Icon.iconOptions | undefined = undefined;
+	export let icon: IconOptions | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
 </script>
 
@@ -66,6 +66,16 @@
 
 		white-space: nowrap;
 
+		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
+
+		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--opacity-60));
+
+		@media (hover: hover) {
+			&:hover {
+				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--opacity-60));
+			}
+		}
+
 		&.solid {
 			background-color: var(--color-foreground);
 
@@ -82,22 +92,12 @@
 
 				color: var(--color-secondary);
 			}
-
-			@media (hover: hover) {
-				&:hover {
-					box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--opacity-60));
-				}
-			}
 		}
 
 		&.outline {
 			border: 1px solid var(--color-smooth);
 
-			box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--opacity-60));
-
 			color: var(--color-foreground);
-
-			transition: box-shadow var(--transition-motion);
 
 			&.loading {
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
@@ -109,7 +109,7 @@
 
 			@media (hover: hover) {
 				&:hover {
-					box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--opacity-60));
+					border: 1px solid var(--color-accent);
 				}
 			}
 		}
