@@ -9,6 +9,10 @@
 	a {
 		position: relative;
 
+		display: flex;
+		align-items: center;
+		gap: 6px;
+
 		text-decoration: none;
 
 		box-sizing: border-box;
@@ -20,15 +24,20 @@
 			left: 0px;
 			bottom: -2px;
 
-			width: 0%;
+			width: 100%;
 			height: 2px;
+			bottom: -2px;
+			left: 0;
 
-			transition: width var(--transition-smooth);
+			transform: scaleX(0);
+			transform-origin: bottom right;
+			transition: transform var(--transition-smooth);
 		}
 
 		&:hover {
 			&:after {
-				width: 100%;
+				transform: scaleX(1);
+				transform-origin: bottom left;
 			}
 		}
 
@@ -74,13 +83,7 @@
 			color: var(--color-foreground);
 
 			&:after {
-				background-color: hsl(var(--color-tertiary-hsl) / var(--opacity-0));
-			}
-
-			&:hover {
-				&:after {
-					background-color: hsl(var(--color-tertiary-hsl) / var(--opacity-100));
-				}
+				background-color: var(--color-tertiary);
 			}
 
 			&:focus {
@@ -94,13 +97,7 @@
 			color: var(--color-drawing);
 
 			&:after {
-				background-color: hsl(var(--color-drawing-hsl) / var(--opacity-0));
-			}
-
-			&:hover {
-				&:after {
-					background-color: hsl(var(--color-drawing-hsl) / var(--opacity-100));
-				}
+				background-color: var(--color-drawing);
 			}
 
 			&:focus {
