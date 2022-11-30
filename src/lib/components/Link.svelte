@@ -9,6 +9,10 @@
 	a {
 		position: relative;
 
+		display: flex;
+		align-items: center;
+		gap: 6px;
+
 		text-decoration: none;
 
 		box-sizing: border-box;
