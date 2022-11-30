@@ -9,7 +9,7 @@
 	a {
 		position: relative;
 
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		gap: 6px;
 
@@ -22,12 +22,10 @@
 
 			position: absolute;
 			left: 0px;
-			bottom: -2px;
+			bottom: -4px;
 
 			width: 100%;
 			height: 2px;
-			bottom: -2px;
-			left: 0;
 
 			transform: scaleX(0);
 			transform-origin: bottom right;
@@ -41,13 +39,7 @@
 			}
 		}
 
-		&:disabled {
-			opacity: var(--opacity-40);
-
-			box-shadow: 0px 2px 0px var(--color-foreground);
-		}
-
-		&:focus {
+		&:focus-visible {
 			outline: none;
 
 			&:before {
