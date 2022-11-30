@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon, { IconOptions } from './Icon.svelte';
+	import Icon, { type IconOptions } from './Icon.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
@@ -7,7 +7,7 @@
 	export let loading = false;
 	export let hasArrow = true;
 	export let label: string | undefined = undefined;
-	export let icon: IconOptions | undefined = undefined;
+	export let icon: typeof IconOptions | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
 </script>
 
@@ -86,21 +86,21 @@
 
 			color: var(--color-background);
 
+			&:disabled {
+				border: 1px solid var(--color-muted);
+				background-color: var(--color-muted);
+
+				color: var(--color-secondary);
+			}
+
 			&.loading {
 				color: hsl(var(--color-background-hsl) / var(--opacity-0));
 
 				& :global(.loadingIcon) {
 					color: var(--color-background);
 
-					left: calc(50% - calc(var(--button-horizontal-padding) / 2));
+					left: calc(50% - calc(var(--button-horizontal-padding) / 2) + 2px);
 				}
-			}
-
-			&:disabled {
-				border: 1px solid var(--color-muted);
-				background-color: var(--color-muted);
-
-				color: var(--color-secondary);
 			}
 		}
 
@@ -108,6 +108,10 @@
 			border: 1px solid var(--color-smooth);
 
 			color: var(--color-foreground);
+
+			&:disabled {
+				color: var(--color-secondary);
+			}
 
 			&.loading {
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
@@ -117,10 +121,6 @@
 
 					left: calc(50% - calc(var(--button-horizontal-padding) / 2) + 2px);
 				}
-			}
-
-			&:disabled {
-				color: var(--color-secondary);
 			}
 
 			@media (hover: hover) {
@@ -160,8 +160,6 @@
 			}
 
 			& :global([data-icon]) {
-				display: flex;
-
 				transition: right var(--transition-motion), left var(--transition-motion);
 			}
 
@@ -175,10 +173,6 @@
 				position: absolute;
 
 				right: calc(var(--space-20px) * -1);
-			}
-
-			& :global(.loadingIcon) {
-				display: inline;
 			}
 
 			@media (hover: hover) {
