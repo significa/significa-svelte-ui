@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from './Icon.svelte';
+	import Icon, { IconOptions } from './Icon.svelte';
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
@@ -7,7 +7,7 @@
 	export let loading: boolean = false;
 	export let hasArrow: boolean = true;
 	export let label: string | undefined = undefined;
-	export let icon: Icon.iconOptions | undefined = undefined;
+	export let icon: IconOptions | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
 </script>
 
