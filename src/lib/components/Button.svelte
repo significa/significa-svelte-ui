@@ -7,7 +7,7 @@
 	export let loading: boolean = false;
 	export let hasArrow: boolean = true;
 	export let label: string | undefined = undefined;
-	export let icon: 'handbook' | undefined = undefined;
+	export let icon: Icon.iconOptions | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
 </script>
 
@@ -34,10 +34,10 @@
 		<span class="label">{label}</span>
 	{/if}
 	{#if hasArrow}
-		<Icon icon="arrow-right" />
+		<Icon icon="arrow-right" class="arrowIcon" />
 	{/if}
 	{#if loading}
-		<Icon icon="loading" />
+		<Icon icon="loading" class="loadingIcon" />
 	{/if}
 </svelte:element>
 
@@ -124,7 +124,7 @@
 		}
 
 		&.loading {
-			& :global([data-icon='loading']) {
+			& :global(.loadingIcon) {
 				position: absolute;
 				left: calc(50% - calc(var(--button-horizontal-padding) / 2));
 
@@ -158,13 +158,13 @@
 				left: var(--space-20px);
 			}
 
-			& :global([data-icon='arrow-right']) {
+			& :global(.arrowIcon) {
 				position: absolute;
 
 				right: calc(var(--space-20px) * -1);
 			}
 
-			& :global([data-icon='loading']) {
+			& :global(.loadingIcon) {
 				display: inline;
 			}
 
@@ -175,7 +175,7 @@
 						padding-right: var(--space-24px);
 					}
 
-					& :global([data-icon='arrow-right']) {
+					& :global(.arrowIcon) {
 						right: var(--space-20px);
 					}
 
