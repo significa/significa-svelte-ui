@@ -3,9 +3,9 @@
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
-	export let disabled: boolean = false;
-	export let loading: boolean = false;
-	export let hasArrow: boolean = true;
+	export let disabled = false;
+	export let loading = false;
+	export let hasArrow = true;
 	export let label: string | undefined = undefined;
 	export let icon: IconOptions | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
