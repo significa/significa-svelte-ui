@@ -28,7 +28,7 @@
 		}
 
 		& .authorInfo {
-			@mixin text-md;
+			@mixin text-md-beast;
 
 			display: flex;
 			flex-direction: column;
