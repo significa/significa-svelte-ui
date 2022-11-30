@@ -3,9 +3,9 @@
 
 	export let variant: 'solid' | 'outline' = 'solid';
 	export let size: 'sm' | 'md' | 'lg' = 'md';
-	export let disabled: boolean = false;
-	export let loading: boolean = false;
-	export let hasArrow: boolean = true;
+	export let disabled = false;
+	export let loading = false;
+	export let hasArrow = true;
 	export let label: string | undefined = undefined;
 	export let icon: IconOptions | undefined = undefined;
 	export let tag: 'button' | 'a' = 'button';
@@ -82,9 +82,13 @@
 			color: var(--color-background);
 
 			&.loading {
-				background-color: var(--color-muted);
-
 				color: hsl(var(--color-background-hsl) / var(--opacity-0));
+
+				& :global(.loadingIcon) {
+					color: var(--color-background);
+
+					left: calc(50% - calc(var(--button-horizontal-padding) / 2));
+				}
 			}
 
 			&:disabled {
@@ -101,6 +105,12 @@
 
 			&.loading {
 				color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
+
+				& :global(.loadingIcon) {
+					color: var(--color-foreground);
+
+					left: calc(50% - calc(var(--button-horizontal-padding) / 2) + 2px);
+				}
 			}
 
 			&:disabled {
@@ -126,9 +136,6 @@
 		&.loading {
 			& :global(.loadingIcon) {
 				position: absolute;
-				left: calc(50% - calc(var(--button-horizontal-padding) / 2));
-
-				color: var(--color-secondary);
 
 				animation: rotating 2s linear infinite;
 			}
