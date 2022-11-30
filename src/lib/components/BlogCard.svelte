@@ -24,8 +24,9 @@
 		<p>{post.title}</p>
 	</a>
 	<div class="links">
-		<Avatar class="avatar" size="xs" image={post.author.image} />
-		<Link href={post.author.href}>{post.author.name}</Link>
+		<Link href={post.author.href}
+			><Avatar size="xs" image={post.author.image} />{post.author.name}</Link
+		>
 		{#each post.categories as category}
 			<span class="divider">·</span>
 			<Link href={category.href}>{category.name}</Link>
@@ -38,6 +39,8 @@
 		& a {
 			text-decoration: none;
 
+			color: var(--color-foreground);
+
 			@mixin text-xl-beast;
 
 			& img {
@@ -45,12 +48,12 @@
 				aspect-ratio: var(--aspect-ratio-landscape);
 
 				border-radius: var(--radii-xl);
+
+				transition: transform var(--transition-appearance), filter var(--transition-appearance);
 			}
 
 			& p {
 				margin: var(--space-12px) 0px var(--space-6px);
-
-				color: var(--color-foreground);
 			}
 
 			@media (--md) {
@@ -61,17 +64,27 @@
 		& .links {
 			display: flex;
 			align-items: center;
+			gap: var(--space-8px);
 
-			@mixin text-lg;
-
-			& :global(.avatar) {
-				margin-right: var(--space-6px);
-			}
+			font-size: var(--font-size-lg);
+			line-height: var(--font-line-height-none);
+			letter-spacing: var(--font-letter-spacing-wide);
+			font-weight: var(--font-weight-medium);
 
 			& .divider {
-				margin: 0px var(--space-8px);
-
 				color: var(--color-tertiary);
+			}
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				& a {
+					& img {
+						filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.16));
+
+						transform: scale(1.04);
+					}
+				}
 			}
 		}
 	}
