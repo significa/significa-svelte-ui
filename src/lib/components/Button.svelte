@@ -56,7 +56,7 @@
 
 		border-radius: var(--radii-full);
 
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		gap: var(--space-6px);
 
@@ -68,15 +68,20 @@
 
 		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
-		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--opacity-60));
+		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--button-shadow-opacity));
 
 		@media (hover: hover) {
 			&:hover {
-				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--opacity-60));
+				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--button-shadow-opacity));
 			}
 		}
 
+		&:active {
+			box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--button-shadow-opacity));
+		}
+
 		&.solid {
+			border: 1px solid var(--color-foreground);
 			background-color: var(--color-foreground);
 
 			color: var(--color-background);
@@ -92,6 +97,7 @@
 			}
 
 			&:disabled {
+				border: 1px solid var(--color-muted);
 				background-color: var(--color-muted);
 
 				color: var(--color-secondary);

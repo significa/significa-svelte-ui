@@ -41,6 +41,8 @@
 
 	--color-danger-hsl: var(--color-palette-red-hsl);
 	--color-danger: hsl(var(--color-danger-hsl));
+
+	--button-shadow-opacity: var(--opacity-60);
 }
 
 .theme-dark,
@@ -77,6 +79,8 @@
 
 	--color-danger-hsl: var(--color-palette-red-hsl);
 	--color-danger: hsl(var(--color-danger-hsl));
+
+	--button-shadow-opacity: var(--opacity-20);
 }
 
 .theme-yellow,
@@ -113,4 +117,6 @@
 
 	--color-danger-hsl: var(--color-palette-red-hsl);
 	--color-danger: hsl(var(--color-danger-hsl));
+
+	--button-shadow-opacity: var(--opacity-15);
 }
