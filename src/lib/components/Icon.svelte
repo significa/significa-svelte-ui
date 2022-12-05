@@ -23,3 +23,9 @@
 <i data-icon={icon} class={className}>
 	{@html icons[icon]}
 </i>
+
+<style style="postcss">
+	:global(svg) {
+		display: block;
+	}
+</style>
