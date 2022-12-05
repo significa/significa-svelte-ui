@@ -33,7 +33,7 @@
 
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: var(--space-8px);
 
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
@@ -65,7 +65,9 @@
 		&:focus-visible {
 			border-radius: var(--radii-full);
 
-			outline: 4px solid hsl(var(--color-palette-yellow-hsl) / var(--opacity-60));
+			outline: 1px solid hsl(var(--color-accent-hsl) / var(--focus-opacity));
+
+			box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 
 			color: var(--color-foreground);
 		}
@@ -78,12 +80,12 @@
 
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
+		gap: var(--space-12px);
 
 		color: var(--color-foreground);
 
 		& li {
-			padding-left: 22px;
+			padding-left: var(--space-22px);
 
 			&:first-of-type {
 				margin-top: var(--space-12px);
