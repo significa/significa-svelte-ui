@@ -74,9 +74,14 @@
 			}
 		}
 
+		&:focus-visible {
+			box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
+		}
+
 		&:active {
 			box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 		}
+
 		&.solid {
 			border: 1px solid var(--color-foreground);
 			background-color: var(--color-foreground);
@@ -128,6 +133,10 @@
 				&:hover {
 					border: 1px solid var(--color-accent);
 				}
+			}
+
+			&:focus-visible {
+				border: 1px solid var(--color-accent);
 			}
 		}
 
