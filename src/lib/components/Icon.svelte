@@ -2,9 +2,11 @@
 	import arrowRight from './Icons/arrow-right.svg?raw';
 	import handbook from './Icons/handbook.svg?raw';
 	import loading from './Icons/loading.svg?raw';
+	import chevronCircleRight from './Icons/chevron-circle-right.svg?raw';
 
 	const icons = {
 		['arrow-right']: arrowRight,
+		['chevron-circle-right']: chevronCircleRight,
 		handbook,
 		loading
 	};
