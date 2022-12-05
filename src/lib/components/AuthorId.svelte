@@ -21,7 +21,7 @@
 		display: flex;
 		align-items: center;
 		flex-direction: row;
-		gap: 12px;
+		gap: var(--space-12px);
 
 		& p {
 			all: unset;
