@@ -68,16 +68,16 @@
 
 		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
-		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--button-shadow-opacity));
+		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 
 		@media (hover: hover) {
 			&:hover {
-				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--button-shadow-opacity));
+				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 			}
 		}
 
 		&:active {
-			box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--button-shadow-opacity));
+			box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 		}
 
 		&.solid {
