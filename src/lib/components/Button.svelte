@@ -66,8 +66,6 @@
 
 		white-space: nowrap;
 
-		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
-
 		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 
 		@media (hover: hover) {
@@ -79,12 +77,13 @@
 		&:active {
 			box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 		}
-
 		&.solid {
 			border: 1px solid var(--color-foreground);
 			background-color: var(--color-foreground);
 
 			color: var(--color-background);
+
+			transition: box-shadow var(--transition-appearance);
 
 			&:disabled {
 				border: 1px solid var(--color-muted);
@@ -108,6 +107,8 @@
 			border: 1px solid var(--color-smooth);
 
 			color: var(--color-foreground);
+
+			transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
 			&:disabled {
 				color: var(--color-secondary);
