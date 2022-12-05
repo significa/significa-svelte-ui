@@ -1,14 +1,16 @@
 <script lang="ts" context="module">
 	import arrowRight from './Icons/arrow-right.svg?raw';
+	import chevronCircleRight from './Icons/chevron-circle-right.svg?raw';
 	import handbook from './Icons/handbook.svg?raw';
 	import loading from './Icons/loading.svg?raw';
-	import chevronCircleRight from './Icons/chevron-circle-right.svg?raw';
+	import tick from './Icons/tick.svg?raw';
 
 	const icons = {
 		['arrow-right']: arrowRight,
 		['chevron-circle-right']: chevronCircleRight,
 		handbook,
-		loading
+		loading,
+		tick
 	};
 
 	export let IconOptions: keyof typeof icons;
