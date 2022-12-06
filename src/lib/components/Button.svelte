@@ -66,24 +66,10 @@
 
 		white-space: nowrap;
 
-		box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--focus-opacity));
-
-		@media (hover: hover) {
-			&:hover {
-				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
-			}
-		}
-
-		&:focus-visible {
-			box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
-		}
-
-		&:active {
-			box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--focus-opacity));
-		}
+		@mixin focus-appearance;
 
 		&.solid {
-			border: 1px solid var(--color-foreground);
+			outline: 1px solid var(--color-foreground);
 			background-color: var(--color-foreground);
 
 			color: var(--color-background);
@@ -91,7 +77,7 @@
 			transition: box-shadow var(--transition-appearance);
 
 			&:disabled {
-				border: 1px solid var(--color-muted);
+				outline: 1px solid var(--color-muted);
 				background-color: var(--color-muted);
 
 				color: var(--color-secondary);
@@ -109,11 +95,11 @@
 		}
 
 		&.outline {
-			border: 1px solid var(--color-smooth);
+			outline: 1px solid var(--color-smooth);
 
 			color: var(--color-foreground);
 
-			transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
+			transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
 
 			&:disabled {
 				color: var(--color-secondary);
@@ -131,12 +117,12 @@
 
 			@media (hover: hover) {
 				&:hover {
-					border: 1px solid var(--color-accent);
+					outline: 1px solid var(--color-accent);
 				}
 			}
 
 			&:focus-visible {
-				border: 1px solid var(--color-accent);
+				outline: 1px solid var(--color-accent);
 			}
 		}
 
