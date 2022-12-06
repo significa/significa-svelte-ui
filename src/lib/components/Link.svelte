@@ -32,13 +32,14 @@
 			transition: transform var(--transition-smooth);
 		}
 
-		&:hover {
-			&:after {
-				transform: scaleX(1);
-				transform-origin: bottom left;
+		@media (hover: hover) {
+			&:hover {
+				&:after {
+					transform: scaleX(1);
+					transform-origin: bottom left;
+				}
 			}
 		}
-
 		&:focus-visible {
 			outline: none;
 
@@ -53,21 +54,9 @@
 				height: calc(100% + 4px);
 
 				border-radius: 6px;
-				border: 1px solid var(--color-accent);
-			}
+				outline: 1px solid var(--color-accent);
 
-			&:after {
-				content: '';
-
-				position: absolute;
-				left: -2px;
-				top: -4px;
-
-				width: calc(100% + 2px);
-				height: calc(100% + 6px);
-
-				border-radius: var(--radii-md);
-				border: 2px solid hsl(var(--color-accent-hsl) / var(--opacity-60));
+				box-shadow: var(--box-shadow-accent-4px-spread);
 			}
 		}
 
@@ -78,7 +67,7 @@
 				background-color: var(--color-tertiary);
 			}
 
-			&:focus {
+			&:focus-visible {
 				&:after {
 					background-color: hsl(var(--color-tertiary-hsl) / var(--opacity-0));
 				}

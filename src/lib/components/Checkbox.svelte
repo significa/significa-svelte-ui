@@ -56,19 +56,7 @@
 			}
 		}
 
-		&:focus-within {
-			& .checkmark {
-				outline: 1px solid var(--color-accent);
-
-				box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
-			}
-		}
-
-		&:active {
-			& .checkmark {
-				box-shadow: 0px 0px 0px 2px hsl(var(--color-accent-hsl) / var(--focus-opacity));
-			}
-		}
+		@mixin focus-appearance-on-class checkmark;
 
 		& input {
 			position: absolute;
@@ -91,8 +79,6 @@
 
 			outline: 1px solid var(--color-smooth);
 			border-radius: var(--radii-sm);
-
-			box-shadow: 0px 0px 0px 0px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 
 			transition: box-shadow var(--transition-appearance), outline var(--transition-appearance),
 				background-color var(--transition-appearance);
@@ -138,8 +124,6 @@
 			&:hover {
 				& .checkmark {
 					outline: 1px solid var(--color-accent);
-
-					box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
 				}
 			}
 		}

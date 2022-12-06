@@ -67,7 +67,7 @@
 
 			outline: 1px solid hsl(var(--color-accent-hsl) / var(--focus-opacity));
 
-			box-shadow: 0px 0px 0px 4px hsl(var(--color-accent-hsl) / var(--focus-opacity));
+			box-shadow: var(--box-shadow-accent-4px-spread);
 
 			color: var(--color-foreground);
 		}
