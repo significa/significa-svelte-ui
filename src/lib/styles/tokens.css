@@ -188,6 +188,14 @@
 	/* border width */
 	--border-width-normal: 1px;
 
+	/* box shadows */
+	--box-shadow-accent-0px-spread: 0px 0px 0px 0px
+		hsl(var(--color-accent-hsl) / var(--focus-opacity));
+	--box-shadow-accent-2px-spread: 0px 0px 0px 2px
+		hsl(var(--color-accent-hsl) / var(--focus-opacity));
+	--box-shadow-accent-4px-spread: 0px 0px 0px 4px
+		hsl(var(--color-accent-hsl) / var(--focus-opacity));
+
 	@media (prefers-reduced-motion: reduce) {
 		:root {
 			--transition-appearance: 0s linear;
