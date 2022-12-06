@@ -1,0 +1,47 @@
+@define-mixin box-shadow-spread $size {
+	box-shadow: var(--box-shadow-accent-$(size)-spread);
+}
+
+@define-mixin focus-appearance {
+	@mixin box-shadow-spread 0px;
+
+	@media (hover: hover) {
+		&:hover {
+			@mixin box-shadow-spread 4px;
+		}
+	}
+
+	&:focus-visible {
+		@mixin box-shadow-spread 4px;
+	}
+
+	&:active {
+		@mixin box-shadow-spread 2px;
+	}
+}
+
+@define-mixin focus-appearance-on-class $class {
+	& :global(.$(class)) {
+		@mixin box-shadow-spread 0px;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			& :global(.$(class)) {
+				@mixin box-shadow-spread 4px;
+			}
+		}
+	}
+
+	&:focus-visible {
+		& :global(.$(class)) {
+			@mixin box-shadow-spread 4px;
+		}
+	}
+
+	&:active {
+		& :global(.$(class)) {
+			@mixin box-shadow-spread 2px;
+		}
+	}
+}
