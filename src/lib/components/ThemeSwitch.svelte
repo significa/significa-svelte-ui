@@ -33,7 +33,7 @@
 				}
 
 				& .thumb {
-					left: calc(100% - 2px);
+					left: calc(100% - var(--space-2px));
 
 					transform: translateX(-100%);
 
@@ -55,14 +55,14 @@
 				}
 
 				& .thumb {
-					left: 2px;
+					left: var(--space-2px);
 
 					& :global(.leftIcon) {
 						transform: translateX(0%);
 					}
 
 					& :global(.rightIcon) {
-						transform: translateX(-180%);
+						transform: translateX(-200%);
 					}
 				}
 			}
