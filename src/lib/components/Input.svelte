@@ -4,9 +4,9 @@
 	export let disabled = false;
 	export let error: string | undefined = undefined;
 	export let icon: typeof IconOptions | undefined = undefined;
-	export let label: string = 'Name';
-	export let name: string = 'text';
-	export let value: string = '';
+	export let label = 'Name';
+	export let name = 'text';
+	export let value = '';
 </script>
 
 <div class={`root ${disabled ? 'disabled' : ''} ${error ? 'error' : ''}`}>
