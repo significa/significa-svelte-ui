@@ -195,6 +195,8 @@
 		hsl(var(--color-accent-hsl) / var(--focus-opacity));
 	--box-shadow-accent-4px-spread: 0px 0px 0px 4px
 		hsl(var(--color-accent-hsl) / var(--focus-opacity));
+	--box-shadow-danger-2px-spread: 0px 0px 0px 2px
+		hsl(var(--color-danger-hsl) / var(--focus-opacity));
 
 	@media (prefers-reduced-motion: reduce) {
 		:root {
