@@ -3,6 +3,7 @@
 	import chevronCircleRight from './Icons/chevron-circle-right.svg?raw';
 	import handbook from './Icons/handbook.svg?raw';
 	import loading from './Icons/loading.svg?raw';
+	import sun from './Icons/sun.svg?raw';
 	import tick from './Icons/tick.svg?raw';
 
 	const icons = {
@@ -10,6 +11,7 @@
 		['chevron-circle-right']: chevronCircleRight,
 		handbook,
 		loading,
+		sun,
 		tick
 	};
 
