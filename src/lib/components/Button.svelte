@@ -64,6 +64,7 @@
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
+		font-weight: var(--font-weight-medium);
 
 		white-space: nowrap;
 
