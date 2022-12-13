@@ -10,8 +10,7 @@ export default {
 		variant: { control: 'select', options: ['solid', 'outline'] },
 		tag: { control: 'select', options: ['button', 'a'] },
 		loading: { control: 'boolean' },
-		disabled: { control: 'boolean' },
-		hasArrow: { control: 'boolean' }
+		disabled: { control: 'boolean' }
 	}
 };
 
@@ -27,17 +26,17 @@ Default.args = {
 	variant: 'solid',
 	loading: false,
 	disabled: false,
-	hasArrow: false,
+	rightIcon: undefined,
 	tag: 'button'
 };
 
-export const JustArrow = Template.bind({});
-JustArrow.args = {
+export const JustIcon = Template.bind({});
+JustIcon.args = {
 	size: 'md',
 	variant: 'solid',
 	loading: false,
 	disabled: false,
-	hasArrow: true,
+	rightIcon: 'arrow-right',
 	tag: 'button'
 };
 
@@ -48,9 +47,9 @@ WithIcon.args = {
 	variant: 'solid',
 	loading: false,
 	disabled: false,
-	hasArrow: true,
+	rightIcon: 'arrow-right',
 	tag: 'button',
-	icon: 'handbook'
+	leftIcon: 'handbook'
 };
 
 export const WithArrow = Template.bind({});
@@ -60,6 +59,6 @@ WithArrow.args = {
 	variant: 'solid',
 	loading: false,
 	disabled: false,
-	hasArrow: true,
+	rightIcon: 'arrow-right',
 	tag: 'button'
 };

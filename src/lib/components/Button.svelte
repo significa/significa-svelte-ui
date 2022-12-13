@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Icon, { type IconOptions } from './Icon.svelte';
 
-	export let variant: 'solid' | 'outline' = 'solid';
-	export let size: 'sm' | 'md' | 'lg' = 'md';
 	export let disabled = false;
-	export let loading = false;
-	export let hasArrow = true;
 	export let label: string | undefined = undefined;
-	export let icon: typeof IconOptions | undefined = undefined;
+	export let leftIcon: typeof IconOptions | undefined = undefined;
+	export let loading = false;
+	export let rightIcon: typeof IconOptions | undefined = 'arrow-right';
+	export let size: 'sm' | 'md' | 'lg' = 'md';
 	export let tag: 'button' | 'a' = 'button';
+	export let variant: 'solid' | 'outline' = 'solid';
 </script>
 
 <svelte:element
@@ -21,20 +21,20 @@
 	class:sm={size === 'sm'}
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
-	class:icon={icon !== undefined}
+	class:icon={leftIcon !== undefined}
 	on:click
 	on:mouseenter
 	on:mouseleave
 	{...$$restProps}
 >
-	{#if icon}
-		<Icon {icon} class="leftIcon" />
+	{#if leftIcon}
+		<Icon icon={leftIcon} class="leftIcon" />
 	{/if}
 	{#if label}
 		<span class="label">{label}</span>
 	{/if}
-	{#if hasArrow}
-		<Icon icon="arrow-right" class="arrowIcon" />
+	{#if rightIcon}
+		<Icon icon={rightIcon} class="rightIcon" />
 	{/if}
 	{#if loading}
 		<Icon icon="loading" class="loadingIcon" />
@@ -63,6 +63,7 @@
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
+		font-weight: var(--font-weight-medium);
 
 		white-space: nowrap;
 
@@ -165,7 +166,7 @@
 				left: var(--space-20px);
 			}
 
-			& :global(.arrowIcon) {
+			& :global(.rightIcon) {
 				position: absolute;
 
 				right: calc(var(--space-20px) * -1);
@@ -178,7 +179,7 @@
 						padding-right: var(--space-24px);
 					}
 
-					& :global(.arrowIcon) {
+					& :global(.rightIcon) {
 						right: var(--space-20px);
 					}
 
