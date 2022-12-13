@@ -22,6 +22,7 @@
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
+	class:justIcon={icon !== undefined && (label === undefined || label === '') && hasArrow === false}
 	on:click
 	on:mouseenter
 	on:mouseleave
@@ -147,7 +148,7 @@
 			pointer-events: none;
 		}
 
-		&.icon {
+		&.icon:not(.justIcon) {
 			& .label {
 				padding-left: var(--space-24px);
 				padding-right: 0px;
