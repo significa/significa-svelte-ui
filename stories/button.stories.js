@@ -26,7 +26,6 @@ Default.args = {
 	variant: 'solid',
 	loading: false,
 	disabled: false,
-	rightIcon: undefined,
 	tag: 'button'
 };
 

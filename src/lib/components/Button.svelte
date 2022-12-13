@@ -5,7 +5,7 @@
 	export let label: string | undefined = undefined;
 	export let leftIcon: typeof IconOptions | undefined = undefined;
 	export let loading = false;
-	export let rightIcon: typeof IconOptions | undefined = 'arrow-right';
+	export let rightIcon: typeof IconOptions | undefined = undefined;
 	export let size: 'sm' | 'md' | 'lg' = 'md';
 	export let tag: 'button' | 'a' = 'button';
 	export let variant: 'solid' | 'outline' = 'solid';
