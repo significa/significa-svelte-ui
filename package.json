@@ -1,5 +1,5 @@
 {
-	"name": "@significa/significa-svelte-ui",
+	"name": "@significa/svelte-ui",
 	"version": "0.0.1-development",
 	"repository": "github:significa/significa-svelte-ui",
 	"publishConfig": {
