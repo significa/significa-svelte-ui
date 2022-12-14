@@ -84,12 +84,6 @@
 			position: relative;
 
 			width: 100%;
-
-			font-size: var(--font-size-md);
-			line-height: var(--font-line-height-none);
-			letter-spacing: var(--font-letter-spacing-wide);
-			font-weight: var(--font-weight-medium);
-
 			width: 100%;
 
 			color: var(--color-foreground);
