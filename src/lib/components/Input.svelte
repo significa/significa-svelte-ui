@@ -42,6 +42,8 @@
 
 		@mixin focus-appearance;
 
+		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+
 		@media (hover: hover) {
 			&:hover {
 				outline: 1px solid var(--color-accent);
