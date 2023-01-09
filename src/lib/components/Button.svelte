@@ -59,6 +59,7 @@
 
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: var(--space-6px);
 
 		font-size: var(--font-size-md);
