@@ -13,36 +13,23 @@
 	{#if icon}
 		<Icon {icon} class="leftIcon" />
 	{/if}
-	<div class={`container ${value !== '' ? 'interacted' : ''}`}>
-		<label for={name}>{label}</label>
-		<input id={name} bind:value {...$$restProps} />
-	</div>
+	<input id={name} class={icon ? 'hasIcon' : ''} bind:value placeholder={label} {...$$restProps} />
+	<label for={name}>{label}</label>
 	{#if error}
 		<p>{error}</p>
 	{/if}
 </div>
 
 <style lang="postcss">
-	@define-mixin interacted-padding {
-		padding-top: var(--space-12px);
-		padding-bottom: var(--space-13px);
-	}
-
 	@define-mixin error-style {
 		outline: 1px solid var(--color-danger);
 		box-shadow: var(--box-shadow-danger-2px-spread);
 	}
 
 	.root {
-		padding: var(--space-0) var(--space-20px);
-
-		height: 56px;
-
 		position: relative;
 
-		display: flex;
-		align-items: center;
-		gap: var(--space-12px);
+		box-sizing: border-box;
 
 		outline: 1px solid var(--color-smooth);
 
@@ -52,9 +39,10 @@
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
 		font-weight: var(--font-weight-medium);
-		color: var(--color-foreground);
 
 		@mixin focus-appearance;
+
+		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
 
 		@media (hover: hover) {
 			&:hover {
@@ -64,14 +52,6 @@
 
 		&:focus-within {
 			outline: 1px solid var(--color-accent);
-
-			& .container {
-				@mixin interacted-padding;
-
-				& label {
-					font-size: var(--font-size-xs);
-				}
-			}
 		}
 
 		&.disabled {
@@ -98,35 +78,65 @@
 			}
 		}
 
-		& .container {
-			padding: var(--space-20px) var(--space-0) var(--space-4px);
+		& input {
+			all: unset;
+
+			padding: var(--space-20px);
+
+			position: relative;
 
 			width: 100%;
+			width: 100%;
 
-			display: flex;
-			flex-direction: column;
+			color: var(--color-foreground);
 
-			transition: padding var(--transition-appearance);
-
-			& label {
-				color: var(--color-tertiary);
-
-				transition: font-size var(--transition-appearance), top var(--transition-appearance);
+			&::placeholder {
+				opacity: 0;
 			}
 
-			& input {
-				all: unset;
+			&:not(:placeholder-shown) {
+				padding-top: var(--space-27px);
+				padding-bottom: var(--space-13px);
 
-				width: 100%;
-			}
+				& ~ label {
+					top: var(--space-12px);
+					transform: translateY(0);
 
-			&.interacted {
-				@mixin interacted-padding;
-
-				& label {
 					font-size: var(--font-size-xs);
 				}
 			}
+
+			&.hasIcon {
+				padding-left: var(--space-44px);
+
+				& ~ label {
+					left: var(--space-44px);
+				}
+			}
+		}
+
+		& :global(.leftIcon) {
+			position: absolute;
+			top: 50%;
+			left: var(--space-16px);
+
+			transform: translateY(-50%);
+
+			pointer-events: none;
+		}
+
+		& label {
+			position: absolute;
+			top: 50%;
+			left: var(--space-20px);
+
+			color: var(--color-tertiary);
+
+			transform: translateY(-50%);
+
+			transition: all var(--transition-motion);
+
+			pointer-events: none;
 		}
 	}
 </style>
