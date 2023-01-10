@@ -53,6 +53,7 @@
 	--space-10px: 10px;
 	--space-12: 0.75rem;
 	--space-12px: 12px;
+	--space-13px: 13px;
 	--space-14: 0.875rem;
 	--space-14px: 14px;
 	--space-16: 1rem;
@@ -62,6 +63,7 @@
 	--space-22px: 22px;
 	--space-24: 1.5rem;
 	--space-24px: 24px;
+	--space-27px: 27px;
 	--space-28: 1.75rem;
 	--space-28px: 28px;
 	--space-32: 2rem;
@@ -195,6 +197,8 @@
 		hsl(var(--color-accent-hsl) / var(--focus-opacity));
 	--box-shadow-accent-4px-spread: 0px 0px 0px 4px
 		hsl(var(--color-accent-hsl) / var(--focus-opacity));
+	--box-shadow-danger-2px-spread: 0px 0px 0px 2px
+		hsl(var(--color-danger-hsl) / var(--focus-opacity));
 
 	@media (prefers-reduced-motion: reduce) {
 		:root {
