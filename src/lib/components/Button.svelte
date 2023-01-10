@@ -22,6 +22,7 @@
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
+	class:justIcon={icon !== undefined && (label === undefined || label === '') && hasArrow === false}
 	on:click
 	on:mouseenter
 	on:mouseleave
@@ -58,11 +59,13 @@
 
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		gap: var(--space-6px);
 
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
+		font-weight: var(--font-weight-medium);
 
 		white-space: nowrap;
 
@@ -147,7 +150,7 @@
 			pointer-events: none;
 		}
 
-		&.icon {
+		&.icon:not(.justIcon) {
 			& .label {
 				padding-left: var(--space-24px);
 				padding-right: 0px;
