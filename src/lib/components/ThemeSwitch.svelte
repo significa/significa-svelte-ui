@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Icon from './Icon.svelte';
 
-	export let checked = false;
+	export let checked: boolean = false;
+	export let onClick: () => void = () => {};
 </script>
 
-<label class={checked ? 'checked' : 'unchecked'} {...$$restProps}>
+<label class={checked ? 'checked' : 'unchecked'} {...$$restProps} on:click|preventDefault={onClick}>
 	<input type="checkbox" bind:checked />
 	<div class="container">
 		<Icon icon="sun" />
