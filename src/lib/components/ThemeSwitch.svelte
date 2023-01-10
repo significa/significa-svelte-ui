@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Icon from './Icon.svelte';
 
-	export let checked: boolean = false;
-	export let onClick: () => void = () => {};
+	export let checked = false;
+	export let onClick: () => void;
 </script>
 
 <label class={checked ? 'checked' : 'unchecked'} {...$$restProps} on:click|preventDefault={onClick}>
