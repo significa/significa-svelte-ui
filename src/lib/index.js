@@ -7,5 +7,6 @@ export { default as CollapsableList } from './components/CollapsableList.svelte'
 export { default as Icon } from './components/Icon.svelte';
 export { default as Input } from './components/Input.svelte';
 export { default as Link } from './components/Link.svelte';
+export { default as ThemeSwitch } from './components/ThemeSwitch.svelte';
 export { default as Monogram } from './components/Monogram.svelte';
 export { default as Wordmark } from './components/Wordmark.svelte';
