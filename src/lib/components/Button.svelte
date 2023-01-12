@@ -23,7 +23,7 @@
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
 	class:justIcon={icon !== undefined && (label === undefined || label === '') && hasArrow === false}
-	on:click
+	on:click|stopPropagation
 	on:mouseenter
 	on:mouseleave
 	{...$$restProps}
@@ -68,6 +68,9 @@
 		font-weight: var(--font-weight-medium);
 
 		white-space: nowrap;
+
+		cursor: pointer;
+		user-select: none;
 
 		@mixin focus-appearance;
 
