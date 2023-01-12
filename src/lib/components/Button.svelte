@@ -69,6 +69,9 @@
 
 		white-space: nowrap;
 
+		cursor: pointer;
+		user-select: none;
+
 		@mixin focus-appearance;
 
 		&.solid {
