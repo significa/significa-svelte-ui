@@ -23,7 +23,7 @@
 	class:lg={size === 'lg'}
 	class:icon={icon !== undefined}
 	class:justIcon={icon !== undefined && (label === undefined || label === '') && hasArrow === false}
-	on:click|stopPropagation
+	on:click
 	on:mouseenter
 	on:mouseleave
 	{...$$restProps}
