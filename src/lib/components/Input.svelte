@@ -22,8 +22,11 @@
 
 <style lang="postcss">
 	@define-mixin error-style {
-		outline: 1px solid var(--color-danger);
 		box-shadow: var(--box-shadow-danger-2px-spread);
+
+		&::before {
+			border: 1px solid var(--color-danger);
+		}
 	}
 
 	.root {
