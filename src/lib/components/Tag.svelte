@@ -8,11 +8,11 @@
 	a {
 		all: unset;
 
+		position: relative;
+
 		padding: var(--space-14px) var(--space-16px);
 
 		border-radius: var(--radii-full);
-
-		outline: 1px solid var(--color-smooth);
 
 		color: var(--color-foreground);
 
@@ -35,6 +35,20 @@
 
 		@mixin focus-appearance;
 
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: -1px;
+			left: -1px;
+
+			width: 100%;
+			height: 100%;
+
+			border-radius: var(--radii-full);
+			border: 1px solid var(--color-smooth);
+		}
+
 		&:disabled {
 			pointer-events: none;
 
@@ -43,12 +57,16 @@
 
 		@media (hover: hover) {
 			&:hover {
-				outline: 1px solid var(--color-accent);
+				&::before {
+					border: 1px solid var(--color-accent);
+				}
 			}
 		}
 
 		&:focus-visible {
-			outline: 1px solid var(--color-accent);
+			&::before {
+				border: 1px solid var(--color-accent);
+			}
 		}
 	}
 </style>
