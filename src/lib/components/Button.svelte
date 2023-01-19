@@ -53,8 +53,6 @@
 
 		position: relative;
 
-		overflow: hidden;
-
 		border-radius: var(--radii-full);
 
 		display: inline-flex;
@@ -74,19 +72,38 @@
 
 		@mixin focus-appearance;
 
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: -1px;
+			left: -1px;
+
+			width: 100%;
+			height: 100%;
+
+			border-radius: var(--radii-full);
+		}
+
 		&.solid {
-			outline: 1px solid var(--color-foreground);
 			background-color: var(--color-foreground);
 
 			color: var(--color-background);
 
 			transition: box-shadow var(--transition-appearance);
 
+			&::before {
+				border: 1px solid var(--color-foreground);
+			}
+
 			&:disabled {
-				outline: 1px solid var(--color-muted);
 				background-color: var(--color-muted);
 
 				color: var(--color-secondary);
+
+				&::before {
+					border: 1px solid var(--color-muted);
+				}
 			}
 
 			&.loading {
@@ -101,11 +118,13 @@
 		}
 
 		&.outline {
-			outline: 1px solid var(--color-smooth);
-
 			color: var(--color-foreground);
 
 			transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+
+			&::before {
+				border: 1px solid var(--color-smooth);
+			}
 
 			&:disabled {
 				color: var(--color-secondary);
@@ -123,12 +142,16 @@
 
 			@media (hover: hover) {
 				&:hover {
-					outline: 1px solid var(--color-accent);
+					&::before {
+						border: 1px solid var(--color-accent);
+					}
 				}
 			}
 
 			&:focus-visible {
-				outline: 1px solid var(--color-accent);
+				&::before {
+					border: 1px solid var(--color-accent);
+				}
 			}
 		}
 
