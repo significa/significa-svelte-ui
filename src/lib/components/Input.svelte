@@ -57,7 +57,7 @@
 
 		@mixin focus-appearance;
 
-		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
 		@media (hover: hover) {
 			&:hover {

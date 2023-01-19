@@ -16,7 +16,7 @@
 
 		color: var(--color-foreground);
 
-		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
 		display: inline-flex;
 		align-items: center;
