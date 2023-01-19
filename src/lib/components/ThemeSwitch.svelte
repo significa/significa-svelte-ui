@@ -101,7 +101,20 @@
 			border-radius: var(--radii-full);
 
 			background-color: var(--color-smooth);
-			outline: 1px solid var(--color-smooth);
+
+			&::before {
+				content: '';
+
+				position: absolute;
+				top: -1px;
+				left: -1px;
+
+				width: 100%;
+				height: 100%;
+
+				border-radius: var(--radii-full);
+				border: 1px solid var(--color-smooth);
+			}
 
 			& :global([data-icon]) {
 				width: 24px;
