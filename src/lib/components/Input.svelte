@@ -31,8 +31,6 @@
 
 		box-sizing: border-box;
 
-		outline: 1px solid var(--color-smooth);
-
 		border-radius: var(--radii-xl);
 
 		font-size: var(--font-size-md);
@@ -40,18 +38,36 @@
 		letter-spacing: var(--font-letter-spacing-wide);
 		font-weight: var(--font-weight-medium);
 
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: -1px;
+			left: -1px;
+
+			width: 100%;
+			height: 100%;
+
+			border-radius: var(--radii-xl);
+			border: 1px solid var(--color-smooth);
+		}
+
 		@mixin focus-appearance;
 
 		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
 
 		@media (hover: hover) {
 			&:hover {
-				outline: 1px solid var(--color-accent);
+				&::before {
+					border: 1px solid var(--color-accent);
+				}
 			}
 		}
 
 		&:focus-within {
-			outline: 1px solid var(--color-accent);
+			&::before {
+				border: 1px solid var(--color-accent);
+			}
 		}
 
 		&.disabled {
