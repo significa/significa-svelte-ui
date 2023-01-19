@@ -94,7 +94,7 @@
 				border: 1px solid var(--color-smooth);
 			}
 
-			transition: box-shadow var(--transition-appearance), outline var(--transition-appearance),
+			transition: box-shadow var(--transition-appearance), border var(--transition-appearance),
 				background-color var(--transition-appearance);
 
 			& :global(.icon) {
