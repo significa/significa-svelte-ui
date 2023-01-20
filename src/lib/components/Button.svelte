@@ -52,6 +52,8 @@
 
 		position: relative;
 
+		overflow: hidden;
+
 		box-sizing: border-box;
 
 		border-radius: var(--radii-full);
