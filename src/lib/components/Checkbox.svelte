@@ -29,10 +29,13 @@
 
 		&.checked {
 			& .checkmark {
-				outline: 1px solid var(--color-foreground);
 				background-color: hsl(var(--color-foreground-hsl) / var(--opacity-100));
 
 				color: var(--color-background);
+
+				&::before {
+					border: 1px solid var(--color-foreground);
+				}
 			}
 
 			& :global(.icon) {
@@ -69,18 +72,16 @@
 		& .checkmark {
 			position: relative;
 
-			overflow: hidden;
-
 			min-width: 16px;
 			width: 16px;
 			height: 16px;
 
 			background-color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
 
-			outline: 1px solid var(--color-smooth);
 			border-radius: var(--radii-sm);
+			border: 1px solid var(--color-smooth);
 
-			transition: box-shadow var(--transition-appearance), outline var(--transition-appearance),
+			transition: box-shadow var(--transition-appearance), border var(--transition-appearance),
 				background-color var(--transition-appearance);
 
 			& :global(.icon) {
@@ -123,7 +124,7 @@
 		@media (hover: hover) {
 			&:hover {
 				& .checkmark {
-					outline: 1px solid var(--color-accent);
+					border: 1px solid var(--color-accent);
 				}
 			}
 		}

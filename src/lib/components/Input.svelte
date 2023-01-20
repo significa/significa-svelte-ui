@@ -22,8 +22,9 @@
 
 <style lang="postcss">
 	@define-mixin error-style {
-		outline: 1px solid var(--color-danger);
 		box-shadow: var(--box-shadow-danger-2px-spread);
+
+		border: 1px solid var(--color-danger);
 	}
 
 	.root {
@@ -31,9 +32,10 @@
 
 		box-sizing: border-box;
 
-		outline: 1px solid var(--color-smooth);
+		height: 56px;
 
 		border-radius: var(--radii-xl);
+		border: 1px solid var(--color-smooth);
 
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
@@ -42,16 +44,16 @@
 
 		@mixin focus-appearance;
 
-		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
 		@media (hover: hover) {
 			&:hover {
-				outline: 1px solid var(--color-accent);
+				border: 1px solid var(--color-accent);
 			}
 		}
 
 		&:focus-within {
-			outline: 1px solid var(--color-accent);
+			border: 1px solid var(--color-accent);
 		}
 
 		&.disabled {

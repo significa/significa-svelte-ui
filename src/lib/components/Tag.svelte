@@ -8,15 +8,18 @@
 	a {
 		all: unset;
 
-		padding: var(--space-14px) var(--space-16px);
+		box-sizing: border-box;
+
+		padding: 0px var(--space-16px);
+
+		height: 44px;
 
 		border-radius: var(--radii-full);
-
-		outline: 1px solid var(--color-smooth);
+		border: 1px solid var(--color-smooth);
 
 		color: var(--color-foreground);
 
-		transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+		transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
 		display: inline-flex;
 		align-items: center;
@@ -43,12 +46,12 @@
 
 		@media (hover: hover) {
 			&:hover {
-				outline: 1px solid var(--color-accent);
+				border: 1px solid var(--color-accent);
 			}
 		}
 
 		&:focus-visible {
-			outline: 1px solid var(--color-accent);
+			border: 1px solid var(--color-accent);
 		}
 	}
 </style>

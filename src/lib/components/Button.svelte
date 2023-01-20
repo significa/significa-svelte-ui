@@ -46,14 +46,15 @@
 	.root {
 		all: unset;
 
-		--button-vertical-padding: var(--space-14px);
-		--button-horizontal-padding: var(--space-20px);
-
-		padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+		--sm-button-height: 44px;
+		--md-button-height: 48px;
+		--lg-button-height: 56px;
 
 		position: relative;
 
 		overflow: hidden;
+
+		box-sizing: border-box;
 
 		border-radius: var(--radii-full);
 
@@ -75,16 +76,18 @@
 		@mixin focus-appearance;
 
 		&.solid {
-			outline: 1px solid var(--color-foreground);
 			background-color: var(--color-foreground);
+
+			border: 1px solid var(--color-foreground);
 
 			color: var(--color-background);
 
 			transition: box-shadow var(--transition-appearance);
 
 			&:disabled {
-				outline: 1px solid var(--color-muted);
 				background-color: var(--color-muted);
+
+				border: 1px solid var(--color-muted);
 
 				color: var(--color-secondary);
 			}
@@ -101,11 +104,11 @@
 		}
 
 		&.outline {
-			outline: 1px solid var(--color-smooth);
+			border: 1px solid var(--color-smooth);
 
 			color: var(--color-foreground);
 
-			transition: box-shadow var(--transition-appearance), outline var(--transition-appearance);
+			transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
 
 			&:disabled {
 				color: var(--color-secondary);
@@ -123,22 +126,31 @@
 
 			@media (hover: hover) {
 				&:hover {
-					outline: 1px solid var(--color-accent);
+					border: 1px solid var(--color-accent);
 				}
 			}
 
 			&:focus-visible {
-				outline: 1px solid var(--color-accent);
+				border: 1px solid var(--color-accent);
 			}
 		}
 
+		&.sm {
+			padding: 0px var(--space-20px);
+
+			height: var(--sm-button-height);
+		}
+
 		&.md {
-			--button-vertical-padding: var(--space-16px);
+			padding: 0px var(--space-20px);
+
+			height: var(--md-button-height);
 		}
 
 		&.lg {
-			--button-vertical-padding: var(--space-20px);
-			--button-horizontal-padding: var(--space-24px);
+			padding: 0px var(--space-24px);
+
+			height: var(--md-button-height);
 		}
 
 		&.loading {
