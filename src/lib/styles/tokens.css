@@ -130,7 +130,7 @@
 
 	/* letter-spacing */
 	--font-letter-spacing-tighter: -0.05rem;
-	--font-letter-spacing-tight: -0.0005rem;
+	--font-letter-spacing-tight: -0.005rem;
 	--font-letter-spacing-normal: 0rem;
 	--font-letter-spacing-wide: 0.005rem;
 	--font-letter-spacing-wider: 0.01rem;
