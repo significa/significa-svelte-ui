@@ -79,20 +79,7 @@
 			background-color: hsl(var(--color-foreground-hsl) / var(--opacity-0));
 
 			border-radius: var(--radii-sm);
-
-			&::before {
-				content: '';
-
-				position: absolute;
-				top: -1px;
-				left: -1px;
-
-				width: 100%;
-				height: 100%;
-
-				border-radius: var(--radii-sm);
-				border: 1px solid var(--color-smooth);
-			}
+			border: 1px solid var(--color-smooth);
 
 			transition: box-shadow var(--transition-appearance), border var(--transition-appearance),
 				background-color var(--transition-appearance);
@@ -137,9 +124,7 @@
 		@media (hover: hover) {
 			&:hover {
 				& .checkmark {
-					&::before {
-						border: 1px solid var(--color-accent);
-					}
+					border: 1px solid var(--color-accent);
 				}
 			}
 		}

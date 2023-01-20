@@ -34,7 +34,7 @@
 				}
 
 				& .thumb {
-					left: calc(100% - var(--space-2px));
+					left: calc(100% - 1px);
 
 					transform: translateX(-100%);
 
@@ -56,7 +56,7 @@
 				}
 
 				& .thumb {
-					left: var(--space-2px);
+					left: 1px;
 
 					& :global(.leftIcon) {
 						transform: translateX(0%);
@@ -89,6 +89,7 @@
 
 		& .container {
 			position: relative;
+			box-sizing: border-box;
 
 			width: 50px;
 			height: 26px;
@@ -99,22 +100,9 @@
 			gap: var(--space-4px);
 
 			border-radius: var(--radii-full);
+			border: 1px solid var(--color-smooth);
 
 			background-color: var(--color-smooth);
-
-			&::before {
-				content: '';
-
-				position: absolute;
-				top: -1px;
-				left: -1px;
-
-				width: 100%;
-				height: 100%;
-
-				border-radius: var(--radii-full);
-				border: 1px solid var(--color-smooth);
-			}
 
 			& :global([data-icon]) {
 				width: 24px;
@@ -127,7 +115,6 @@
 
 			& .thumb {
 				position: absolute;
-				top: 1px;
 
 				overflow: hidden;
 

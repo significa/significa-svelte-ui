@@ -46,12 +46,13 @@
 	.root {
 		all: unset;
 
-		--button-vertical-padding: var(--space-14px);
-		--button-horizontal-padding: var(--space-20px);
-
-		padding: var(--button-vertical-padding) var(--button-horizontal-padding);
+		--sm-button-height: 44px;
+		--md-button-height: 48px;
+		--lg-button-height: 56px;
 
 		position: relative;
+
+		box-sizing: border-box;
 
 		border-radius: var(--radii-full);
 
@@ -72,38 +73,21 @@
 
 		@mixin focus-appearance;
 
-		&::before {
-			content: '';
-
-			position: absolute;
-			top: -1px;
-			left: -1px;
-
-			width: 100%;
-			height: 100%;
-
-			border-radius: var(--radii-full);
-		}
-
 		&.solid {
 			background-color: var(--color-foreground);
+
+			border: 1px solid var(--color-foreground);
 
 			color: var(--color-background);
 
 			transition: box-shadow var(--transition-appearance);
 
-			&::before {
-				border: 1px solid var(--color-foreground);
-			}
-
 			&:disabled {
 				background-color: var(--color-muted);
 
-				color: var(--color-secondary);
+				border: 1px solid var(--color-muted);
 
-				&::before {
-					border: 1px solid var(--color-muted);
-				}
+				color: var(--color-secondary);
 			}
 
 			&.loading {
@@ -118,13 +102,11 @@
 		}
 
 		&.outline {
+			border: 1px solid var(--color-smooth);
+
 			color: var(--color-foreground);
 
 			transition: box-shadow var(--transition-appearance), border var(--transition-appearance);
-
-			&::before {
-				border: 1px solid var(--color-smooth);
-			}
 
 			&:disabled {
 				color: var(--color-secondary);
@@ -142,26 +124,31 @@
 
 			@media (hover: hover) {
 				&:hover {
-					&::before {
-						border: 1px solid var(--color-accent);
-					}
+					border: 1px solid var(--color-accent);
 				}
 			}
 
 			&:focus-visible {
-				&::before {
-					border: 1px solid var(--color-accent);
-				}
+				border: 1px solid var(--color-accent);
 			}
 		}
 
+		&.sm {
+			padding: 0px var(--space-20px);
+
+			height: var(--sm-button-height);
+		}
+
 		&.md {
-			--button-vertical-padding: var(--space-16px);
+			padding: 0px var(--space-20px);
+
+			height: var(--md-button-height);
 		}
 
 		&.lg {
-			--button-vertical-padding: var(--space-20px);
-			--button-horizontal-padding: var(--space-24px);
+			padding: 0px var(--space-24px);
+
+			height: var(--md-button-height);
 		}
 
 		&.loading {

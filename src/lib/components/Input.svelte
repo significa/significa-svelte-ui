@@ -24,9 +24,7 @@
 	@define-mixin error-style {
 		box-shadow: var(--box-shadow-danger-2px-spread);
 
-		&::before {
-			border: 1px solid var(--color-danger);
-		}
+		border: 1px solid var(--color-danger);
 	}
 
 	.root {
@@ -34,26 +32,15 @@
 
 		box-sizing: border-box;
 
+		height: 56px;
+
 		border-radius: var(--radii-xl);
+		border: 1px solid var(--color-smooth);
 
 		font-size: var(--font-size-md);
 		line-height: var(--font-line-height-none);
 		letter-spacing: var(--font-letter-spacing-wide);
 		font-weight: var(--font-weight-medium);
-
-		&::before {
-			content: '';
-
-			position: absolute;
-			top: -1px;
-			left: -1px;
-
-			width: 100%;
-			height: 100%;
-
-			border-radius: var(--radii-xl);
-			border: 1px solid var(--color-smooth);
-		}
 
 		@mixin focus-appearance;
 
@@ -61,16 +48,12 @@
 
 		@media (hover: hover) {
 			&:hover {
-				&::before {
-					border: 1px solid var(--color-accent);
-				}
+				border: 1px solid var(--color-accent);
 			}
 		}
 
 		&:focus-within {
-			&::before {
-				border: 1px solid var(--color-accent);
-			}
+			border: 1px solid var(--color-accent);
 		}
 
 		&.disabled {
