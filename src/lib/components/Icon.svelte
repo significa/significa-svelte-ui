@@ -8,11 +8,13 @@
 	import moon from './Icons/moon.svg?raw';
 	import sun from './Icons/sun.svg?raw';
 	import tick from './Icons/tick.svg?raw';
+	import close from './Icons/close.svg?raw';
 
 	const icons = {
 		['arrow-right']: arrowRight,
 		['arrow-up']: arrowUp,
 		['chevron-circle-right']: chevronCircleRight,
+		close,
 		handbook,
 		loading,
 		menu,
