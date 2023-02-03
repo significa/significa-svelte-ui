@@ -86,7 +86,7 @@
 		flex-direction: column;
 		gap: var(--space-12px);
 
-		color: var(--color-secondary);
+		color: var(--color-foreground);
 
 		& li {
 			padding-left: var(--space-22px);
@@ -102,12 +102,23 @@
 			}
 
 			& a {
+				color: var(--color-secondary);
 				transition: color var(--transition-appearance);
 
 				@media (hover: hover) {
 					&:hover {
 						color: var(--color-foreground);
 					}
+				}
+
+				&:focus-visible {
+					border-radius: var(--radii-full);
+
+					outline: 1px solid hsl(var(--color-accent-hsl) / var(--focus-opacity));
+
+					box-shadow: var(--box-shadow-accent-4px-spread);
+
+					color: var(--color-foreground);
 				}
 
 				&.active {
