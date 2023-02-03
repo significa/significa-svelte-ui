@@ -4,7 +4,7 @@
 	import Icon from './Icon.svelte';
 
 	export let title: string;
-	export let items: any[];
+	export let items: { label: string; href?: string; isActive?: boolean }[];
 	export let defaultOpen: boolean = false;
 
 	let isOpen = defaultOpen;
@@ -22,7 +22,11 @@
 				in:fly={{ x: 20, duration: 250, delay: i * 50 }}
 				out:fly={{ x: 20, duration: 200, delay: (items.length - i) * 25 }}
 			>
-				{item}
+				{#if item.href}
+					<a class:active={item.isActive} href={item.href}>{item.label}</a>
+				{:else}
+					{item.label}
+				{/if}
 			</li>
 		{/each}
 	{/if}
@@ -95,6 +99,21 @@
 
 			&:last-of-type {
 				margin-bottom: var(--space-8px);
+			}
+
+			& a {
+				transition: color var(--transition-appearance);
+
+				@media (hover: hover) {
+					&:hover {
+						color: var(--color-foreground);
+					}
+				}
+
+				&.active {
+					color: var(--color-foreground);
+					@mixin text-md-beast;
+				}
 			}
 		}
 	}
