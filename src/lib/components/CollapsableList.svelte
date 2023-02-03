@@ -5,8 +5,9 @@
 
 	export let title: string;
 	export let items: any[];
+	export let defaultOpen: boolean = false;
 
-	let isOpen = false;
+	let isOpen = defaultOpen;
 
 	function toggle() {
 		isOpen = !isOpen;
@@ -35,9 +36,8 @@
 		align-items: center;
 		gap: var(--space-8px);
 
-		font-size: var(--font-size-md);
-		line-height: var(--font-line-height-none);
-		letter-spacing: var(--font-letter-spacing-wide);
+		@mixin text-md-beast;
+
 		color: var(--color-secondary);
 
 		cursor: pointer;
@@ -82,13 +82,19 @@
 		flex-direction: column;
 		gap: var(--space-12px);
 
-		color: var(--color-foreground);
+		color: var(--color-secondary);
 
 		& li {
 			padding-left: var(--space-22px);
 
+			@mixin text-md;
+
 			&:first-of-type {
 				margin-top: var(--space-12px);
+			}
+
+			&:last-of-type {
+				margin-bottom: var(--space-8px);
 			}
 		}
 	}
