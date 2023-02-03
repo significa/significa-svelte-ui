@@ -12,6 +12,6 @@ const Template = (args) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-	items: ['1', '2', '3', '4', '5'],
+	items: [{ label: '1' }, { label: '2' }, { label: '3' }, { label: '4' }, { label: '5' }],
 	title: 'Collapsable List'
 };

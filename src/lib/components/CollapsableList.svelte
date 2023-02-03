@@ -5,7 +5,7 @@
 
 	export let title: string;
 	export let items: { label: string; href?: string; isActive?: boolean }[];
-	export let defaultOpen: boolean = false;
+	export let defaultOpen = false;
 
 	let isOpen = defaultOpen;
 

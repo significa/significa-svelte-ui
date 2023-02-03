@@ -5,7 +5,7 @@ import CollapsableList from '../src/lib/components/CollapsableList.svelte';
 
 describe('CollapsableList', () => {
 	beforeEach(() => {
-		render(CollapsableList, { title: 'Title', items: ['item1', 'item2'] });
+		render(CollapsableList, { title: 'Title', items: [{ label: 'item1' }, { label: 'item2' }] });
 	});
 
 	it('Renders trigger button', () => {
