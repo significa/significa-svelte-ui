@@ -15,6 +15,7 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "validate": "npm run check && npm run lint",
     "format": "prettier --plugin-search-dir . --write .",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
@@ -35,6 +36,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-storybook": "^0.6.10",
     "eslint-plugin-svelte3": "^4.0.0",
+    "husky": "^8.0.3",
     "postcss-mixins": "^9.0.4",
     "postcss-preset-env": "^8.0.1",
     "prettier": "^2.8.4",
