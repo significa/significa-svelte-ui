@@ -3,14 +3,14 @@
   import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
   type Button = HTMLButtonAttributes & {
-    as: 'button';
+    as?: 'button';
   };
   type Anchor = HTMLAnchorAttributes & {
     as: 'a';
   };
   type Props = (Button | Anchor) & {
-    variant: 'primary' | 'secondary';
-    size: 'small' | 'medium';
+    variant?: 'primary' | 'secondary';
+    size?: 'small' | 'medium';
   };
   type $$Props = Props;
 
@@ -19,6 +19,6 @@
   export let size: $$Props['size'] = 'medium';
 </script>
 
-<svelte:element this={as} {...$$restProps} class={clsx({ variant, size, class: $$props.class })}>
+<svelte:element this={as} {...$$restProps} class={clsx('root', variant, size, $$props.class)}>
   <slot />
 </svelte:element>

@@ -1,3 +1,5 @@
+/* Keep the README updated with all available mixins */
+
 @define-mixin elevated-links {
   position: relative;
 
@@ -43,3 +45,5 @@
     display: none; /* Chrome, Safari and Opera */
   }
 }
+
+/* Keep the README updated with all available mixins */

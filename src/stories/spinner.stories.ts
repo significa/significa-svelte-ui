@@ -16,13 +16,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const XS: Story = {
+export const XSmall: Story = {
   args: {
     size: 'xs'
   }
 };
 
-export const SM: Story = {
+export const Small: Story = {
   args: {
     size: 'sm'
   }
