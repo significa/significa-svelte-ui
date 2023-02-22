@@ -38,49 +38,14 @@ Setting up VSCode to autocomplete with our available CSS variables:
 
 This library exports some mixins that can be helpful when developing UIs:
 
-### Typography
-
 <details>
-  <summary>Available styles</summary>
-
-- `text-xs`
-- `text-sm`
-- `text-sm-beast`
-- `text-md`
-- `text-md-body`
-- `text-md-beast`
-- `text-lg`
-- `text-lg-body`
-- `text-lg-beast`
-- `text-xl`
-- `text-xl-body`
-- `text-xl-beast`
-- `text-2xl`
-- `text-2xl-body`
-- `text-2xl-beast`
-- `text-3xl`
-- `text-3xl-beast`
-- `text-4xl`
-- `text-5xl`
-- `text-6xl`
-- `text-7xl`
-- `text-8xl`
-</details>
-
-Our set of complete font styles, including font-family, font-size, line-height, letter-spacing, and text-transform.
-
-### Utils
-
-<details>
-  <summary>Available utils</summary>
+  <summary>Available mixins</summary>
 
 - elevated-links
 - visually-hidden
 - multi-line-clamp $amount: 2
 - hide-scrollbar
 </details>
-
-Some handy utils like `visually-hidden` or `elevated-links`.
 
 ### Usage
 
@@ -91,10 +56,7 @@ module.exports = {
   plugins: [
     // your plugins
     require('postcss-mixins')({
-      mixinsFiles: [
-        require.resolve('@significa/svelte-ui/mixins/typography.css'),
-        require.resolve('@significa/svelte-ui/mixins/utils.css')
-      ]
+      mixinsFiles: [require.resolve('@significa/svelte-ui/mixins.css')]
     })
   ]
 };

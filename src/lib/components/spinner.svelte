@@ -35,7 +35,6 @@
   }
 
   svg {
-    @mixin text-5xl;
     animation: spin 1s linear infinite;
   }
 

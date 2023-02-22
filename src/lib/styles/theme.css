@@ -9,114 +9,117 @@
 :root,
 .theme-light,
 [data-theme='light'] {
-  --color-background-hsl: var(--color-palette-gray-25-hsl);
+  --color-background-hsl: 0deg 0% 99%;
   --color-background: hsl(var(--color-background-hsl));
+  --color-background-panel-hsl: 0deg 0% 95%;
+  --color-background-panel: hsl(var(--color-background-panel-hsl));
+  --color-background-offset-hsl: 0deg 0% 97%;
+  --color-background-offset: hsl(var(--color-background-offset-hsl));
 
-  --color-foreground-hsl: var(--color-palette-gray-900-hsl);
+  --color-foreground-hsl: 0deg 0% 9%;
   --color-foreground: hsl(var(--color-foreground-hsl));
+  --color-foreground-secondary-hsl: 240deg 1% 44%;
+  --color-foreground-secondary: hsl(var(--color-foreground-secondary-hsl));
+  --color-foreground-tertiary-hsl: 240deg 2% 78%;
+  --color-foreground-tertiary: hsl(var(--color-foreground-tertiary-hsl));
+  --color-foreground-accent-hsl: 232deg 100% 30%;
+  --color-foreground-accent: hsl(var(--color-foreground-accent-hsl));
 
-  --color-secondary-hsl: var(--color-palette-gray-400-hsl);
-  --color-secondary: hsl(var(--color-secondary-hsl));
+  --color-border-hsl: 0deg 0% 91%;
+  --color-border: hsl(var(--color-border-hsl));
+  --color-border-subtle-hsl: 0deg 0% 86%;
+  --color-border-subtle: hsl(var(--color-border-subtle-hsl));
+  --color-border-active-hsl: 48deg 100% 57%;
+  --color-border-active: hsl(var(--color-border-active-hsl));
 
-  --color-tertiary-hsl: var(--color-palette-gray-300-hsl);
-  --color-tertiary: hsl(var(--color-tertiary-hsl));
-
-  --color-offset-hsl: var(--color-palette-gray-50-hsl);
-  --color-offset: hsl(var(--color-offset-hsl));
-
-  --color-smooth-hsl: var(--color-palette-gray-75-hsl);
-  --color-smooth: hsl(var(--color-smooth-hsl));
-
-  --color-muted-hsl: var(--color-palette-gray-100-hsl);
-  --color-muted: hsl(var(--color-muted-hsl));
-
-  --color-accent-hsl: var(--color-palette-yellow-hsl);
-  --color-accent: hsl(var(--color-accent-hsl));
-
-  --color-drawing-hsl: var(--color-palette-blue-hsl);
+  --color-outline-hsl: 48deg 99% 73%;
+  --color-outline: hsl(var(--color-outline-hsl));
+  --color-outline-error-hsl: 353deg 93% 89%;
+  --color-outline-error: hsl(var(--color-outline-error-hsl));
+  --color-error-hsl: 353deg 100% 57%;
+  --color-error: hsl(var(--color-error-hsl));
+  --color-success-hsl: 166deg 100% 30%;
+  --color-success: hsl(var(--color-success-hsl));
+  --color-selection-hsl: 0deg 0% 9%;
+  --color-selection: hsl(var(--color-selection-hsl));
+  --color-drawing-hsl: 232deg 100% 30%;
   --color-drawing: hsl(var(--color-drawing-hsl));
-
-  --color-panel-hsl: var(--color-palette-white-hsl);
-  --color-panel: hsl(var(--color-panel-hsl));
-
-  --color-danger-hsl: var(--color-palette-red-hsl);
-  --color-danger: hsl(var(--color-danger-hsl));
-
-  --focus-opacity: var(--opacity-60);
 }
 
 .theme-dark,
 [data-theme='dark'] {
-  --color-background-hsl: var(--color-palette-gray-900-hsl);
+  --color-background-hsl: 0deg 0% 9%;
   --color-background: hsl(var(--color-background-hsl));
+  --color-background-panel-hsl: 0deg 0% 14%;
+  --color-background-panel: hsl(var(--color-background-panel-hsl));
+  --color-background-offset-hsl: 0deg 0% 16%;
+  --color-background-offset: hsl(var(--color-background-offset-hsl));
 
-  --color-foreground-hsl: var(--color-palette-gray-25-hsl);
+  --color-foreground-hsl: 0deg 0% 93%;
   --color-foreground: hsl(var(--color-foreground-hsl));
+  --color-foreground-secondary-hsl: 240deg 1% 63%;
+  --color-foreground-secondary: hsl(var(--color-foreground-secondary-hsl));
+  --color-foreground-tertiary-hsl: 240deg 1% 31%;
+  --color-foreground-tertiary: hsl(var(--color-foreground-tertiary-hsl));
+  --color-foreground-accent-hsl: 48deg 100% 57%;
+  --color-foreground-accent: hsl(var(--color-foreground-accent-hsl));
 
-  --color-secondary-hsl: var(--color-palette-gray-300-hsl);
-  --color-secondary: hsl(var(--color-secondary-hsl));
+  --color-border-hsl: 0deg 0% 18%;
+  --color-border: hsl(var(--color-border-hsl));
+  --color-border-subtle-hsl: 240deg 2% 20%;
+  --color-border-subtle: hsl(var(--color-border-subtle-hsl));
+  --color-border-active-hsl: 48deg 100% 57%;
+  --color-border-active: hsl(var(--color-border-active-hsl));
 
-  --color-tertiary-hsl: var(--color-palette-gray-400-hsl);
-  --color-tertiary: hsl(var(--color-tertiary-hsl));
-
-  --color-offset-hsl: var(--color-palette-gray-850-hsl);
-  --color-offset: hsl(var(--color-offset-hsl));
-
-  --color-smooth-hsl: var(--color-palette-gray-800-hsl);
-  --color-smooth: hsl(var(--color-smooth-hsl));
-
-  --color-muted-hsl: var(--color-palette-gray-700-hsl);
-  --color-muted: hsl(var(--color-muted-hsl));
-
-  --color-accent-hsl: var(--color-palette-yellow-hsl);
-  --color-accent: hsl(var(--color-accent-hsl));
-
-  --color-drawing-hsl: var(--color-palette-gray-25-hsl);
+  --color-outline-hsl: 49deg 89% 18%;
+  --color-outline: hsl(var(--color-outline-hsl));
+  --color-outline-error-hsl: 0deg 30% 27%;
+  --color-outline-error: hsl(var(--color-outline-error-hsl));
+  --color-error-hsl: 0deg 76% 66%;
+  --color-error: hsl(var(--color-error-hsl));
+  --color-success-hsl: 166deg 100% 30%;
+  --color-success: hsl(var(--color-success-hsl));
+  --color-selection-hsl: 48deg 100% 57%;
+  --color-selection: hsl(var(--color-selection-hsl));
+  --color-drawing-hsl: 0deg 0% 93%;
   --color-drawing: hsl(var(--color-drawing-hsl));
-
-  --color-panel-hsl: var(--color-palette-gray-850-hsl);
-  --color-panel: hsl(var(--color-panel-hsl));
-
-  --color-danger-hsl: var(--color-palette-red-hsl);
-  --color-danger: hsl(var(--color-danger-hsl));
-
-  --focus-opacity: var(--opacity-20);
 }
 
 .theme-yellow,
 [data-theme='yellow'] {
-  --color-background-hsl: var(--color-palette-yellow-hsl);
+  --color-background-hsl: 48deg 100% 57%;
   --color-background: hsl(var(--color-background-hsl));
+  --color-background-panel-hsl: 48deg 100% 49%;
+  --color-background-panel: hsl(var(--color-background-panel-hsl));
+  --color-background-offset-hsl: 48deg 100% 50%;
+  --color-background-offset: hsl(var(--color-background-offset-hsl));
 
-  --color-foreground-hsl: var(--color-palette-gray-900-hsl);
-  --color-foreground: hsl(var(--color-foreground-hsl) / var(--opacity-90));
+  --color-foreground-hsl: 49deg 28% 15%;
+  --color-foreground: hsl(var(--color-foreground-hsl));
+  --color-foreground-secondary-hsl: 51deg 100% 20%;
+  --color-foreground-secondary: hsl(var(--color-foreground-secondary-hsl));
+  --color-foreground-tertiary-hsl: 45deg 100% 10%;
+  --color-foreground-tertiary: hsl(var(--color-foreground-tertiary-hsl));
+  --color-foreground-accent-hsl: 232deg 100% 30%;
+  --color-foreground-accent: hsl(var(--color-foreground-accent-hsl));
 
-  --color-secondary-hsl: var(--color-palette-gray-900-hsl);
-  --color-secondary: hsl(var(--color-secondary-hsl) / var(--opacity-60));
+  --color-border-hsl: 48deg 100% 46%;
+  --color-border: hsl(var(--color-border-hsl));
+  --color-border-subtle-hsl: 48deg 100% 46%;
+  --color-border-subtle: hsl(var(--color-border-subtle-hsl));
+  --color-border-active-hsl: 49deg 100% 14%;
+  --color-border-active: hsl(var(--color-border-active-hsl));
 
-  --color-tertiary-hsl: var(--color-palette-gray-900-hsl);
-  --color-tertiary: hsl(var(--color-tertiary-hsl) / var(--opacity-40));
-
-  --color-offset-hsl: var(--color-palette-gray-900-hsl);
-  --color-offset: hsl(var(--color-offset-hsl) / var(--opacity-5));
-
-  --color-smooth-hsl: var(--color-palette-gray-900-hsl);
-  --color-smooth: hsl(var(--color-smooth-hsl) / var(--opacity-10));
-
-  --color-muted-hsl: var(--color-palette-gray-900-hsl);
-  --color-muted: hsl(var(--color-muted-hsl) / var(--opacity-20));
-
-  --color-accent-hsl: var(--color-palette-gray-25-hsl);
-  --color-accent: hsl(var(--color-accent-hsl));
-
-  --color-drawing-hsl: var(--color-palette-gray-900-hsl);
+  --color-outline-hsl: 48deg 100% 46%;
+  --color-outline: hsl(var(--color-outline-hsl));
+  --color-outline-error-hsl: 40deg 83% 53%;
+  --color-outline-error: hsl(var(--color-outline-error-hsl));
+  --color-error-hsl: 0deg 66% 41%;
+  --color-error: hsl(var(--color-error-hsl));
+  --color-success-hsl: 158deg 41% 28%;
+  --color-success: hsl(var(--color-success-hsl));
+  --color-selection-hsl: 49deg 100% 14%;
+  --color-selection: hsl(var(--color-selection-hsl));
+  --color-drawing-hsl: 49deg 28% 15%;
   --color-drawing: hsl(var(--color-drawing-hsl));
-
-  --color-panel-hsl: var(--color-palette-gray-900-hsl);
-  --color-panel: hsl(var(--color-panel-hsl) / var(--opacity-10));
-
-  --color-danger-hsl: var(--color-palette-red-hsl);
-  --color-danger: hsl(var(--color-danger-hsl));
-
-  --focus-opacity: var(--opacity-15);
 }

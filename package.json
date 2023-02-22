@@ -30,7 +30,7 @@
       "svelte": "./dist/index.js"
     },
     "./index.css": "./dist/styles/index.css",
-    "./mixins/*": "./dist/styles/mixins/*"
+    "./mixins.css": "./dist/styles/mixins.css"
   },
   "files": [
     "dist"
