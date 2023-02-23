@@ -61,12 +61,9 @@
   --line-height-9xl: clamp(4.2rem, 7.07vw + 2.344rem, 8rem); /* 1.12 - 1 */
 
   /* letter-spacing */
-  --letter-spacing-tighter: -0.05rem;
   --letter-spacing-tight: -0.005rem;
   --letter-spacing-normal: 0rem;
   --letter-spacing-wide: 0.005rem;
-  --letter-spacing-wider: 0.01rem;
-  --letter-spacing-widest: 0.05rem;
 
   /* font-weight */
   --font-weight-normal: 400;

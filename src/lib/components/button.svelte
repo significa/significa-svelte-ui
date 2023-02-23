@@ -88,6 +88,7 @@
     font-size: var(--font-size-md);
     line-height: var(--line-height-none);
     font-weight: var(--font-weight-medium);
+    white-space: nowrap;
 
     background-color: var(--button-background-color);
     color: var(--button-text-color);
