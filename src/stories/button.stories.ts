@@ -34,16 +34,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  args: {
+    label: 'Hello world'
+  }
+};
 
 export const Secondary: Story = {
   args: {
+    label: 'Hello world',
     variant: 'secondary'
   }
 };
 
 export const Ghost: Story = {
   args: {
+    label: 'Hello world',
     variant: 'ghost',
     size: 'sm'
   }
@@ -51,6 +57,7 @@ export const Ghost: Story = {
 
 export const Danger: Story = {
   args: {
+    label: 'Hello world',
     variant: 'danger',
     icon: 'info'
   }
@@ -58,6 +65,7 @@ export const Danger: Story = {
 
 export const Success: Story = {
   args: {
+    label: 'Hello world',
     variant: 'success',
     icon: 'check'
   }
@@ -65,30 +73,41 @@ export const Success: Story = {
 
 export const Small: Story = {
   args: {
+    label: 'Hello world',
     size: 'sm'
   }
 };
 
 export const Icon: Story = {
   args: {
+    label: 'Hello world',
     icon: 'handbook'
+  }
+};
+
+export const JustIcon: Story = {
+  args: {
+    icon: 'link'
   }
 };
 
 export const Arrow: Story = {
   args: {
+    label: 'Hello world',
     arrow: true
   }
 };
 
 export const Loading: Story = {
   args: {
+    label: 'Hello world',
     loading: true
   }
 };
 
 export const IconAndArrow: Story = {
   args: {
+    label: 'Hello world',
     icon: 'handbook',
     arrow: true
   }
@@ -96,6 +115,7 @@ export const IconAndArrow: Story = {
 
 export const Disabled: Story = {
   args: {
+    label: 'Hello world',
     disabled: true
   }
 };

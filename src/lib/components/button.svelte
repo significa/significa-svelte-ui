@@ -43,9 +43,11 @@
     {#if icon}
       <Icon class="icon" {icon} />
     {/if}
-    <span class="content">
-      <slot />
-    </span>
+    {#if $$slots.default}
+      <span class="content">
+        <slot />
+      </span>
+    {/if}
     {#if arrow}
       <Icon class="arrow" icon="arrow-right" />
     {/if}
