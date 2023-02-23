@@ -16,6 +16,12 @@
 />
 
 <style lang="postcss">
+  /* 
+    available vars:
+    --spinner-size
+    --spinner-width
+   */
+
   @keyframes spin {
     from {
       transform: rotate(0deg);
@@ -28,6 +34,7 @@
   div {
     height: var(--spinner-size);
     width: var(--spinner-size);
+    position: relative;
 
     &:before,
     &:after {

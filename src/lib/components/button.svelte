@@ -58,6 +58,23 @@
 </svelte:element>
 
 <style lang="postcss">
+  /**
+    available vars:
+    --button-background-color
+    --button-background-color-hover
+    --button-background-color-active
+    --button-text-color
+    --button-text-color-hover
+    --button-text-color-active
+    --button-border-color
+    --button-border-color-hover
+    --button-border-color-active
+    --button-outline-color
+    --button-border-radius
+    --button-height
+    --button-padding-inline
+
+  */
   .button {
     all: unset;
     font-family: var(--font-family-sans);

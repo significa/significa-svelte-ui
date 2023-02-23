@@ -48,6 +48,10 @@
 </div>
 
 <style lang="postcss">
+  /* 
+    Available vars:
+    --accordion-border-radius (just for outline with focus-visible)
+   */
   button {
     all: unset;
 
