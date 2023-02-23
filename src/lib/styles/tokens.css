@@ -81,17 +81,21 @@
   --aspect-ratio-tall: 3 / 4;
 
   /* radii */
-  --radii-none: 0;
-  --radii-3xs: 2px;
-  --radii-2xs: 4px;
-  --radii-xs: 8px;
-  --radii-sm: 12px;
-  --radii-md: 16px;
-  --radii-lg: 20px;
-  --radii-xl: 24px;
-  --radii-2xl: 28px;
-  --radii-3xl: 32px;
-  --radii-full: 99999px;
+  --border-radius-none: 0;
+  --border-radius-3xs: 2px;
+  --border-radius-2xs: 4px;
+  --border-radius-xs: 8px;
+  --border-radius-sm: 12px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 24px;
+  --border-radius-2xl: 28px;
+  --border-radius-3xl: 32px;
+  --border-radius-full: 99999px;
+
+  /* outline */
+  --outline-width: 6px;
+  --outline-width-active: 2px;
 
   /* z-index */
   --z-index-0: 0;
@@ -105,7 +109,7 @@
   /* transition */
   --transition-appearance: 200ms ease;
   --transition-motion: 300ms cubic-bezier(0.2, 1, 0.2, 1);
-  --transition-smooth: 400ms cubic-bezier(0.9, 0, 0.05, 1);
+  --transition-smooth: 300ms cubic-bezier(1, 0, 0, 1);
   --transition-in-out: 300ms ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
