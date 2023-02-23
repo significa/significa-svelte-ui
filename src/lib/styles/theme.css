@@ -68,7 +68,7 @@
   --color-border: hsl(var(--color-border-hsl));
   --color-border-subtle-hsl: 240deg 2% 20%;
   --color-border-subtle: hsl(var(--color-border-subtle-hsl));
-  --color-border-active-hsl: 48deg 100% 57%;
+  --color-border-active-hsl: 48deg 100% 32%;
   --color-border-active: hsl(var(--color-border-active-hsl));
 
   --color-outline-hsl: 49deg 89% 18%;
@@ -107,7 +107,7 @@
   --color-border: hsl(var(--color-border-hsl));
   --color-border-subtle-hsl: 48deg 100% 46%;
   --color-border-subtle: hsl(var(--color-border-subtle-hsl));
-  --color-border-active-hsl: 49deg 100% 14%;
+  --color-border-active-hsl: 49deg 100% 40%;
   --color-border-active: hsl(var(--color-border-active-hsl));
 
   --color-outline-hsl: 48deg 100% 46%;
