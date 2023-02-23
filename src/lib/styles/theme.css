@@ -75,7 +75,7 @@
   --color-outline: hsl(var(--color-outline-hsl));
   --color-outline-error-hsl: 0deg 30% 27%;
   --color-outline-error: hsl(var(--color-outline-error-hsl));
-  --color-error-hsl: 0deg 76% 66%;
+  --color-error-hsl: 355deg 85% 58%;
   --color-error: hsl(var(--color-error-hsl));
   --color-success-hsl: 166deg 100% 30%;
   --color-success: hsl(var(--color-success-hsl));
