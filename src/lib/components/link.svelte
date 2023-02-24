@@ -4,7 +4,7 @@
   type $$Props = HTMLAnchorAttributes;
 </script>
 
-<a {...$$restProps} href={$$props.href} class={$$props.class}>
+<a {...$$restProps} href={$$props.href}>
   <slot />
 </a>
 

@@ -28,12 +28,11 @@
 <script lang="ts">
   interface $$Props extends HTMLAttributes<HTMLDivElement> {
     icon: IconOptions;
-    class?: string;
   }
 
   export let icon: $$Props['icon'];
 </script>
 
-<i data-icon={icon} class={$$props.class} aria-hidden="true" {...$$restProps}>
+<i data-icon={icon} aria-hidden="true" {...$$restProps}>
   {@html icons[icon]}
 </i>

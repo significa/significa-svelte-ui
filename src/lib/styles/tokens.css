@@ -50,8 +50,8 @@
   --line-height-sm: var(--line-height-normal);
   --line-height-md: var(--line-height-normal);
   --line-height-lg: var(--line-height-normal);
-  --line-height-xl: var(--line-height-snug);
-  --line-height-2xl: var(--line-height-snug);
+  --line-height-xl: var(--line-height-normal);
+  --line-height-2xl: var(--line-height-normal);
   --line-height-3xl: var(--line-height-snug);
   --line-height-4xl: var(--line-height-snug);
   --line-height-5xl: var(--line-height-snug);

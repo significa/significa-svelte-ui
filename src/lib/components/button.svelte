@@ -20,6 +20,8 @@
   };
   type $$Props = Props;
 
+  let className: $$Props['class'] = undefined;
+  export { className as class };
   export let as: $$Props['as'] = 'button';
   export let variant: $$Props['variant'] = 'primary';
   export let size: $$Props['size'] = 'md';
@@ -36,8 +38,8 @@
   on:keydown
   on:keyup
   on:keypress
+  class={clsx('button', variant, size, { 'animated-icons': !!icon && !!arrow }, className)}
   {...$$restProps}
-  class={clsx('button', variant, size, { 'animated-icons': !!icon && !!arrow }, $$props.class)}
 >
   <div class={clsx('inner', { loading })}>
     {#if icon}

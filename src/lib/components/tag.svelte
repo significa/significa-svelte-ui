@@ -14,6 +14,9 @@
   };
   type $$Props = Props;
 
+  let className: $$Props['class'] = undefined;
+  export { className as class };
+
   export let href: $$Props['href'] = undefined;
   export let label: $$Props['label'];
 </script>
@@ -27,8 +30,8 @@
   on:keyup
   on:keypress
   {href}
+  class={clsx('tag', { link: !!href }, className)}
   {...$$restProps}
-  class={clsx('tag', { link: !!href }, $$props.class)}
 >
   {label}
   {#if href}
@@ -48,7 +51,7 @@
     border-radius: var(--border-radius-full);
 
     font-size: var(--font-size-sm);
-    line-height: var(--line-height-none);
+    line-height: var(--line-height-normal);
     font-weight: var(--font-weight-medium);
     letter-spacing: var(--letter-spacing-wide);
     white-space: nowrap;

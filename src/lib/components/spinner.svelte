@@ -6,13 +6,16 @@
     size?: 'xs' | 'sm';
   }
 
+  let className: $$Props['class'] = undefined;
+  export { className as class };
+
   export let size: $$Props['size'] = 'sm';
 </script>
 
 <div
   aria-label="loading"
   role="progressbar"
-  class={clsx({ xs: size === 'xs', sm: size === 'sm' }, $$props.class)}
+  class={clsx({ xs: size === 'xs', sm: size === 'sm' }, className)}
 />
 
 <style lang="postcss">

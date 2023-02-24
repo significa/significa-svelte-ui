@@ -15,17 +15,16 @@ _More instructions in [Working with the npm registry](https://docs.github.com/en
 
 Install with `npm install --save-dev @significa/svelte-ui`
 
-## CSS main file
+## Import CSS
 
-In your main css file (`/src/styles/index.css` or similar), import our main file:
+In your main css file (`/src/styles/index.css` or similar), import our CSS:
 
 ```css
+@import '@significa/svelte-ui/fonts.css';
 @import '@significa/svelte-ui/index.css';
 
 /* Your styles */
 ```
-
-This will set-up our tokens and brand font.
 
 ### VSCode setup
 

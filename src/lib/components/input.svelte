@@ -7,13 +7,16 @@
     error?: boolean;
   }
 
+  let className: $$Props['class'] = undefined;
+  export { className as class };
+  export let id: $$Props['id'] = crypto.randomUUID();
   export let label: $$Props['label'];
   export let error: $$Props['error'] = false;
 </script>
 
-<div class={clsx({ error }, $$props.class)}>
-  <input id={$$props.id} placeholder={label} {...$$restProps} />
-  <label for={$$props.id}>
+<div class={clsx({ error }, className)}>
+  <input {id} placeholder={label} {...$$restProps} />
+  <label for={id}>
     {label}
   </label>
 </div>
