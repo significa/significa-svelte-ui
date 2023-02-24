@@ -193,19 +193,18 @@
         transition: transform var(--transition-motion);
       }
 
-      @media (hover: hover) {
-        &:hover {
-          & :global(.arrow) {
-            transform: translateX(0);
-          }
+      &:hover,
+      &:focus-visible {
+        & :global(.arrow) {
+          transform: translateX(0);
+        }
 
-          & :global(.icon) {
-            transform: translateX(calc(var(--button-padding-inline) * -1 - 16px));
-          }
+        & :global(.icon) {
+          transform: translateX(calc(var(--button-padding-inline) * -1 - 16px));
+        }
 
-          & .content {
-            transform: translateX(-22px); /* 16px icon + 6px gap */
-          }
+        & .content {
+          transform: translateX(-22px); /* 16px icon + 6px gap */
         }
       }
     }
