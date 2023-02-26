@@ -5,6 +5,7 @@
   import check from './icons/check.svg?raw';
   import chevron from './icons/chevron.svg?raw';
   import close from './icons/close.svg?raw';
+  import comparison from './icons/comparison.svg?raw';
   import expand from './icons/expand.svg?raw';
   import handbook from './icons/handbook.svg?raw';
   import info from './icons/info.svg?raw';
@@ -16,6 +17,7 @@
     check,
     chevron,
     close,
+    comparison,
     expand,
     handbook,
     info,
