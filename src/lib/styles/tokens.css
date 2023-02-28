@@ -2,9 +2,7 @@
   /* font family */
   --font-family-sans: 'Significa', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen,
     ubuntu, cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-family-mono: 'Significa Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono',
-    'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-family-mono: 'Significa Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
   /*
     Typography
