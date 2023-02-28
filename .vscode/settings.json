@@ -1,7 +1,8 @@
 {
-	"cssvar.files": ["src/**/*.css"],
-	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll": true
-	}
+  "cssvar.files": ["src/**/*.css"],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "eslint.validate": ["svelte"]
 }
