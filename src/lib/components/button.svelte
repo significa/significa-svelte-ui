@@ -13,7 +13,7 @@
   };
   type Props = (Button | Anchor) & {
     variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'success';
-    size?: 'sm' | 'md';
+    size?: 'md' | 'lg';
     loading?: boolean;
     icon?: IconOptions;
     arrow?: boolean;
@@ -81,6 +81,7 @@
   */
   .button {
     all: unset;
+    display: inline-flex;
     font-family: var(--font-family-sans);
 
     position: relative;
@@ -142,7 +143,7 @@
     }
 
     &.secondary {
-      --button-background-color: var(--color-background);
+      --button-background-color: transparent;
       --button-text-color: var(--color-foreground);
       --button-border-color: var(--color-border-subtle);
       --button-border-color-hover: var(--color-border-active);
@@ -165,13 +166,13 @@
       --button-outline-color: hsl(var(--color-success-hsl) / 0.3);
     }
 
-    &.sm {
+    &.md {
       --button-padding-inline: 20px;
       --button-height: 44px;
       --button-border-radius: var(--border-radius-md);
     }
 
-    &.md {
+    &.lg {
       --button-padding-inline: 24px;
       --button-height: 56px;
       --button-border-radius: var(--border-radius-lg);
@@ -213,6 +214,9 @@
   }
 
   .inner {
+    width: 100%;
+    box-sizing: border-box;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;

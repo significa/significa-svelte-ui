@@ -13,7 +13,7 @@ const meta = {
     },
     size: {
       control: { type: 'select' },
-      options: ['sm', 'md']
+      options: ['md', 'lg']
     },
     icon: {
       control: { type: 'select' },
@@ -50,8 +50,7 @@ export const Secondary: Story = {
 export const Ghost: Story = {
   args: {
     label: 'Hello world',
-    variant: 'ghost',
-    size: 'sm'
+    variant: 'ghost'
   }
 };
 
@@ -71,10 +70,10 @@ export const Success: Story = {
   }
 };
 
-export const Small: Story = {
+export const Large: Story = {
   args: {
     label: 'Hello world',
-    size: 'sm'
+    size: 'lg'
   }
 };
 
