@@ -91,6 +91,6 @@ jobs:
       - run: npm run build
 
       - name: Publish to GitHub registry
-        run: npm publish ./package
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
