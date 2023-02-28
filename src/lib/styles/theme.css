@@ -9,11 +9,11 @@
 :root,
 .theme-light,
 [data-theme='light'] {
-  --color-background-hsl: 0deg 0% 99%;
+  --color-background-hsl: 0deg 0% 97%;
   --color-background: hsl(var(--color-background-hsl));
-  --color-background-panel-hsl: 0deg 0% 95%;
+  --color-background-panel-hsl: 0deg 0% 100%;
   --color-background-panel: hsl(var(--color-background-panel-hsl));
-  --color-background-offset-hsl: 0deg 0% 97%;
+  --color-background-offset-hsl: 0deg 0% 93%;
   --color-background-offset: hsl(var(--color-background-offset-hsl));
 
   --color-foreground-hsl: 0deg 0% 9%;
@@ -50,9 +50,9 @@
 [data-theme='dark'] {
   --color-background-hsl: 0deg 0% 9%;
   --color-background: hsl(var(--color-background-hsl));
-  --color-background-panel-hsl: 0deg 0% 14%;
+  --color-background-panel-hsl: 0deg 0% 12%;
   --color-background-panel: hsl(var(--color-background-panel-hsl));
-  --color-background-offset-hsl: 0deg 0% 16%;
+  --color-background-offset-hsl: 0deg 0% 14%;
   --color-background-offset: hsl(var(--color-background-offset-hsl));
 
   --color-foreground-hsl: 0deg 0% 93%;
