@@ -1,30 +1,26 @@
 <script lang="ts" context="module">
   import type { HTMLAttributes } from 'svelte/elements';
-  import arrowRight from './icons/arrow-right.svg?raw';
-  import chapters from './icons/chapters.svg?raw';
-  import check from './icons/check.svg?raw';
-  import chevron from './icons/chevron.svg?raw';
-  import close from './icons/close.svg?raw';
-  import comparison from './icons/comparison.svg?raw';
-  import expand from './icons/expand.svg?raw';
-  import handbook from './icons/handbook.svg?raw';
-  import info from './icons/info.svg?raw';
-  import link from './icons/link.svg?raw';
 
-  export const icons = {
-    'arrow-right': arrowRight,
-    chapters,
-    check,
-    chevron,
-    close,
-    comparison,
-    expand,
-    handbook,
-    info,
-    link
-  };
+  const files = import.meta.glob('./icons/*.svg', { as: 'raw', eager: true });
 
-  export type IconOptions = keyof typeof icons;
+  export const icons = Object.entries(files).reduce((acc, [path, file]) => {
+    const name = path.replace('./icons/', '').replace('.svg', '');
+    acc[name] = file;
+    return acc;
+  }, {} as Record<string, string>);
+
+  export type IconOptions =
+    | '3dots'
+    | 'arrow-right'
+    | 'chapters'
+    | 'check'
+    | 'chevron'
+    | 'close'
+    | 'comparison'
+    | 'expand'
+    | 'handbook'
+    | 'info'
+    | 'link';
 </script>
 
 <script lang="ts">
@@ -35,6 +31,8 @@
   export let icon: $$Props['icon'];
 </script>
 
-<i data-icon={icon} aria-hidden="true" {...$$restProps}>
-  {@html icons[icon]}
-</i>
+{#if icons[icon]}
+  <i data-icon={icon} aria-hidden="true" {...$$restProps}>
+    {@html icons[icon]}
+  </i>
+{/if}
