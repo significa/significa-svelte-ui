@@ -16,7 +16,7 @@
   <slot />
 </a>
 
-<style>
+<style lang="postcss">
   a {
     --link-underline-color: var(--underline-color, hsl(var(--color-foreground-tertiary)));
     --link-underline-width: var(--underline-width, 2px);
