@@ -48,7 +48,7 @@
             text-foreground
             border-border-subtle
             hover:border-border-active
-            focus:border-border-active
+            focus-visible:border-border-active
             active:border-border-active
             border
           `,
