@@ -1,16 +1,35 @@
 <script lang="ts">
-  export let variant: 'symbol' | 'wordmark' = 'symbol';
+  import type { HTMLAttributes } from 'svelte/elements';
+  type $$Props = HTMLAttributes<SVGElement> & {
+    variant?: 'symbol' | 'wordmark';
+  };
+
+  export let variant: $$Props['variant'] = 'symbol';
 </script>
 
 {#if variant === 'symbol'}
-  <svg width="32" height="38" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="32"
+    height="38"
+    viewBox="0 0 32 38"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...$$restProps}
+  >
     <path
       d="M16.0004 37.182C7.48051 37.182 0.545898 30.4622 0.545898 22.1367C0.545898 12.7496 8.00765 0.818359 16.0004 0.818359C23.9932 0.818359 31.455 12.7496 31.455 22.1367C31.455 30.4622 24.5204 37.182 16.0004 37.182ZM16.0004 33.7515C22.6752 33.7515 28.0584 28.5351 28.0584 22.1367C28.0584 14.4067 21.7058 4.24889 16.0004 4.24889C10.2951 4.24889 3.9425 14.4067 3.9425 22.1367C3.9425 28.5351 9.32565 33.7515 16.0004 33.7515Z"
       fill="currentColor"
     />
   </svg>
 {:else}
-  <svg width="96" height="25" viewBox="0 0 96 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="96"
+    height="25"
+    viewBox="0 0 96 25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...$$restProps}
+  >
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"

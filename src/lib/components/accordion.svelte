@@ -25,17 +25,28 @@
       expanded = !expanded;
     }
   };
+
+  interface $$Slots {
+    default: Record<string, never>;
+    header: {
+      expanded: boolean;
+      onClick: () => void;
+      attributes: { id: string; 'aria-expanded': boolean; 'aria-controls': string };
+    };
+  }
 </script>
 
-<div class="accordion">
-  <button
-    id={`accordion-header-${id}`}
-    aria-expanded={isExpanded}
-    aria-controls={`accordion-panel-${id}`}
-    on:click={handleClick}
-  >
-    <slot name="header" expanded={isExpanded} />
-  </button>
+<div class="accordion" {...$$restProps}>
+  <slot
+    name="header"
+    expanded={isExpanded}
+    onClick={handleClick}
+    attributes={{
+      id: `accordion-header-${id}`,
+      'aria-expanded': isExpanded,
+      'aria-controls': `accordion-panel-${id}`
+    }}
+  />
   {#if isExpanded}
     <section
       id={`accordion-panel-${id}`}
@@ -46,22 +57,3 @@
     </section>
   {/if}
 </div>
-
-<style lang="postcss">
-  /* 
-    Available vars:
-    --accordion-border-radius (just for outline with focus-visible)
-   */
-  button {
-    all: unset;
-
-    cursor: pointer;
-    border-radius: var(--accordion-border-radius, var(--border-radius-sm));
-
-    transition: all var(--transition-appearance);
-
-    &:focus-visible {
-      box-shadow: 0 0 0 var(--outline-width) var(--accordion-outline-color, var(--color-outline));
-    }
-  }
-</style>

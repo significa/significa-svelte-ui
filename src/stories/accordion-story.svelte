@@ -3,8 +3,8 @@
 </script>
 
 <Accordion>
-  <div slot="header" let:expanded>
-    <p>Accordion Header {expanded ? '-' : '+'}</p>
+  <div slot="header" let:expanded let:attributes let:onClick>
+    <button {...attributes} on:click={onClick}>Accordion Header {expanded ? '-' : '+'}</button>
   </div>
   <div>
     <p>Accordion Content</p>

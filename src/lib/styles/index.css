@@ -1,2 +1,111 @@
-@import './theme.css';
-@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Significa Sans;
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+    src: url('./fonts/significa-regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: Significa Sans;
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+    src: url('./fonts/significa-medium.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: Significa Sans;
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+    src: url('./fonts/significa-semibold.woff2') format('woff2');
+  }
+
+  html {
+    text-rendering: geometricPrecision;
+  }
+
+  [data-theme],
+  .theme-light,
+  .theme-dark,
+  .theme-yellow {
+    background-color: hsl(var(--color-background));
+    color: hsl(var(--color-foreground));
+  }
+
+  :root,
+  .theme-light,
+  [data-theme='light'] {
+    --color-background: 0deg 0% 97%;
+    --color-background-panel: 0deg 0% 100%;
+    --color-background-offset: 0deg 0% 93%;
+
+    --color-foreground: 0deg 0% 9%;
+    --color-foreground-secondary: 240deg 1% 44%;
+    --color-foreground-tertiary: 240deg 2% 78%;
+    --color-foreground-accent: 232deg 100% 30%;
+
+    --color-border: 0deg 0% 91%;
+    --color-border-subtle: 0deg 0% 86%;
+    --color-border-active: 48deg 100% 57%;
+
+    --color-outline: 48deg 99% 73%;
+    --color-outline-error: 353deg 93% 89%;
+    --color-error: 353deg 80% 48%;
+    --color-success: 166deg 90% 27%;
+    --color-selection: 0deg 0% 9%;
+    --color-drawing: 232deg 100% 30%;
+  }
+
+  .theme-dark,
+  [data-theme='dark'] {
+    --color-background: 0deg 0% 9%;
+    --color-background-panel: 0deg 0% 12%;
+    --color-background-offset: 0deg 0% 14%;
+
+    --color-foreground: 0deg 0% 93%;
+    --color-foreground-secondary: 240deg 1% 63%;
+    --color-foreground-tertiary: 240deg 1% 31%;
+    --color-foreground-accent: 48deg 100% 57%;
+
+    --color-border: 0deg 0% 18%;
+    --color-border-subtle: 240deg 2% 20%;
+    --color-border-active: 48deg 100% 32%;
+
+    --color-outline: 49deg 89% 18%;
+    --color-outline-error: 0deg 30% 27%;
+    --color-error: 355deg 85% 58%;
+    --color-success: 166deg 100% 30%;
+    --color-selection: 48deg 100% 57%;
+    --color-drawing: 0deg 0% 93%;
+  }
+
+  .theme-yellow,
+  [data-theme='yellow'] {
+    --color-background: 48deg 100% 57%;
+    --color-background-panel: 48deg 100% 49%;
+    --color-background-offset: 48deg 100% 50%;
+
+    --color-foreground: 49deg 28% 15%;
+    --color-foreground-secondary: 51deg 100% 20%;
+    --color-foreground-tertiary: 45deg 100% 10%;
+    --color-foreground-accent: 232deg 100% 30%;
+
+    --color-border: 48deg 100% 46%;
+    --color-border-subtle: 48deg 100% 46%;
+    --color-border-active: 49deg 100% 40%;
+
+    --color-outline: 48deg 100% 46%;
+    --color-outline-error: 40deg 83% 53%;
+    --color-error: 0deg 66% 41%;
+    --color-success: 158deg 41% 28%;
+    --color-selection: 49deg 100% 14%;
+    --color-drawing: 49deg 28% 15%;
+  }
+}

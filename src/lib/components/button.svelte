@@ -1,9 +1,31 @@
 <script lang="ts">
-  import clsx from 'clsx';
   import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
   import Icon from './icon.svelte';
   import type { IconOptions } from './icon.svelte';
   import Spinner from './spinner.svelte';
+  import { cva, type VariantProps } from 'class-variance-authority';
+  import clsx from 'clsx';
+  import { twMerge } from 'tailwind-merge';
+
+  const button = cva(
+    'text-md group relative inline-flex items-center justify-center gap-1.5 overflow-hidden whitespace-nowrap font-medium leading-none outline-none transition-all hover:ring-4 focus-visible:ring-4 active:scale-[0.98] active:ring-2 disabled:pointer-events-none disabled:opacity-60',
+    {
+      variants: {
+        variant: {
+          primary: `bg-foreground text-background`,
+          secondary: `text-foreground border-border-subtle hover:border-border-active focus:border-border-active active:border-border-active border`,
+          ghost: ''
+        },
+        size: {
+          md: 'h-11 rounded-md px-5',
+          lg: 'h-14 rounded-lg px-6'
+        },
+        loading: {
+          true: '[&>*:not(.btn-spinner)]:opacity-0'
+        }
+      }
+    }
+  );
 
   type Button = HTMLButtonAttributes & {
     as?: 'button';
@@ -11,17 +33,13 @@
   type Anchor = HTMLAnchorAttributes & {
     as: 'a';
   };
-  type Props = (Button | Anchor) & {
-    variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'success';
-    size?: 'md' | 'lg';
-    loading?: boolean;
-    icon?: IconOptions;
-    arrow?: boolean;
-  };
+  type Props = (Button | Anchor) &
+    VariantProps<typeof button> & {
+      icon?: IconOptions;
+      arrow?: boolean;
+    };
   type $$Props = Props;
 
-  let className: $$Props['class'] = undefined;
-  export { className as class };
   export let as: $$Props['as'] = 'button';
   export let variant: $$Props['variant'] = 'primary';
   export let size: $$Props['size'] = 'md';
@@ -38,211 +56,50 @@
   on:keydown
   on:keyup
   on:keypress
-  class={clsx('button', variant, size, { 'animated-icons': !!icon && !!arrow }, className)}
   {...$$restProps}
+  class={twMerge(button({ variant, size, loading }), $$restProps.class)}
 >
-  <div class={clsx('inner', { loading })}>
-    {#if icon}
-      <Icon class="icon" {icon} />
-    {/if}
-    {#if $$slots.default}
-      <span class="content">
-        <slot />
-      </span>
-    {/if}
-    {#if arrow}
-      <Icon class="arrow" icon="arrow-right" />
-    {/if}
-  </div>
+  {#if icon}
+    <Icon
+      class={clsx(
+        icon &&
+          arrow && [
+            'transition-all duration-300 ease-motion group-hover:-translate-x-10 group-focus-visible:-translate-x-10'
+          ]
+      )}
+      {icon}
+    />
+  {/if}
+  {#if $$slots.default}
+    <span
+      class={clsx(
+        icon &&
+          arrow && [
+            'transition-all duration-300 ease-motion',
+            size === 'md' && 'group-hover:-translate-x-5 group-focus-visible:-translate-x-5',
+            size === 'lg' && 'group-hover:-translate-x-6 group-focus-visible:-translate-x-6'
+          ]
+      )}
+    >
+      <slot />
+    </span>
+  {/if}
+  {#if arrow}
+    <Icon
+      class={clsx(
+        icon &&
+          arrow && [
+            'absolute translate-x-10 transition-all duration-300 ease-motion group-hover:-translate-x-0 group-focus-visible:-translate-x-0',
+            size === 'md' && 'right-5',
+            size === 'lg' && 'right-6'
+          ]
+      )}
+      icon="arrow-right"
+    />
+  {/if}
   {#if loading}
-    <div class="spinner">
-      <Spinner size={size === 'md' ? 'sm' : 'xs'} />
+    <div class="btn-spinner absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <Spinner size={size === 'lg' ? 'sm' : 'xs'} />
     </div>
   {/if}
 </svelte:element>
-
-<style lang="postcss">
-  /**
-    available vars:
-    --button-background-color
-    --button-background-color-hover
-    --button-background-color-active
-    --button-text-color
-    --button-text-color-hover
-    --button-text-color-active
-    --button-border-color
-    --button-border-color-hover
-    --button-border-color-active
-    --button-outline-color
-    --button-border-radius
-    --button-height
-    --button-padding-inline
-
-  */
-  .button {
-    all: unset;
-    display: inline-flex;
-    font-family: var(--font-family-sans);
-
-    position: relative;
-
-    cursor: pointer;
-
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-none);
-    font-weight: var(--font-weight-medium);
-    white-space: nowrap;
-
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
-
-    border: 1px solid var(--button-border-color, var(--button-background-color));
-
-    border-radius: var(--button-border-radius);
-
-    transition: all var(--transition-appearance);
-
-    &:hover,
-    &:focus-visible {
-      box-shadow: 0 0 0 var(--outline-width) var(--button-outline-color, var(--color-outline));
-      background-color: var(--button-background-color-hover, var(--button-background-color));
-      color: var(--button-text-color-hover, var(--button-text-color));
-      border-color: var(
-        --button-border-color-hover,
-        var(--button-border-color, var(--button-background-color))
-      );
-    }
-
-    &:active {
-      transform: scale(0.98);
-
-      box-shadow: 0 0 0 var(--outline-width-active)
-        var(--button-outline-color, var(--color-outline));
-      background-color: var(
-        --button-background-color-active,
-        var(--button-background-color-hover, var(--button-background-color))
-      );
-      color: var(
-        --button-text-color-active,
-        var(--button-text-color-hover, var(--button-text-color))
-      );
-      border-color: var(
-        --button-border-color-active,
-        var(--button-border-color-hover, var(--button-border-color, var(--button-background-color)))
-      );
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    &.primary {
-      --button-background-color: var(--color-foreground);
-      --button-text-color: var(--color-background);
-    }
-
-    &.secondary {
-      --button-background-color: transparent;
-      --button-text-color: var(--color-foreground);
-      --button-border-color: var(--color-border-subtle);
-      --button-border-color-hover: var(--color-border-active);
-    }
-
-    &.ghost {
-      --button-background-color: transparent;
-      --button-text-color: var(--color-foreground);
-    }
-
-    &.danger {
-      --button-background-color: var(--color-error);
-      --button-text-color: var(--color-background);
-      --button-outline-color: hsl(var(--color-error-hsl) / 0.3);
-    }
-
-    &.success {
-      --button-background-color: var(--color-success);
-      --button-text-color: var(--color-background);
-      --button-outline-color: hsl(var(--color-success-hsl) / 0.3);
-    }
-
-    &.md {
-      --button-padding-inline: 20px;
-      --button-height: 44px;
-      --button-border-radius: var(--border-radius-md);
-    }
-
-    &.lg {
-      --button-padding-inline: 24px;
-      --button-height: 56px;
-      --button-border-radius: var(--border-radius-lg);
-    }
-
-    &.animated-icons {
-      overflow: hidden;
-
-      & :global(.arrow) {
-        position: absolute;
-        right: var(--button-padding-inline);
-        transform: translateX(calc(var(--button-padding-inline) + 16px));
-      }
-
-      & :global(.icon),
-      & :global(.arrow) {
-        transition: transform var(--transition-motion);
-      }
-
-      & .content {
-        transition: transform var(--transition-motion);
-      }
-
-      &:hover,
-      &:focus-visible {
-        & :global(.arrow) {
-          transform: translateX(0);
-        }
-
-        & :global(.icon) {
-          transform: translateX(calc(var(--button-padding-inline) * -1 - 16px));
-        }
-
-        & .content {
-          transform: translateX(-22px); /* 16px icon + 6px gap */
-        }
-      }
-    }
-  }
-
-  .inner {
-    width: 100%;
-    box-sizing: border-box;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-
-    height: var(--button-height);
-    padding-inline: var(--button-padding-inline);
-
-    & :global(.icon),
-    & :global(.arrow) {
-      width: 16px;
-      height: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &.loading {
-      opacity: 0;
-    }
-  }
-
-  .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-</style>

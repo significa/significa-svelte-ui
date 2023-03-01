@@ -1,13 +1,21 @@
 <script lang="ts">
-  import clsx from 'clsx';
+  import { cva, type VariantProps } from 'class-variance-authority';
   import type { HTMLAttributes } from 'svelte/elements';
+  import { twMerge } from 'tailwind-merge';
 
-  interface $$Props extends HTMLAttributes<HTMLSpanElement> {
-    size?: 'xs' | 'sm';
-  }
+  const spinner = cva(
+    'relative animate-spin before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:border-inherit before:opacity-20 after:left-0 after:top-0 after:block after:h-full after:w-full after:rounded-full after:border-transparent after:border-t-inherit',
+    {
+      variants: {
+        size: {
+          xs: 'w-4 h-4 before:border-[3px] after:border-[3px]',
+          sm: 'w-5 h-5 before:border-4 after:border-4'
+        }
+      }
+    }
+  );
 
-  let className: $$Props['class'] = undefined;
-  export { className as class };
+  interface $$Props extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof spinner> {}
 
   export let size: $$Props['size'] = 'sm';
 </script>
@@ -15,65 +23,6 @@
 <div
   aria-label="loading"
   role="progressbar"
-  class={clsx({ xs: size === 'xs', sm: size === 'sm' }, className)}
+  {...$$restProps}
+  class={twMerge(spinner({ size }), $$restProps.class)}
 />
-
-<style lang="postcss">
-  /* 
-    available vars:
-    --spinner-size
-    --spinner-width
-   */
-
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  div {
-    height: var(--spinner-size);
-    width: var(--spinner-size);
-    position: relative;
-
-    &:before,
-    &:after {
-      animation: spin 1s linear infinite;
-      content: '';
-      display: block;
-      box-sizing: border-box;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: var(--spinner-size);
-      width: var(--spinner-size);
-      border-width: var(--spinner-width);
-      border-style: solid;
-      border-radius: 100%;
-    }
-
-    &:before {
-      border-color: inherit;
-      opacity: 0.2;
-    }
-
-    &:after {
-      border-color: transparent;
-      border-top-color: inherit;
-      opacity: 0.8;
-    }
-
-    &.xs {
-      --spinner-size: 1rem;
-      --spinner-width: 2px;
-    }
-
-    &.sm {
-      --spinner-size: 1.2rem;
-      --spinner-width: 3px;
-    }
-  }
-</style>

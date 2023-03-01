@@ -11,6 +11,9 @@ const meta = {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'ghost', 'danger', 'success']
     },
+    class: {
+      control: { type: 'text' }
+    },
     size: {
       control: { type: 'select' },
       options: ['md', 'lg']
@@ -57,16 +60,16 @@ export const Ghost: Story = {
 export const Danger: Story = {
   args: {
     label: 'Hello world',
-    variant: 'danger',
-    icon: 'info'
+    icon: 'info',
+    class: 'bg-error text-background ring-error ring-opacity-30'
   }
 };
 
 export const Success: Story = {
   args: {
     label: 'Hello world',
-    variant: 'success',
-    icon: 'check'
+    icon: 'check',
+    class: 'bg-success text-background ring-success ring-opacity-30'
   }
 };
 

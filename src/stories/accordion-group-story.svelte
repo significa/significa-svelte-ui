@@ -7,8 +7,10 @@
   <AccordionGroup expanded="abc">
     {#each ['abc', 'def'] as id}
       <Accordion {id}>
-        <div slot="header" let:expanded>
-          <header><span>Accordion Header</span>{expanded ? '-' : '+'}</header>
+        <div slot="header" let:expanded let:attributes let:onClick>
+          <button class="header" {...attributes} on:click={onClick}
+            ><span>Accordion Header</span><span>{expanded ? '-' : '+'}</span></button
+          >
         </div>
         <div class="content">
           <p>Accordion Content</p>
@@ -32,7 +34,7 @@
     --accordion-border-radius: 0;
   }
 
-  header {
+  .header {
     width: 400px;
     padding: 10px;
     border-bottom: 1px solid #ccc;
@@ -40,6 +42,7 @@
     align-items: center;
     justify-content: space-between;
   }
+
   p {
     margin: 0;
   }
