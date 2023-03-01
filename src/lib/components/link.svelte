@@ -8,7 +8,27 @@
 <a
   {...$$restProps}
   class={twMerge(
-    'rounded-3xs bg-gradient-to-r from-[var(--link-underline-color)] to-[var(--link-underline-color)] bg-[size:0_var(--link-underline-width)] bg-[100%_100%] bg-no-repeat outline-none transition-[background-size] duration-300 ease-smooth hover:bg-[size:100%_var(--link-underline-width)] hover:bg-[0_100%] focus:ring-2',
+    `
+    rounded-3xs
+
+    bg-gradient-to-r
+    from-[var(--link-underline-color)]
+    to-[var(--link-underline-color)]
+    bg-[size:0_var(--link-underline-width)]
+    bg-[100%_100%]
+    bg-no-repeat
+
+    outline-none
+
+    transition-[background-size]
+    duration-300
+    ease-smooth
+
+    hover:bg-[size:100%_var(--link-underline-width)]
+    hover:bg-[0_100%]
+
+    focus:ring-2
+    `,
     $$restProps.class
   )}
   href={$$props.href}

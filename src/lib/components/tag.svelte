@@ -6,11 +6,41 @@
   import { twMerge } from 'tailwind-merge';
 
   const tag = cva(
-    'border-border inline-flex items-center justify-center whitespace-nowrap rounded-full border py-2 px-3 font-sans text-sm font-medium leading-tight outline-none',
+    `
+    border
+    border-border
+    rounded-full
+
+    inline-flex
+    items-center
+    justify-center
+
+    outline-none
+    whitespace-nowrap
+
+    py-2
+    px-3
+    
+    font-sans
+    text-sm
+    font-medium
+    leading-tight
+    `,
     {
       variants: {
         link: {
-          true: 'hover:bg-background-offset active:text-foreground-secondary focus-visible:border-border-active cursor-pointer transition-all focus-visible:ring-2'
+          true: `
+            cursor-pointer
+
+            transition-all
+
+            hover:bg-background-offset
+
+            focus-visible:border-border-active
+            focus-visible:ring-2
+            
+            active:text-foreground-secondary
+          `
         }
       }
     }

@@ -8,20 +8,66 @@
   import { twMerge } from 'tailwind-merge';
 
   const button = cva(
-    'text-md group relative inline-flex items-center justify-center gap-1.5 overflow-hidden whitespace-nowrap font-medium leading-none outline-none transition-all hover:ring-4 focus-visible:ring-4 active:scale-[0.98] active:ring-2 disabled:pointer-events-none disabled:opacity-60',
+    `
+    group
+    relative
+
+    inline-flex
+    items-center
+    justify-center
+    gap-1.5
+
+    overflow-hidden
+    whitespace-nowrap
+
+    text-md
+    font-medium
+    leading-none
+
+    outline-none
+
+    transition-all
+
+    hover:ring-4
+    focus-visible:ring-4
+
+    active:scale-[0.98]
+    active:ring-2
+
+    disabled:pointer-events-none
+    disabled:opacity-60
+    `,
     {
       variants: {
         variant: {
-          primary: `bg-foreground text-background`,
-          secondary: `text-foreground border-border-subtle hover:border-border-active focus:border-border-active active:border-border-active border`,
+          primary: `
+            bg-foreground
+            text-background
+          `,
+          secondary: `
+            text-foreground
+            border-border-subtle
+            hover:border-border-active
+            focus:border-border-active
+            active:border-border-active
+            border
+          `,
           ghost: ''
         },
         size: {
-          md: 'h-11 rounded-md px-5',
-          lg: 'h-14 rounded-lg px-6'
+          md: `
+            h-11
+            rounded-md
+            px-5
+          `,
+          lg: `
+            h-14
+            rounded-lg
+            px-6
+          `
         },
         loading: {
-          true: '[&>*:not(.btn-spinner)]:opacity-0'
+          true: `[&>*:not(.btn-spinner)]:opacity-0`
         }
       }
     }
@@ -64,7 +110,13 @@
       class={clsx(
         icon &&
           arrow && [
-            'transition-all duration-300 ease-motion group-hover:-translate-x-10 group-focus-visible:-translate-x-10'
+            `
+            transition-all
+            duration-300
+            ease-motion
+            group-hover:-translate-x-10
+            group-focus-visible:-translate-x-10
+            `
           ]
       )}
       {icon}
@@ -75,9 +127,21 @@
       class={clsx(
         icon &&
           arrow && [
-            'transition-all duration-300 ease-motion',
-            size === 'md' && 'group-hover:-translate-x-5 group-focus-visible:-translate-x-5',
-            size === 'lg' && 'group-hover:-translate-x-6 group-focus-visible:-translate-x-6'
+            `
+            transition-all
+            duration-300
+            ease-motion
+            `,
+            size === 'md' &&
+              `
+              group-hover:-translate-x-5
+              group-focus-visible:-translate-x-5
+              `,
+            size === 'lg' &&
+              `
+              group-hover:-translate-x-6
+              group-focus-visible:-translate-x-6
+              `
           ]
       )}
     >
@@ -89,16 +153,33 @@
       class={clsx(
         icon &&
           arrow && [
-            'absolute translate-x-10 transition-all duration-300 ease-motion group-hover:-translate-x-0 group-focus-visible:-translate-x-0',
-            size === 'md' && 'right-5',
-            size === 'lg' && 'right-6'
+            `
+            absolute
+            translate-x-10
+            transition-all
+            duration-300
+            ease-motion
+            group-hover:-translate-x-0
+            group-focus-visible:-translate-x-0
+            `,
+            size === 'md' && `right-5`,
+            size === 'lg' && `right-6`
           ]
       )}
       icon="arrow-right"
     />
   {/if}
   {#if loading}
-    <div class="btn-spinner absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div
+      class="
+        btn-spinner
+        absolute
+        left-1/2
+        top-1/2
+        -translate-x-1/2
+        -translate-y-1/2
+      "
+    >
       <Spinner size={size === 'lg' ? 'sm' : 'xs'} />
     </div>
   {/if}
