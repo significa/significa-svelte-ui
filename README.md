@@ -15,47 +15,45 @@ _More instructions in [Working with the npm registry](https://docs.github.com/en
 
 Install with `npm install --save-dev @significa/svelte-ui`
 
-## Import CSS
+## Tailwind
 
-In your main css file (`/src/styles/index.css` or similar), import our CSS:
-
-```css
-@import '@significa/svelte-ui/fonts.css';
-@import '@significa/svelte-ui/index.css';
-
-/* Your styles */
-```
-
-### VSCode setup
-
-Setting up VSCode to autocomplete with our available CSS variables:
-
-1. Add the "phoenisx.cssvar" extension. Optionally, add it to your project's `.vscode/extensions.json` file.
-2. In `.vscode/settings.json` add: `"cssvar.files": ["src/**/*.css", "node_modules/@significa/svelte-ui/dist/**/*.css"],`
-
-## CSS Mixins
-
-This library exports some mixins that can be helpful when developing UIs:
-
-<details>
-  <summary>Available mixins</summary>
-
-- elevated-links
-- visually-hidden
-- multi-line-clamp $amount: 2
-- hide-scrollbar
-</details>
-
-### Usage
-
-To use them with PostCSS, first install `postcss-mixins` and add to your PostCSS configuration:
+In your tailwind configuration file (`tailwind.config.cjs`), import our tailwind plugin and update the `content` key to include our package.
+Optionally (but ideally), you can include our brand fonts by providing a path to your project's static font files.
 
 ```js
+const parseAlphaColor = (color) => color?.replace('<alpha-value>', '1');
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    './node_modules/@significa/svelte-ui/src/**/*.{html,js,svelte,ts}' // add this
+  ],
+  theme: {
+    // your theme
+  },
   plugins: [
-    // your plugins
-    require('postcss-mixins')({
-      mixinsFiles: [require.resolve('@significa/svelte-ui/mixins.css')]
+    // add our plugin. fonts are optional.
+    require('@significa/svelte-ui/tailwind')({
+      fonts: {
+        sans: {
+          name: 'Significa Sans',
+          fontFaces: [
+            {
+              fontWeight: '400',
+              src: `url('/fonts/significa-regular.woff2') format('woff2')`
+            },
+            {
+              fontWeight: '500',
+              src: `url('/fonts/significa-medium.woff2') format('woff2')`
+            },
+            {
+              fontWeight: '600',
+              src: `url('/fonts/significa-semibold.woff2') format('woff2')`
+            }
+          ]
+        }
+      }
     })
   ]
 };
