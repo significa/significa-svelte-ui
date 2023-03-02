@@ -1,7 +1,50 @@
 <script lang="ts">
-  import clsx from 'clsx';
   import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
   import Icon from './icon.svelte';
+
+  import { cva } from 'class-variance-authority';
+  import { twMerge } from 'tailwind-merge';
+
+  const tag = cva(
+    `
+    border
+    border-border
+    rounded-full
+
+    inline-flex
+    items-center
+    justify-center
+
+    outline-none
+    whitespace-nowrap
+
+    py-2
+    px-3
+    
+    font-sans
+    text-sm
+    font-medium
+    leading-tight
+    `,
+    {
+      variants: {
+        link: {
+          true: `
+            cursor-pointer
+
+            transition-all
+
+            hover:bg-background-offset
+
+            focus-visible:border-border-active
+            focus-visible:ring-2
+            
+            active:text-foreground-secondary
+          `
+        }
+      }
+    }
+  );
 
   type Span = HTMLAttributes<HTMLSpanElement> & {
     href?: undefined;
@@ -13,9 +56,6 @@
     label: string;
   };
   type $$Props = Props;
-
-  let className: $$Props['class'] = undefined;
-  export { className as class };
 
   export let href: $$Props['href'] = undefined;
   export let label: $$Props['label'];
@@ -30,59 +70,11 @@
   on:keyup
   on:keypress
   {href}
-  class={clsx('tag', { link: !!href }, className)}
   {...$$restProps}
+  class={twMerge(tag({ link: !!href }), $$restProps.class)}
 >
   {label}
   {#if href}
-    <Icon icon="chevron" />
+    <Icon class="ml-2 text-foreground-secondary" icon="chevron" />
   {/if}
 </svelte:element>
-
-<style lang="postcss">
-  .tag {
-    all: unset;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 8px 12px;
-    border-radius: var(--border-radius-full);
-
-    font-size: var(--font-size-sm);
-    line-height: var(--line-height-normal);
-    font-weight: var(--font-weight-medium);
-    letter-spacing: var(--letter-spacing-wide);
-    white-space: nowrap;
-
-    border: 1px solid var(--color-border);
-    background-color: var(--color-background);
-
-    &.link {
-      cursor: pointer;
-
-      transition: all var(--transition-appearance);
-
-      & :global([data-icon]) {
-        margin-left: 0.5rem;
-        color: var(--color-foreground-secondary);
-      }
-
-      @media (hover: hover) {
-        &:hover {
-          background-color: var(--color-background-offset);
-        }
-      }
-
-      &:active {
-        color: var(--color-foreground-secondary);
-      }
-
-      &:focus-visible {
-        border-color: var(--color-border-active);
-        box-shadow: 0 0 0 var(--outline-width-active) var(--color-outline);
-      }
-    }
-  }
-</style>

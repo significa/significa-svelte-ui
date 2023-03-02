@@ -1,8 +1,11 @@
 {
-  "cssvar.files": ["src/**/*.css"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "eslint.validate": ["svelte"]
+  "eslint.validate": ["svelte"],
+  "tailwindCSS.experimental.classRegex": [["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]]
 }

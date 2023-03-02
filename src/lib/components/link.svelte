@@ -1,47 +1,44 @@
 <script lang="ts">
   import type { HTMLAnchorAttributes } from 'svelte/elements';
+  import { twMerge } from 'tailwind-merge';
 
   type $$Props = HTMLAnchorAttributes;
 </script>
 
-<a {...$$restProps} href={$$props.href}>
+<a
+  {...$$restProps}
+  class={twMerge(
+    `
+    rounded-3xs
+
+    bg-gradient-to-r
+    from-[var(--link-underline-color)]
+    to-[var(--link-underline-color)]
+    bg-[size:0_var(--link-underline-width)]
+    bg-[100%_100%]
+    bg-no-repeat
+
+    outline-none
+
+    transition-[background-size]
+    duration-300
+    ease-smooth
+
+    hover:bg-[size:100%_var(--link-underline-width)]
+    hover:bg-[0_100%]
+
+    focus-visible:ring-2
+    `,
+    $$restProps.class
+  )}
+  href={$$props.href}
+>
   <slot />
 </a>
 
 <style lang="postcss">
-  /* 
-    available vars:
-    --link-color
-    --link-underline-color
-    --link-underline-width
-   */
-
   a {
-    text-decoration: none;
-    outline: none;
-
-    color: var(--link-color, inherit);
-
-    background-repeat: no-repeat;
-    background-position: 100% 100%;
-    background-size: 0 var(--link-underline-width, 2px);
-    background-image: linear-gradient(
-      var(--link-underline-color, var(--color-foreground-tertiary)),
-      var(--link-underline-color, var(--color-foreground-tertiary))
-    );
-
-    transition: box-shadow var(--transition-appearance), background-size var(--transition-smooth);
-
-    border-radius: 1px;
-    &:focus-visible {
-      box-shadow: 0 0 0 var(--outline-width) var(--color-outline);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background-position: 0 100%;
-        background-size: 100% var(--link-underline-width, 2px);
-      }
-    }
+    --link-underline-color: var(--underline-color, hsl(var(--color-foreground-tertiary)));
+    --link-underline-width: var(--underline-width, 2px);
   }
 </style>

@@ -1,1 +1,1 @@
-<h1>Significa UI</h1>
+<h1 class="text-9xl font-medium">Significa UI</h1>

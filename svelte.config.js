@@ -6,6 +6,7 @@ const config = {
   // Consult https://kit.svelte.dev/docs/integrations#preprocessors
   // for more information about preprocessors
   preprocess: vitePreprocess(),
+  // remove whitespace https://github.com/sveltejs/svelte/issues/189
 
   kit: {
     adapter: adapter()
