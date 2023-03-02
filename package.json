@@ -30,11 +30,11 @@
       "svelte": "./dist/index.js"
     },
     "./index.css": "./dist/styles/index.css",
-    "./mixins.css": "./dist/styles/mixins.css",
-    "./fonts.css": "./dist/styles/fonts.css"
+    "./tailwind.config.cjs": "./tailwind.config.cjs"
   },
   "files": [
-    "dist"
+    "dist",
+    "./tailwind.config.cjs"
   ],
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",

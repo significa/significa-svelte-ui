@@ -110,13 +110,11 @@
       class={clsx(
         icon &&
           arrow && [
-            `
-            transition-all
-            duration-300
-            ease-motion
-            group-hover:-translate-x-10
-            group-focus-visible:-translate-x-10
-            `
+            'transition-all',
+            'duration-300',
+            'ease-motion',
+            'group-hover:-translate-x-10',
+            'group-focus-visible:-translate-x-10'
           ]
       )}
       {icon}
@@ -127,21 +125,13 @@
       class={clsx(
         icon &&
           arrow && [
-            `
-            transition-all
-            duration-300
-            ease-motion
-            `,
-            size === 'md' &&
-              `
-              group-hover:-translate-x-5
-              group-focus-visible:-translate-x-5
-              `,
-            size === 'lg' &&
-              `
-              group-hover:-translate-x-6
-              group-focus-visible:-translate-x-6
-              `
+            'transition-all',
+            'duration-300',
+            'ease-motion',
+            size === 'md' && 'group-hover:-translate-x-5',
+            'group-focus-visible:-translate-x-5',
+            size === 'lg' && 'group-hover:-translate-x-6',
+            'group-focus-visible:-translate-x-6'
           ]
       )}
     >
@@ -153,17 +143,15 @@
       class={clsx(
         icon &&
           arrow && [
-            `
-            absolute
-            translate-x-10
-            transition-all
-            duration-300
-            ease-motion
-            group-hover:-translate-x-0
-            group-focus-visible:-translate-x-0
-            `,
-            size === 'md' && `right-5`,
-            size === 'lg' && `right-6`
+            'absolute',
+            'translate-x-10',
+            'transition-all',
+            'duration-300',
+            'ease-motion',
+            'group-hover:-translate-x-0',
+            'group-focus-visible:-translate-x-0',
+            size === 'md' && 'right-5',
+            size === 'lg' && 'right-6'
           ]
       )}
       icon="arrow-right"
@@ -171,14 +159,14 @@
   {/if}
   {#if loading}
     <div
-      class="
-        btn-spinner
-        absolute
-        left-1/2
-        top-1/2
-        -translate-x-1/2
-        -translate-y-1/2
-      "
+      class={clsx(
+        'btn-spinner',
+        'absolute',
+        'left-1/2',
+        'top-1/2',
+        '-translate-x-1/2',
+        '-translate-y-1/2'
+      )}
     >
       <Spinner size={size === 'lg' ? 'sm' : 'xs'} />
     </div>

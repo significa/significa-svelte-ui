@@ -36,7 +36,7 @@
   }
 </script>
 
-<div class="accordion" {...$$restProps}>
+<div {...$$restProps}>
   <slot
     name="header"
     expanded={isExpanded}

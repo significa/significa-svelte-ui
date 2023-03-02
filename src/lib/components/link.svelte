@@ -27,7 +27,7 @@
     hover:bg-[size:100%_var(--link-underline-width)]
     hover:bg-[0_100%]
 
-    focus:ring-2
+    focus-visible:ring-2
     `,
     $$restProps.class
   )}
