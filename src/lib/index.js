@@ -6,3 +6,4 @@ export { default as Link } from './components/link.svelte';
 export { default as Logo } from './components/logo.svelte';
 export { default as Spinner } from './components/spinner.svelte';
 export { default as Tag } from './components/tag.svelte';
+export { default as CircleButton } from './components/circle-button.svelte';
