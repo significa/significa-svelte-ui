@@ -43,7 +43,13 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "peerDependencies": {
-    "svelte": "^3.55.1"
+    "autoprefixer": "^10.4.13",
+    "class-variance-authority": "^0.4.0",
+    "clsx": "^1.2.1",
+    "postcss": "^8.4.21",
+    "svelte": "^3.55.1",
+    "tailwind-merge": "^1.10.0",
+    "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^7.0.0-beta.49",
