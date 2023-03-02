@@ -1,43 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-// TODO: move to own package, in typescript, with ESM and CJS exports
-
-/*
-
-// tailwind.config.cjs
-
-module.exports = {
-  theme: {
-    // ...
-  },
-  plugins: [
-    require('@significa/svelte-ui/tailwind')({
-      fonts: {
-        sans: {
-          name: 'Significa Sans',
-          fontFaces: [
-            {
-              fontWeight: '400',
-              src: `url('/fonts/significa-regular.woff2') format('woff2')`
-            },
-            {
-              fontWeight: '500',
-              src: `url('/fonts/significa-medium.woff2') format('woff2')`
-            },
-            {
-              fontWeight: '600',
-              src: `url('/fonts/significa-semibold.woff2') format('woff2')`
-            }
-          ]
-        }
-      }
-    })
-  ],
-}
-
-*/
-
 module.exports = plugin.withOptions(
   function (options = { fonts: {} }) {
     return function ({ addVariant, addBase }) {

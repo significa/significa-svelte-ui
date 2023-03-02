@@ -26,10 +26,15 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js"
+      "default": "./dist/index.js",
+      "svelte": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
-    "./tailwind": "./dist/significa-tailwind.cjs"
+    "./tailwind": {
+      "default": "./dist/significa-tailwind.cjs",
+      "require": "./dist/significa-tailwind.cjs",
+      "types": "./dist/significa-tailwind.d.cts"
+    }
   },
   "files": [
     "dist"
