@@ -27,7 +27,7 @@ const parseAlphaColor = (color) => color?.replace('<alpha-value>', '1');
 module.exports = {
   content: [
     './src/**/*.{html,js,svelte,ts}',
-    './node_modules/@significa/svelte-ui/src/**/*.{html,js,svelte,ts}' // add this
+    './node_modules/@significa/svelte-ui/**/*.{html,js,svelte,ts}' // add this
   ],
   theme: {
     // your theme
