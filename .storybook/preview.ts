@@ -1,4 +1,4 @@
-import '../src/lib/styles/index.css';
+import '../src/app.css';
 
 import ThemeDecorator from './theme-decorator.svelte';
 
