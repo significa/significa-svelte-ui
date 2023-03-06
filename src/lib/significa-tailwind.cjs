@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = plugin.withOptions(
   function (options = { fonts: {} }) {
-    return function ({ addVariant, addBase }) {
+    return function ({ addVariant, addBase, addUtilities }) {
       // light: and yellow: modifiers
       addVariant('light', "[data-theme='light'] &");
       addVariant('yellow', "[data-theme='yellow'] &");
@@ -32,6 +32,26 @@ module.exports = plugin.withOptions(
       addBase({
         html: {
           textRendering: 'geometricPrecision'
+        }
+      });
+
+      // Utility classes
+      addUtilities({
+        '.elevated-links': {
+          position: 'relative',
+
+          'a[href]': {
+            position: 'static',
+            zIndex: 1
+          },
+          'a.elevated-link:before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%'
+          }
         }
       });
 
