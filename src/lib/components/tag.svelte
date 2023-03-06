@@ -75,6 +75,6 @@
 >
   {label}
   {#if href}
-    <Icon class="ml-2 text-foreground-secondary" icon="chevron" />
+    <Icon class="ml-2 text-foreground-secondary" icon="chevron-right" />
   {/if}
 </svelte:element>
