@@ -20,6 +20,7 @@
 
     outline-none
 
+    delay-100
     transition-[background-size]
     duration-300
     ease-smooth

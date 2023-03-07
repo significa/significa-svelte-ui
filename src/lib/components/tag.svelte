@@ -22,9 +22,11 @@
     px-3
     
     font-sans
-    text-sm
+    text-xs
     font-medium
+    tracking-wider
     leading-tight
+    uppercase
     `,
     {
       variants: {
@@ -75,6 +77,6 @@
 >
   {label}
   {#if href}
-    <Icon class="ml-2 text-foreground-secondary" icon="chevron-right" />
+    <Icon class="ml-2 text-foreground-tertiary" icon="chevron-right" />
   {/if}
 </svelte:element>

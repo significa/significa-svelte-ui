@@ -9,7 +9,7 @@
 
 <div
   style={image ? `background-image: url(${image})` : ''}
-  class={clsx('bg-background-offset bg-cover bg-center bg-no-repeat', size, className)}
+  class={clsx('bg-foreground/10 bg-cover bg-center bg-no-repeat', size, className)}
   {...$$restProps}
 />
 
