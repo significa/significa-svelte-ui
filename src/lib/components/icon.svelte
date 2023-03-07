@@ -11,16 +11,35 @@
 
   export type IconOptions =
     | '3dots'
+    | 'arrow-down'
+    | 'arrow-left'
     | 'arrow-right'
+    | 'arrow-up'
+    | 'attachment'
+    | 'browser'
     | 'chapters'
+    | 'check-circle'
     | 'check'
+    | 'chevron-right'
     | 'chevron'
+    | 'circle-arrow-down'
+    | 'circle-arrow-right'
+    | 'close-circle'
     | 'close'
     | 'comparison'
+    | 'document'
+    | 'egg'
     | 'expand'
+    | 'hamburger'
     | 'handbook'
     | 'info'
-    | 'link';
+    | 'link'
+    | 'moon'
+    | 'pause'
+    | 'pdf'
+    | 'play'
+    | 'sun'
+    | 'theme';
 </script>
 
 <script lang="ts">

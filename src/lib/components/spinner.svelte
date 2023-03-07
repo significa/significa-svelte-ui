@@ -42,6 +42,18 @@
             h-5
             before:border-4
             after:border-4
+          `,
+          md: `
+            w-6
+            h-6
+            before:border-4
+            after:border-4
+          `,
+          lg: `
+            w-8
+            h-8
+            before:border-4
+            after:border-4
           `
         }
       }
