@@ -32,6 +32,7 @@
     | 'expand'
     | 'hamburger'
     | 'handbook'
+    | 'home'
     | 'info'
     | 'link'
     | 'moon'

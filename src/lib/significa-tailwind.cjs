@@ -71,7 +71,7 @@ module.exports = plugin.withOptions(
           '--color-foreground': '0deg 0% 9%',
           '--color-foreground-secondary': '240deg 1% 44%',
           '--color-foreground-tertiary': '240deg 2% 78%',
-          '--color-foreground-accent': '232deg 100% 30%',
+          '--color-foreground-accent': '220deg 100% 50%',
 
           '--color-border': '0deg 0% 91%',
           '--color-border-subtle': '0deg 0% 86%',

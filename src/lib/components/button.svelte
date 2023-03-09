@@ -55,6 +55,11 @@
           ghost: ''
         },
         size: {
+          sm: `
+            h-9
+            rounded-sm
+            px-3
+          `,
           md: `
             h-11
             rounded-md
