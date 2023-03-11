@@ -1,10 +1,7 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-  type $$Props = HTMLAttributes<SVGElement> & {
-    variant?: 'symbol' | 'wordmark';
-  };
-
-  export let variant: $$Props['variant'] = 'symbol';
+  let className: undefined | string = undefined;
+  export { className as class };
+  export let variant: undefined | 'symbol' | 'wordmark' = 'symbol';
 </script>
 
 {#if variant === 'symbol'}
@@ -14,6 +11,7 @@
     viewBox="0 0 32 38"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    class={className}
     {...$$restProps}
   >
     <path
@@ -28,6 +26,7 @@
     viewBox="0 0 96 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    class={className}
     {...$$restProps}
   >
     <path

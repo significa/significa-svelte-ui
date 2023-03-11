@@ -75,6 +75,7 @@
     "postcss-cli": "^10.1.0",
     "prettier": "^2.8.4",
     "prettier-plugin-svelte": "^2.9.0",
+    "prettier-plugin-tailwindcss": "^0.2.4",
     "publint": "^0.1.9",
     "storybook": "^7.0.0-beta.49",
     "svelte": "^3.55.1",

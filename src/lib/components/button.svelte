@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
   import Icon from './icon.svelte';
   import type { IconOptions } from './icon.svelte';
   import Spinner from './spinner.svelte';
@@ -78,25 +77,15 @@
     }
   );
 
-  type Button = HTMLButtonAttributes & {
-    as?: 'button';
-  };
-  type Anchor = HTMLAnchorAttributes & {
-    as: 'a';
-  };
-  type Props = (Button | Anchor) &
-    VariantProps<typeof button> & {
-      icon?: IconOptions;
-      arrow?: boolean;
-    };
-  type $$Props = Props;
-
-  export let as: $$Props['as'] = 'button';
-  export let variant: $$Props['variant'] = 'primary';
-  export let size: $$Props['size'] = 'md';
-  export let loading: $$Props['loading'] = false;
-  export let icon: $$Props['icon'] = undefined;
-  export let arrow: $$Props['arrow'] = false;
+  let className: undefined | string = undefined;
+  export { className as class };
+  export let disabled: undefined | boolean = undefined;
+  export let as: undefined | 'button' | 'a' = 'button';
+  export let variant: undefined | VariantProps<typeof button>['variant'] = 'primary';
+  export let size: undefined | VariantProps<typeof button>['size'] = 'md';
+  export let loading: undefined | VariantProps<typeof button>['loading'] = false;
+  export let icon: undefined | IconOptions = undefined;
+  export let arrow: undefined | boolean = false;
 </script>
 
 <svelte:element
@@ -107,8 +96,9 @@
   on:keydown
   on:keyup
   on:keypress
+  {disabled}
+  class={twMerge(button({ variant, size, loading }), className)}
   {...$$restProps}
-  class={twMerge(button({ variant, size, loading }), $$restProps.class)}
 >
   {#if icon}
     <Icon

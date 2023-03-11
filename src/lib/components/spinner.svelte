@@ -1,6 +1,5 @@
 <script lang="ts">
   import { cva, type VariantProps } from 'class-variance-authority';
-  import type { HTMLAttributes } from 'svelte/elements';
   import { twMerge } from 'tailwind-merge';
 
   const spinner = cva(
@@ -60,14 +59,14 @@
     }
   );
 
-  interface $$Props extends HTMLAttributes<HTMLSpanElement>, VariantProps<typeof spinner> {}
-
-  export let size: $$Props['size'] = 'sm';
+  let className: undefined | string = undefined;
+  export { className as class };
+  export let size: VariantProps<typeof spinner>['size'] = 'sm';
 </script>
 
 <div
   aria-label="loading"
   role="progressbar"
+  class={twMerge(spinner({ size }), className)}
   {...$$restProps}
-  class={twMerge(spinner({ size }), $$restProps.class)}
 />

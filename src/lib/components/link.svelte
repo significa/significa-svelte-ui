@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { HTMLAnchorAttributes } from 'svelte/elements';
   import { twMerge } from 'tailwind-merge';
 
-  type $$Props = HTMLAnchorAttributes;
+  let className: undefined | string = undefined;
+  export { className as class };
+  export let href: string;
 </script>
 
 <a
-  {...$$restProps}
   class={twMerge(
     `
     rounded-3xs
@@ -20,8 +20,8 @@
 
     outline-none
 
-    delay-100
     transition-[background-size]
+    delay-100
     duration-300
     ease-smooth
 
@@ -30,9 +30,10 @@
 
     focus-visible:ring-2
     `,
-    $$restProps.class
+    className
   )}
-  href={$$props.href}
+  {href}
+  {...$$restProps}
 >
   <slot />
 </a>

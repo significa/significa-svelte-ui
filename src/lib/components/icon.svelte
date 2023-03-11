@@ -1,6 +1,4 @@
 <script lang="ts" context="module">
-  import type { HTMLAttributes } from 'svelte/elements';
-
   const files = import.meta.glob('./icons/*.svg', { as: 'raw', eager: true });
 
   export const icons = Object.entries(files).reduce((acc, [path, file]) => {
@@ -44,15 +42,13 @@
 </script>
 
 <script lang="ts">
-  interface $$Props extends HTMLAttributes<HTMLDivElement> {
-    icon: IconOptions;
-  }
-
-  export let icon: $$Props['icon'];
+  let className: undefined | string = undefined;
+  export { className as class };
+  export let icon: IconOptions;
 </script>
 
 {#if icons[icon]}
-  <i data-icon={icon} aria-hidden="true" {...$$restProps}>
+  <i data-icon={icon} aria-hidden="true" class={className} {...$$restProps}>
     {@html icons[icon]}
   </i>
 {/if}

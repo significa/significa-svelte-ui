@@ -1,15 +1,16 @@
 <script lang="ts">
   import clsx from 'clsx';
 
-  let className: string | undefined = undefined;
+  let className: undefined | string = undefined;
   export { className as class };
+  let style: undefined | string = undefined;
   export let image: string | undefined = undefined;
   export let size: 'xs' | 'sm' | 'md' | 'xl' = 'md';
 </script>
 
 <div
-  style={image ? `background-image: url(${image})` : ''}
   class={clsx('bg-foreground/10 bg-cover bg-center bg-no-repeat', size, className)}
+  style={clsx(image ? `background-image: url(${image})` : '', style)}
   {...$$restProps}
 />
 
