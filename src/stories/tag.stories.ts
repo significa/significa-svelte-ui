@@ -11,6 +11,9 @@ const meta = {
     },
     label: {
       control: { type: 'text' }
+    },
+    active: {
+      control: { type: 'boolean' }
     }
   }
 } satisfies Meta<Tag>;
@@ -28,5 +31,12 @@ export const WithLink: Story = {
   args: {
     label: 'Hello world',
     href: '#'
+  }
+};
+
+export const Active: Story = {
+  args: {
+    label: 'Hello world',
+    active: true
   }
 };

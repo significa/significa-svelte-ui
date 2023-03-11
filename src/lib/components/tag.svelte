@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
   import Icon from './icon.svelte';
 
   import { cva } from 'class-variance-authority';
@@ -22,21 +21,24 @@
     px-3
     
     font-sans
-    text-xs
+    text-sm
     font-medium
-    tracking-wider
-    leading-tight
-    uppercase
+    leading-none
     `,
     {
       variants: {
-        link: {
+        active: {
+          true: `
+          bg-foreground-tertiary/20
+          `
+        },
+        interactable: {
           true: `
             cursor-pointer
 
             transition-all
 
-            hover:bg-background-offset
+            hover:bg-foreground-tertiary/10
 
             focus-visible:border-border-active
             focus-visible:ring-2
@@ -48,23 +50,15 @@
     }
   );
 
-  type Span = HTMLAttributes<HTMLSpanElement> & {
-    href?: undefined;
-  };
-  type Anchor = HTMLAnchorAttributes & {
-    href: string;
-  };
-  type Props = (Span | Anchor) & {
-    label: string;
-  };
-  type $$Props = Props;
-
-  export let href: $$Props['href'] = undefined;
-  export let label: $$Props['label'];
+  let className: undefined | string = undefined;
+  export { className as class };
+  export let href: undefined | string = undefined;
+  export let active: undefined | boolean = undefined;
+  export let label: string;
 </script>
 
 <svelte:element
-  this={href ? 'a' : 'span'}
+  this={href ? 'a' : typeof active === 'boolean' ? 'button' : 'span'}
   on:click
   on:mouseenter
   on:mouseleave
@@ -72,10 +66,12 @@
   on:keyup
   on:keypress
   {href}
+  class={twMerge(tag({ interactable: !!href || typeof active === 'boolean', active }), className)}
   {...$$restProps}
-  class={twMerge(tag({ link: !!href }), $$restProps.class)}
 >
-  {label}
+  <span>
+    {label}
+  </span>
   {#if href}
     <Icon class="ml-2 text-foreground-tertiary" icon="chevron-right" />
   {/if}
