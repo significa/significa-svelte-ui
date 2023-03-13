@@ -19,7 +19,7 @@
     | 'check-circle'
     | 'check'
     | 'chevron-right'
-    | 'chevron'
+    | 'chevron-down'
     | 'circle-arrow-down'
     | 'circle-arrow-right'
     | 'close-circle'
