@@ -1,6 +1,7 @@
 export { default as Accordion } from './components/accordion.svelte';
 export { default as AccordionGroup } from './components/accordion-group.svelte';
 export { default as Avatar } from './components/avatar.svelte';
+export { default as Badge } from './components/badge.svelte';
 export { default as Button } from './components/button.svelte';
 export { default as CircleButton } from './components/circle-button.svelte';
 export { default as Icon } from './components/icon.svelte';

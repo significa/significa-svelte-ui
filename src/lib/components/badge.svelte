@@ -1,0 +1,13 @@
+<script lang="ts">
+  import { twMerge } from 'tailwind-merge';
+
+  let className: undefined | string = undefined;
+  export { className as class };
+</script>
+
+<span
+  class={twMerge(
+    'rounded-md bg-foreground-tertiary/50 py-0.5 px-1 text-xs tabular-nums',
+    className
+  )}><slot /></span
+>

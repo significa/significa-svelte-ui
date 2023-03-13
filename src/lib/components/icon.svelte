@@ -25,6 +25,7 @@
     | 'close-circle'
     | 'close'
     | 'comparison'
+    | 'configuration'
     | 'document'
     | 'egg'
     | 'expand'
