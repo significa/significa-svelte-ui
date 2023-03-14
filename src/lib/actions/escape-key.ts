@@ -3,7 +3,6 @@ import { writable } from 'svelte/store';
 type EscapeEntry = { id: string; callback: (e: KeyboardEvent) => void };
 
 const store = writable<EscapeEntry[]>([], () => {
-  console.log('subscribe');
   const handler = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       store.update((entries) => {
@@ -17,7 +16,6 @@ const store = writable<EscapeEntry[]>([], () => {
   window.addEventListener('keydown', handler);
 
   return () => {
-    console.log('UNsubscribe');
     window.removeEventListener('keydown', handler);
   };
 });
