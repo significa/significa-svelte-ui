@@ -30,10 +30,25 @@
       "svelte": "./dist/index.js",
       "default": "./dist/index.js"
     },
+    "./actions": {
+      "types": "./dist/actions/index.d.ts",
+      "svelte": "./dist/actions/index.js",
+      "default": "./dist/actions/index.js"
+    },
     "./tailwind": {
       "types": "./dist/significa-tailwind.d.cts",
       "require": "./dist/significa-tailwind.cjs",
       "default": "./dist/significa-tailwind.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "actions": [
+        "./dist/actions/index.d.ts"
+      ],
+      "tailwind": [
+        "./dist/significa-tailwind.d.cts"
+      ]
     }
   },
   "files": [
