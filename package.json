@@ -35,10 +35,10 @@
       "svelte": "./dist/actions/index.js",
       "default": "./dist/actions/index.js"
     },
-    "./tailwind": {
-      "types": "./dist/significa-tailwind.d.cts",
-      "require": "./dist/significa-tailwind.cjs",
-      "default": "./dist/significa-tailwind.cjs"
+    "./tailwind-preset": {
+      "types": "./dist/tailwind-preset.d.cts",
+      "require": "./dist/tailwind-preset.cjs",
+      "default": "./dist/tailwind-preset.cjs"
     }
   },
   "typesVersions": {
@@ -67,11 +67,11 @@
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^7.0.0-beta.49",
-    "@storybook/addon-essentials": "^7.0.0-beta.49",
-    "@storybook/addon-interactions": "^7.0.0-beta.49",
-    "@storybook/svelte": "^7.0.0-beta.49",
-    "@storybook/sveltekit": "^7.0.0-beta.49",
+    "@storybook/addon-a11y": "^7.0.0-rc.3",
+    "@storybook/addon-essentials": "^7.0.0-rc.3",
+    "@storybook/addon-interactions": "^7.0.0-rc.3",
+    "@storybook/svelte": "^7.0.0-rc.3",
+    "@storybook/sveltekit": "^7.0.0-rc.3",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.7.0",
@@ -92,7 +92,7 @@
     "prettier-plugin-svelte": "^2.9.0",
     "prettier-plugin-tailwindcss": "^0.2.4",
     "publint": "^0.1.9",
-    "storybook": "^7.0.0-beta.49",
+    "storybook": "^7.0.0-rc.3",
     "svelte": "^3.55.1",
     "svelte-check": "^3.0.3",
     "tailwind-merge": "^1.10.0",

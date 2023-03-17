@@ -45,7 +45,7 @@
           `,
           secondary: `
             text-foreground
-            border-border-subtle
+            border-border
             hover:border-border-active
             focus-visible:border-border-active
             active:border-border-active
