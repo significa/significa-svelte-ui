@@ -65,13 +65,9 @@ export const input = cva(
   }
 );
 
-export const floatingInput = cva(`
-  peer
-  placeholder:text-transparent
-
-  [&:not(:placeholder-shown)]:pt-6
-  [&:not(:placeholder-shown)]:pb-2
-`);
+export const select: (options: VariantProps<typeof input>) => string = (options) => {
+  return `${input(options)} select-chevron`;
+};
 
 export const floatingLabel = cva(
   `
@@ -99,11 +95,27 @@ export const floatingLabel = cva(
       },
       error: {
         true: 'text-error'
+      },
+      floating: {
+        true: `top-1/2 -translate-y-1/2 text-base`
       }
     }
   }
 );
 
-export const select: (options: VariantProps<typeof input>) => string = (options) => {
-  return `${input(options)} select-chevron`;
-};
+export const floatingInput = cva(`
+  peer
+  placeholder:text-transparent
+
+  [&:not(:placeholder-shown)]:pt-6
+  [&:not(:placeholder-shown)]:pb-2
+`);
+
+export const floatingSelect = cva(`peer`, {
+  variants: {
+    value: {
+      true: `pt-6 pb-2`,
+      false: `text-transparent`
+    }
+  }
+});

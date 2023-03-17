@@ -1,6 +1,6 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  import { input, floatingInput, floatingLabel } from './common';
+  import { floatingSelect, floatingLabel, select } from './common';
 
   let className: undefined | string = undefined;
   export { className as class };
@@ -8,16 +8,19 @@
   export let label: string;
   export let id: string = crypto.randomUUID();
   export let error = false;
+  export let value: string | undefined = undefined;
 </script>
 
 <div class={twMerge('relative', className)}>
-  <input
+  <select
     {id}
-    class={twMerge(input({ size: 'lg', error }), floatingInput())}
-    placeholder={label}
+    class={twMerge(select({ size: 'lg', error }), floatingSelect({ value: !!value }))}
+    bind:value
     {...$$restProps}
-  />
-  <label for={id} class={floatingLabel({ size: 'lg', error })}>
+  >
+    <slot />
+  </select>
+  <label for={id} class={twMerge(floatingLabel({ size: 'lg', error, floating: !value }))}>
     {label}
   </label>
 </div>
