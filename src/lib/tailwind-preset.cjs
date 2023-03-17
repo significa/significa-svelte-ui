@@ -274,12 +274,26 @@ module.exports = function (options = { fonts: {} }) {
               backgroundSize: '1.5em 1.5em',
               paddingRight: theme('spacing.10'),
 
-              '&[data-theme="dark"]': {
+              '[data-theme="dark"] &': {
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='hsl(${colors.dark['--color-foreground-secondary']})' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`
               },
 
-              '&[data-theme="yellow"]': {
+              '[data-theme="yellow"] &': {
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='hsl(${colors.yellow['--color-foreground-secondary']})' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`
+              }
+            },
+            '.checkbox-tick:checked': {
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='hsl(${colors.light['--color-foreground']})' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`,
+              'background-size': `100% 100%`,
+              'background-position': `center`,
+              'background-repeat': `no-repeat`,
+
+              '[data-theme="dark"] &:checked': {
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='hsl(${colors.dark['--color-foreground']})' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`
+              },
+
+              '[data-theme="yellow"] &:checked': {
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='hsl(${colors.yellow['--color-foreground']})' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`
               }
             }
           });

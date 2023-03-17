@@ -1,27 +1,25 @@
 <script lang="ts">
-  import type { VariantProps } from 'class-variance-authority';
   import { twMerge } from 'tailwind-merge';
-  import { input, select } from './common';
+  import { checkbox } from './common';
 
   type T = $$Generic<string>;
 
   let className: undefined | string = undefined;
   export { className as class };
 
-  export let size: VariantProps<typeof input>['size'] = 'md';
-  export let error = false;
+  export let group: undefined | T = undefined;
   export let value: undefined | T = undefined;
 </script>
 
-<select
-  bind:value
+<input
+  class={twMerge(checkbox(), 'rounded-full', className)}
+  type="radio"
+  bind:group
+  {value}
   on:change
   on:mouseenter
   on:mouseleave
   on:click
   on:focus
-  class={twMerge(select({ size, error }), className)}
   {...$$restProps}
->
-  <slot />
-</select>
+/>

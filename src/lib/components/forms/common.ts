@@ -1,22 +1,12 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export const input = cva(
-  `
+export const base = cva(`
   appearance-none
   outline-0
-
-  w-full
 
   bg-foreground/2
   border
   border-foreground/10
-
-  placeholder:text-base
-  placeholder:text-foreground-secondary
-  placeholder:antialiased
-
-  text-foreground
-  leading-snug
 
   hover:border-border-active
   hover:ring-2
@@ -30,6 +20,20 @@ export const input = cva(
   disabled:pointer-events-none
 
   transition-all
+`);
+
+export const input = cva(
+  `
+  ${base()}
+
+  w-full
+
+  placeholder:text-base
+  placeholder:text-foreground-secondary
+  placeholder:antialiased
+
+  text-foreground
+  leading-snug
   `,
   {
     variants: {
@@ -68,6 +72,17 @@ export const input = cva(
 export const select: (options: VariantProps<typeof input>) => string = (options) => {
   return `${input(options)} select-chevron`;
 };
+
+export const checkbox = cva(`
+  ${base()}
+  checkbox-tick
+
+  h-4
+  w-4
+  rounded-2xs
+
+  checked:bg-outline
+`);
 
 export const floatingLabel = cva(
   `

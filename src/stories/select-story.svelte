@@ -2,7 +2,9 @@
   import Select from '$lib/components/forms/select.svelte';
   import type { ComponentProps } from 'svelte';
 
-  type $$Props = ComponentProps<Select> & {
+  type T = $$Generic<string>;
+
+  type $$Props = ComponentProps<Select<T>> & {
     disabled?: boolean;
   };
 </script>

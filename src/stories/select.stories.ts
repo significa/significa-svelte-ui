@@ -16,7 +16,7 @@ const meta = {
       control: { type: 'boolean' }
     }
   }
-} satisfies Meta<Select>;
+} satisfies Meta<Select<string>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

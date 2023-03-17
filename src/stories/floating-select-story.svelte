@@ -2,7 +2,9 @@
   import FloatingSelect from '$lib/components/forms/floating-select.svelte';
   import type { ComponentProps } from 'svelte';
 
-  type $$Props = ComponentProps<FloatingSelect> & {
+  type T = $$Generic<string>;
+
+  type $$Props = ComponentProps<FloatingSelect<T>> & {
     disabled?: boolean;
   };
 

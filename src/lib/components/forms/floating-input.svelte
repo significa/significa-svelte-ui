@@ -8,10 +8,17 @@
   export let label: string;
   export let id: string = crypto.randomUUID();
   export let error = false;
+  export let value = '';
 </script>
 
 <div class={twMerge('relative', className)}>
   <input
+    bind:value
+    on:change
+    on:mouseenter
+    on:mouseleave
+    on:click
+    on:focus
     {id}
     class={twMerge(input({ size: 'lg', error }), floatingInput())}
     placeholder={label}

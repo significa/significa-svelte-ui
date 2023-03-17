@@ -8,6 +8,16 @@
 
   export let size: VariantProps<typeof input>['size'] = 'md';
   export let error = false;
+  export let value = '';
 </script>
 
-<input class={twMerge(input({ size, error }), className)} {...$$restProps} />
+<input
+  bind:value
+  on:change
+  on:mouseenter
+  on:mouseleave
+  on:click
+  on:focus
+  class={twMerge(input({ size, error }), className)}
+  {...$$restProps}
+/>
