@@ -1,15 +1,16 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  import { checkbox } from './common';
+  import { base } from './common';
 
   let className: undefined | string = undefined;
   export { className as class };
   export let checked = false;
   export let indeterminate = false;
+  export let error = false;
 </script>
 
 <input
-  class={twMerge(checkbox(), className)}
+  class={twMerge(base({ error }), 'h-4 w-4 rounded-2xs checkbox-tick', className)}
   type="checkbox"
   bind:checked
   bind:indeterminate

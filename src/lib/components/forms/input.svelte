@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { VariantProps } from 'class-variance-authority';
   import { twMerge } from 'tailwind-merge';
-  import { input } from './common';
+  import { base, input } from './common';
 
   let className: undefined | string = undefined;
   export { className as class };
@@ -18,6 +18,6 @@
   on:mouseleave
   on:click
   on:focus
-  class={twMerge(input({ size, error }), className)}
+  class={twMerge(base({ error }), input({ size }), className)}
   {...$$restProps}
 />

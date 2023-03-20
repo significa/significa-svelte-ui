@@ -1,6 +1,7 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  import { floatingSelect, floatingLabel, select } from './common';
+  import { base, input } from './common';
+  import FloatingLabel from './floating-label.svelte';
 
   type T = $$Generic<string>;
 
@@ -22,12 +23,15 @@
     on:click
     on:focus
     {id}
-    class={twMerge(select({ size: 'lg', error }), floatingSelect({ value: !!value }))}
+    class={twMerge(
+      base({ error }),
+      input({ size: 'lg' }),
+      'peer',
+      value ? 'pt-6 pb-2' : 'text-transparent'
+    )}
     {...$$restProps}
   >
     <slot />
   </select>
-  <label for={id} class={twMerge(floatingLabel({ size: 'lg', error, floating: !value }))}>
-    {label}
-  </label>
+  <FloatingLabel for={id} floating={!value} {error}>{label}</FloatingLabel>
 </div>

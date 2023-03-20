@@ -5,9 +5,11 @@
 
   export let group: T[] = [];
   export let value: T;
+  export let error = false;
 </script>
 
 <Checkbox
+  {error}
   checked={group.includes(value)}
   on:change={() => {
     if (group.includes(value)) {

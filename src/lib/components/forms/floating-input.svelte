@@ -1,6 +1,7 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  import { input, floatingInput, floatingLabel } from './common';
+  import { base, input } from './common';
+  import FloatingLabel from './floating-label.svelte';
 
   let className: undefined | string = undefined;
   export { className as class };
@@ -20,11 +21,13 @@
     on:click
     on:focus
     {id}
-    class={twMerge(input({ size: 'lg', error }), floatingInput())}
+    class={twMerge(
+      base({ error }),
+      input({ size: 'lg' }),
+      `peer placeholder:text-transparent [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2`
+    )}
     placeholder={label}
     {...$$restProps}
   />
-  <label for={id} class={floatingLabel({ size: 'lg', error })}>
-    {label}
-  </label>
+  <FloatingLabel for={id} {error}>{label}</FloatingLabel>
 </div>

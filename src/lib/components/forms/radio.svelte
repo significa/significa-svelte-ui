@@ -1,6 +1,6 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
-  import { checkbox } from './common';
+  import { base } from './common';
 
   type T = $$Generic<string>;
 
@@ -9,10 +9,11 @@
 
   export let group: undefined | T = undefined;
   export let value: undefined | T = undefined;
+  export let error = false;
 </script>
 
 <input
-  class={twMerge(checkbox(), 'rounded-full', className)}
+  class={twMerge(base({ error }), 'h-4 w-4 rounded-full checkbox-tick', className)}
   type="radio"
   bind:group
   {value}

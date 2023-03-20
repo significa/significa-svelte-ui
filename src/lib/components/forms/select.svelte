@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { VariantProps } from 'class-variance-authority';
   import { twMerge } from 'tailwind-merge';
-  import { input, select } from './common';
+  import { base, input } from './common';
 
   type T = $$Generic<string>;
 
@@ -20,7 +20,7 @@
   on:mouseleave
   on:click
   on:focus
-  class={twMerge(select({ size, error }), className)}
+  class={twMerge(base({ error }), input({ size }), 'select-chevron', className)}
   {...$$restProps}
 >
   <slot />
