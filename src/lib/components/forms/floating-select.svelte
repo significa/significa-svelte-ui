@@ -26,7 +26,7 @@
     class={twMerge(
       base({ error }),
       input({ size: 'lg' }),
-      'peer',
+      'peer select-chevron',
       value ? 'pt-6 pb-2' : 'text-transparent'
     )}
     {...$$restProps}
