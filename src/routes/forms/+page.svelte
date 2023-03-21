@@ -1,6 +1,7 @@
 <script lang="ts">
   import CheckboxGroup from '$lib/components/forms/checkbox-group.svelte';
   import Checkbox from '$lib/components/forms/checkbox.svelte';
+  import FileInput from '$lib/components/forms/file-input.svelte';
   import FloatingInput from '$lib/components/forms/floating-input.svelte';
   import FloatingSelect from '$lib/components/forms/floating-select.svelte';
   import Input from '$lib/components/forms/input.svelte';
@@ -18,6 +19,10 @@
   let checked = false;
   let checkboxes: [];
   let radio: string;
+
+  let files: FileList;
+
+  $: console.log(files);
 </script>
 
 <div class="flex">
@@ -74,6 +79,11 @@
           </label>
         {/each}
       </div>
+
+      <div>
+        <Label for="files">Choose your files</Label>
+        <FileInput id="files" multiple bind:files />
+      </div>
     </div>
   {/each}
 </div>
@@ -86,4 +96,5 @@
   Checked: {checked}
   Checkbox Options: {JSON.stringify(checkboxes)}
   Radio Options: {JSON.stringify(radio)}
+  Files: {files?.length}
 </pre>

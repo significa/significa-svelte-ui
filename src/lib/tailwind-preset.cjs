@@ -1,7 +1,19 @@
 const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-const parseAlphaColor = (color) => color?.replace('<alpha-value>', '1');
+const parseAlphaColor = (color, opacity = '1') => color?.replace('<alpha-value>', opacity);
+
+const getChevronImage = (color) => {
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='${color}' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`;
+};
+
+const getAttachmentImage = (color) => {
+  return `url("data:image/svg+xml,%3Csvg width='14' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.835 8.306 6.53 13.715c-.456.459-.946.757-1.469.893-.518.137-1.03.13-1.533-.022-.5-.146-.943-.42-1.332-.82a3.14 3.14 0 0 1-.806-1.348 2.968 2.968 0 0 1-.014-1.56c.134-.533.427-1.031.878-1.495l7.27-7.393c.26-.269.554-.46.886-.571.33-.113.66-.137.986-.074.326.059.619.218.878.477.26.268.417.569.475.9.062.328.036.66-.08.997-.11.337-.297.638-.56.901l-7.127 7.26c-.158.167-.324.24-.497.22a.717.717 0 0 1-.424-.205.68.68 0 0 1-.202-.424c-.02-.176.05-.35.209-.52L9.042 5.88a.663.663 0 0 0 .194-.447.56.56 0 0 0-.173-.44.57.57 0 0 0-.431-.168.579.579 0 0 0-.432.198L3.21 10.11c-.259.259-.43.554-.511.886a2.03 2.03 0 0 0-.007.975 1.7 1.7 0 0 0 .46.82 1.777 1.777 0 0 0 1.786.484c.316-.093.602-.271.856-.535l7.17-7.29c.46-.474.765-.98.914-1.516.154-.543.16-1.075.022-1.598A3.141 3.141 0 0 0 13.08.93a2.974 2.974 0 0 0-1.369-.82 2.837 2.837 0 0 0-1.576.006c-.537.147-1.039.457-1.504.93L1.325 8.498a4.66 4.66 0 0 0-1.015 1.51A4.24 4.24 0 0 0 0 11.661c.01.557.123 1.097.339 1.62.216.527.533.998.95 1.413A4.242 4.242 0 0 0 4.27 16a4.04 4.04 0 0 0 1.627-.315A4.473 4.473 0 0 0 7.38 14.66l5.356-5.444a.608.608 0 0 0 .172-.462.604.604 0 0 0-.187-.461.517.517 0 0 0-.439-.183.673.673 0 0 0-.446.197Z' fill='${color}'/%3E%3C/svg%3E")`;
+};
+
+const getTickImage = (color) => {
+  return `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='${color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`;
+};
 
 const colors = {
   light: {
@@ -266,8 +278,35 @@ module.exports = function (options = { fonts: {} }) {
               }
             },
             // Form elements helpers
+            [[`.file-button`]]: {
+              backgroundImage: getAttachmentImage(
+                `hsl(${colors.light['--color-foreground-secondary']})`
+              ),
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: `left ${theme('spacing.4')} center`,
+              backgroundSize: '0.875em 1em',
+              paddingLeft: theme('spacing.10'),
+
+              [[`&::file-selector-button`]]: {
+                display: 'none'
+              },
+
+              '[data-theme="dark"] &': {
+                backgroundImage: getAttachmentImage(
+                  `hsl(${colors.dark['--color-foreground-secondary']})`
+                )
+              },
+
+              '[data-theme="yellow"] &': {
+                backgroundImage: getAttachmentImage(
+                  `hsl(${colors.yellow['--color-foreground-secondary']})`
+                )
+              }
+            },
             '.select-chevron': {
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='hsl(${colors.light['--color-foreground-secondary']})' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`,
+              backgroundImage: getChevronImage(
+                `hsl(${colors.light['--color-foreground-secondary']})`
+              ),
 
               backgroundRepeat: 'no-repeat',
               backgroundPosition: `right ${theme('spacing.2')} center`,
@@ -275,25 +314,29 @@ module.exports = function (options = { fonts: {} }) {
               paddingRight: theme('spacing.10'),
 
               '[data-theme="dark"] &': {
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='hsl(${colors.dark['--color-foreground-secondary']})' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`
+                backgroundImage: getChevronImage(
+                  `hsl(${colors.dark['--color-foreground-secondary']})`
+                )
               },
 
               '[data-theme="yellow"] &': {
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='hsl(${colors.yellow['--color-foreground-secondary']})' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")`
+                backgroundImage: getChevronImage(
+                  `hsl(${colors.yellow['--color-foreground-secondary']})`
+                )
               }
             },
             '.checkbox-tick:checked': {
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='hsl(${colors.light['--color-foreground']})' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`,
+              backgroundImage: getTickImage(`hsl(${colors.light['--color-foreground']})`),
               'background-size': `100% 100%`,
               'background-position': `center`,
               'background-repeat': `no-repeat`,
 
               '[data-theme="dark"] &:checked': {
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='hsl(${colors.dark['--color-foreground']})' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`
+                backgroundImage: getTickImage(`hsl(${colors.dark['--color-foreground']})`)
               },
 
               '[data-theme="yellow"] &:checked': {
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='hsl(${colors.yellow['--color-foreground']})' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E")`
+                backgroundImage: getTickImage(`hsl(${colors.yellow['--color-foreground']})`)
               }
             }
           });
