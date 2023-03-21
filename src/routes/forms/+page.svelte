@@ -21,8 +21,6 @@
   let radio: string;
 
   let files: FileList;
-
-  $: console.log(files);
 </script>
 
 <div class="flex">
