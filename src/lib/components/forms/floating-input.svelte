@@ -3,6 +3,8 @@
   import { base, input } from './common';
   import FloatingLabel from './floating-label.svelte';
 
+  export let element: undefined | HTMLInputElement = undefined;
+
   let className: undefined | string = undefined;
   export { className as class };
 
@@ -14,6 +16,7 @@
 
 <div class={twMerge('relative', className)}>
   <input
+    bind:this={element}
     bind:value
     on:change
     on:mouseenter

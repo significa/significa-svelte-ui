@@ -3,6 +3,8 @@
   import { twMerge } from 'tailwind-merge';
   import { base, input } from './common';
 
+  export let element: undefined | HTMLInputElement = undefined;
+
   let className: undefined | string = undefined;
   export { className as class };
 
@@ -12,6 +14,7 @@
 </script>
 
 <input
+  bind:this={element}
   bind:value
   on:change
   on:mouseenter

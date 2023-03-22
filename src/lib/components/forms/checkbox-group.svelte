@@ -3,12 +3,15 @@
 
   type T = $$Generic<string>;
 
+  export let element: undefined | HTMLInputElement = undefined;
+
   export let group: T[] = [];
   export let value: T;
   export let error = false;
 </script>
 
 <Checkbox
+  bind:element
   {error}
   checked={group.includes(value)}
   on:change={() => {

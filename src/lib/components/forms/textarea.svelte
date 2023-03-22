@@ -3,22 +3,24 @@
   import { twMerge } from 'tailwind-merge';
   import { base, input } from './common';
 
-  export let element: undefined | HTMLInputElement = undefined;
+  export let element: undefined | HTMLTextAreaElement = undefined;
 
   let className: undefined | string = undefined;
   export { className as class };
-  export let files: undefined | FileList = undefined;
-  export let multiple = false;
 
   export let size: VariantProps<typeof input>['size'] = 'md';
   export let error = false;
+  export let value = '';
 </script>
 
-<input
+<textarea
   bind:this={element}
-  type="file"
-  bind:files
-  {multiple}
-  class={twMerge(base({ error }), input({ size }), 'file-button', className)}
+  bind:value
+  on:change
+  on:mouseenter
+  on:mouseleave
+  on:click
+  on:focus
+  class={twMerge(base({ error }), input({ size }), className)}
   {...$$restProps}
 />

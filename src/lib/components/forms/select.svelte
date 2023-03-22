@@ -5,6 +5,8 @@
 
   type T = $$Generic<string>;
 
+  export let element: undefined | HTMLSelectElement = undefined;
+
   let className: undefined | string = undefined;
   export { className as class };
 
@@ -14,6 +16,7 @@
 </script>
 
 <select
+  bind:this={element}
   bind:value
   on:change
   on:mouseenter

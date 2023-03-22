@@ -4,6 +4,8 @@
 
   type T = $$Generic<string>;
 
+  export let element: undefined | HTMLInputElement = undefined;
+
   let className: undefined | string = undefined;
   export { className as class };
 
@@ -13,6 +15,7 @@
 </script>
 
 <input
+  bind:this={element}
   class={twMerge(base({ error }), 'h-4 w-4 rounded-full checkbox-tick', className)}
   type="radio"
   bind:group
