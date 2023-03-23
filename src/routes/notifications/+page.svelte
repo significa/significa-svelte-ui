@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from '$lib/components/button.svelte';
   import { notifications } from '$lib/components/notifications/store';
+  import CustomNotif from './custom-notif.svelte';
 
   const promise = () => {
     return new Promise((resolve, reject) => {
@@ -66,9 +67,22 @@
     variant="secondary"
     on:click={() =>
       notifications.promise(promise(), {
+        class: 'w-80',
         loading: { message: 'Loading...' },
         success: { message: 'Success!' },
         error: { message: 'Error!' }
       })}>Promise</Button
+  >
+  <Button
+    size="sm"
+    variant="secondary"
+    on:click={() =>
+      notifications.promise(promise(), {
+        class: 'w-80',
+        component: CustomNotif,
+        loading: { message: 'Loading...' },
+        success: { message: 'Success!' },
+        error: { message: 'Error!' }
+      })}>Custom component</Button
   >
 </div>

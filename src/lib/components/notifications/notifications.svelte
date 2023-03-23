@@ -1,7 +1,10 @@
 <script lang="ts">
   import { cva, type VariantProps } from 'class-variance-authority';
+  import { flip } from 'svelte/animate';
+  import { fly } from 'svelte/transition';
   import { twMerge } from 'tailwind-merge';
   import Notification from './notification.svelte';
+  import { pausableTimeout } from './pausable-timeout';
   import { notifications } from './store';
 
   const style = cva('pointer-events-none fixed z-[99999]', {
@@ -37,7 +40,24 @@
 </script>
 
 <div class={twMerge(style({ position, gap, inset }), className)}>
-  {#each $notifications as notification (notification.id)}
-    <Notification {...notification} on:dismiss={({ detail: id }) => notifications.remove(id)} />
+  {#each $notifications as { component, ...notification } (notification.id)}
+    <div
+      class={twMerge('pointer-events-auto max-w-md', notification.class)}
+      use:pausableTimeout={notification.timeout}
+      on:timeout={() => notifications.remove(notification.id)}
+      transition:fly={{ y: 100 }}
+      animate:flip
+      style={notification.style}
+    >
+      {#if component}
+        <svelte:component
+          this={component}
+          {notification}
+          on:dismiss={({ detail: id }) => notifications.remove(id)}
+        />
+      {:else}
+        <Notification {notification} on:dismiss={({ detail: id }) => notifications.remove(id)} />
+      {/if}
+    </div>
   {/each}
 </div>

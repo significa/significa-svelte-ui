@@ -1,3 +1,4 @@
+import type { ComponentType } from 'svelte';
 import { writable } from 'svelte/store';
 
 export type Notification = {
@@ -6,6 +7,9 @@ export type Notification = {
   timeout: number;
   description?: string;
   type?: 'loading' | 'success' | 'error';
+  class?: string;
+  style?: string;
+  component?: ComponentType;
 };
 
 type NotificationParams = Omit<Notification, 'id' | 'timeout'> & {
@@ -13,7 +17,10 @@ type NotificationParams = Omit<Notification, 'id' | 'timeout'> & {
   timeout?: number;
 };
 
-type PromiseNotificationParams = Pick<NotificationParams, 'id'> & {
+type PromiseNotificationParams = Pick<
+  NotificationParams,
+  'id' | 'class' | 'style' | 'component'
+> & {
   loading: Pick<NotificationParams, 'message' | 'description'>;
   success: Pick<NotificationParams, 'message' | 'description' | 'timeout'>;
   error: Pick<NotificationParams, 'message' | 'description' | 'timeout'>;
@@ -41,7 +48,7 @@ const createNotificationsStore = () => {
   const remove = (id: string) => update((prev) => prev.filter((n) => n.id !== id));
 
   function promise<T>(promise: Promise<T>, params: PromiseNotificationParams) {
-    const id = add({ ...params.loading, type: 'loading', timeout: 0 });
+    const id = add({ ...params, ...params.loading, type: 'loading', timeout: 0 });
 
     promise
       .then(() => {
