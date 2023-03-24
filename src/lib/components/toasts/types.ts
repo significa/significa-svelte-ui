@@ -1,6 +1,6 @@
 import type { ComponentType } from 'svelte';
 
-export type NotificationType = {
+export type Toast = {
   id: string;
   message: string;
   timeout: number;

@@ -1,28 +1,24 @@
 import { writable } from 'svelte/store';
-import type { NotificationType } from './types';
+import type { Toast } from './types';
 
-type NotificationParams = Omit<NotificationType, 'id' | 'timeout'> & {
-  id?: string;
-  timeout?: number;
+type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+type Params = PartialBy<Toast, 'id' | 'timeout'>;
+
+type PromiseParams = Pick<Params, 'id' | 'class' | 'style' | 'component'> & {
+  loading: Pick<Params, 'message' | 'description'>;
+  success: Pick<Params, 'message' | 'description' | 'timeout'>;
+  error: Pick<Params, 'message' | 'description' | 'timeout'>;
 };
 
-type PromiseNotificationParams = Pick<
-  NotificationParams,
-  'id' | 'class' | 'style' | 'component'
-> & {
-  loading: Pick<NotificationParams, 'message' | 'description'>;
-  success: Pick<NotificationParams, 'message' | 'description' | 'timeout'>;
-  error: Pick<NotificationParams, 'message' | 'description' | 'timeout'>;
-};
-
-const getTimeout = (timeout: NotificationParams['timeout'], type: NotificationParams['type']) => {
+const getTimeout = (timeout: Params['timeout'], type: Params['type']) => {
   return timeout || type === 'error' ? 5000 : 2000;
 };
 
-const createNotificationsStore = () => {
-  const { subscribe, set, update } = writable<NotificationType[]>([]);
+const createToastStore = () => {
+  const { subscribe, set, update } = writable<Toast[]>([]);
 
-  const add = (params: NotificationParams) => {
+  const add = (params: Params) => {
     const id = params.id || crypto.randomUUID();
 
     update((prev) => {
@@ -39,10 +35,10 @@ const createNotificationsStore = () => {
     return id;
   };
 
-  const replace = (id: string, params: NotificationParams) =>
+  const replace = (id: string, params: Params) =>
     update((prev) => prev.map((n) => (n.id === id ? { ...n, ...params } : n)));
 
-  function promise<T>(promise: Promise<T>, params: PromiseNotificationParams) {
+  function promise<T>(promise: Promise<T>, params: PromiseParams) {
     const id = add({ ...params, ...params.loading, type: 'loading', timeout: 0 });
 
     promise
@@ -66,9 +62,9 @@ const createNotificationsStore = () => {
 
   const methods = {
     subscribe,
-    success: (params: Omit<NotificationParams, 'type'>) => add({ ...params, type: 'success' }),
-    error: (params: Omit<NotificationParams, 'type'>) => add({ ...params, type: 'error' }),
-    loading: (params: Omit<NotificationParams, 'type'>) => add({ ...params, type: 'loading' }),
+    success: (params: Omit<Params, 'type'>) => add({ ...params, type: 'success' }),
+    error: (params: Omit<Params, 'type'>) => add({ ...params, type: 'error' }),
+    loading: (params: Omit<Params, 'type'>) => add({ ...params, type: 'loading' }),
     promise,
     update,
     clear: (id: string) => update((prev) => prev.filter((n) => n.id !== id)),
@@ -79,4 +75,4 @@ const createNotificationsStore = () => {
   return Object.assign(add, methods) as typeof add & typeof methods;
 };
 
-export const notifications = createNotificationsStore();
+export const toast = createToastStore();

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { NotificationType } from '$lib/components/notifications/types';
+  import type { Toast } from '$lib/components/toasts/types';
 
-  export let notification: NotificationType;
+  export let toast: Toast;
 </script>
 
-<div class="border border-foreground bg-background p-4">{notification.message}</div>
+<div class="border border-foreground bg-background p-4">{toast.message}</div>

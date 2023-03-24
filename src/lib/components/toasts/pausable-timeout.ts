@@ -28,14 +28,14 @@ export const pausableTimeout = (node: HTMLElement, params: Params) => {
   return {
     update(params: Params) {
       /**
-       * Reset the timeout if the time has changed or if the notification has reocurred.
+       * Reset the timeout if the time has changed or if the toast has reocurred.
        */
       if (params.ms !== lastParams.ms || params.reoccuredAt !== lastParams.reoccuredAt) {
         pause();
         lastParams = params;
         remaining = params.ms;
 
-        // check if mouse is still over the notification
+        // check if mouse is still over the toast
         if (!node.matches(':hover')) {
           resume();
         }
