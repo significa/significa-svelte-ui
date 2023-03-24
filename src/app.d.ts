@@ -9,3 +9,10 @@ declare namespace App {
   // interface Error {}
   // interface Platform {}
 }
+
+declare namespace svelte.JSX {
+  export interface HTMLAttributes {
+    // If you want to use on:beforeinstallprompt
+    ontimeout?: () => void;
+  }
+}

@@ -221,6 +221,18 @@ module.exports = function (options = { fonts: {} }) {
         },
         opacity: {
           2: '.02'
+        },
+        boxShadow: {
+          sm: '0 1px 1px rgb(0 0 0 / 0.02)',
+          DEFAULT: ['0 1px 2px rgb(0 0 0 / 0.02)', '0 2px 4px rgb(0 0 0 / 0.04)'],
+          md: ['0 2px 2px rgb(0 0 0 / 0.02)', '0 4px 8px rgb(0 0 0 / 0.06)'],
+          lg: ['0 2px 4px rgb(0 0 0 / 0.04)', '0 8px 12px rgb(0 0 0 / 0.08)'],
+          xl: ['0 4px 6px rgb(0 0 0 / 0.04)', '0 16px 24px rgb(0 0 0 / 0.08)'],
+          '2xl': [
+            '0 2px 2px rgb(0 0 0 / 0.02)',
+            '0 8px 12px rgb(0 0 0 / 0.04)',
+            '0 32px 48px rgb(0 0 0 / 0.08)'
+          ]
         }
       }
     },
@@ -287,8 +299,12 @@ module.exports = function (options = { fonts: {} }) {
               backgroundSize: '0.875em 1em',
               paddingLeft: theme('spacing.10'),
 
-              [[`&::file-selector-button`]]: {
-                display: 'none'
+              [`&::file-selector-button`]: {
+                width: '0',
+                padding: 0,
+                margin: 0,
+                opacity: 0,
+                visibility: 'hidden'
               },
 
               '[data-theme="dark"] &': {
