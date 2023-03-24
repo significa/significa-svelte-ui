@@ -1,9 +1,9 @@
-export const pausableTimeout = (node: HTMLElement, ms: number) => {
-  const callback = () => {
-    node.dispatchEvent(new CustomEvent('timeout'));
-  };
+type Params = { ms: number; reoccuredAt?: number };
 
-  let remaining = ms;
+export const pausableTimeout = (node: HTMLElement, params: Params) => {
+  const callback = () => node.dispatchEvent(new CustomEvent('timeout'));
+  let lastParams = params;
+  let remaining = params.ms;
   let now: number;
   let t: NodeJS.Timeout;
 
@@ -14,20 +14,31 @@ export const pausableTimeout = (node: HTMLElement, ms: number) => {
 
   const resume = () => {
     now = Date.now();
-    t = setTimeout(callback, remaining);
+
+    if (remaining > 0) {
+      t = setTimeout(callback, remaining);
+    }
   };
 
-  if (ms > 0) {
-    resume();
-    node.addEventListener('mouseenter', pause);
-    node.addEventListener('mouseleave', resume);
-  }
+  resume();
+
+  node.addEventListener('mouseenter', pause);
+  node.addEventListener('mouseleave', resume);
 
   return {
-    update(newMs: number) {
-      if (newMs > 0) {
-        remaining = newMs;
-        resume();
+    update(params: Params) {
+      /**
+       * Reset the timeout if the time has changed or if the notification has reocurred.
+       */
+      if (params.ms !== lastParams.ms || params.reoccuredAt !== lastParams.reoccuredAt) {
+        pause();
+        lastParams = params;
+        remaining = params.ms;
+
+        // check if mouse is still over the notification
+        if (!node.matches(':hover')) {
+          resume();
+        }
       }
     },
     destroy() {

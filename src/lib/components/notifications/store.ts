@@ -6,6 +6,8 @@ export type Notification = {
   message: string;
   timeout: number;
   description?: string;
+  createdAt?: number;
+  reoccuredAt?: number;
   type?: 'loading' | 'success' | 'error';
   class?: string;
   style?: string;
@@ -26,6 +28,10 @@ type PromiseNotificationParams = Pick<
   error: Pick<NotificationParams, 'message' | 'description' | 'timeout'>;
 };
 
+const getTimeout = (timeout: NotificationParams['timeout'], type: NotificationParams['type']) => {
+  return timeout || type === 'error' ? 5000 : 2000;
+};
+
 const createNotificationsStore = () => {
   const { subscribe, set, update } = writable<Notification[]>([]);
 
@@ -33,10 +39,14 @@ const createNotificationsStore = () => {
     const id = params.id || crypto.randomUUID();
 
     update((prev) => {
-      const rest = prev.filter((n) => n.id !== id);
-      const timeout = params.timeout || params.type === 'error' ? 5000 : 2000;
+      if (prev.some((n) => n.id === id)) {
+        return prev.map((n) => (n.id === id ? { ...n, ...params, reoccuredAt: Date.now() } : n));
+      }
 
-      return [...rest, { id, timeout, ...params }];
+      return [
+        ...prev,
+        { id, timeout: getTimeout(params.timeout, params.type), ...params, createdAt: Date.now() }
+      ];
     });
 
     return id;
@@ -53,13 +63,17 @@ const createNotificationsStore = () => {
     promise
       .then(() => {
         replace(id, {
-          timeout: params.success.timeout || 2000,
+          timeout: getTimeout(params.success.timeout, 'success'),
           ...params.success,
           type: 'success'
         });
       })
       .catch(() => {
-        replace(id, { timeout: params.error.timeout || 5000, ...params.error, type: 'error' });
+        replace(id, {
+          timeout: getTimeout(params.error.timeout, 'error'),
+          ...params.error,
+          type: 'error'
+        });
       });
 
     return id;

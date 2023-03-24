@@ -66,6 +66,16 @@
     size="sm"
     variant="secondary"
     on:click={() =>
+      notifications.add({
+        id: 'copied-to-clipboard',
+        message: `Copied to clipboard!`,
+        type: 'success'
+      })}>ID (click multiple)</Button
+  >
+  <Button
+    size="sm"
+    variant="secondary"
+    on:click={() =>
       notifications.promise(promise(), {
         class: 'w-80',
         loading: { message: 'Loading...' },
@@ -77,12 +87,10 @@
     size="sm"
     variant="secondary"
     on:click={() =>
-      notifications.promise(promise(), {
-        class: 'w-80',
+      notifications.add({
+        id: 'custom-component',
         component: CustomNotif,
-        loading: { message: 'Loading...' },
-        success: { message: 'Success!' },
-        error: { message: 'Error!' }
+        message: 'Hello from custom component'
       })}>Custom component</Button
   >
 </div>

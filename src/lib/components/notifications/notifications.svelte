@@ -3,6 +3,7 @@
   import { flip } from 'svelte/animate';
   import { fly } from 'svelte/transition';
   import { twMerge } from 'tailwind-merge';
+  import NotificationWrapper from './notification-wrapper.svelte';
   import Notification from './notification.svelte';
   import { pausableTimeout } from './pausable-timeout';
   import { notifications } from './store';
@@ -43,21 +44,23 @@
   {#each $notifications as { component, ...notification } (notification.id)}
     <div
       class={twMerge('pointer-events-auto max-w-md', notification.class)}
-      use:pausableTimeout={notification.timeout}
+      use:pausableTimeout={{ ms: notification.timeout, reoccuredAt: notification.reoccuredAt }}
       on:timeout={() => notifications.remove(notification.id)}
       transition:fly={{ y: 100 }}
       animate:flip
       style={notification.style}
     >
-      {#if component}
-        <svelte:component
-          this={component}
-          {notification}
-          on:dismiss={({ detail: id }) => notifications.remove(id)}
-        />
-      {:else}
-        <Notification {notification} on:dismiss={({ detail: id }) => notifications.remove(id)} />
-      {/if}
+      <NotificationWrapper {notification}>
+        {#if component}
+          <svelte:component
+            this={component}
+            {notification}
+            on:dismiss={({ detail: id }) => notifications.remove(id)}
+          />
+        {:else}
+          <Notification {notification} on:dismiss={({ detail: id }) => notifications.remove(id)} />
+        {/if}
+      </NotificationWrapper>
     </div>
   {/each}
 </div>
