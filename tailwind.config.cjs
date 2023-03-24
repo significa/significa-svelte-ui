@@ -4,9 +4,8 @@ module.exports = {
   theme: {
     extend: {}
   },
-  darkMode: ['class', '[data-theme="dark"]'],
-  plugins: [
-    require('./src/lib/significa-tailwind.cjs')({
+  presets: [
+    require('./src/lib/tailwind-preset.cjs')({
       fonts: {
         sans: {
           name: 'Significa Sans',
@@ -30,5 +29,6 @@ module.exports = {
         }
       }
     })
-  ]
+  ],
+  plugins: []
 };

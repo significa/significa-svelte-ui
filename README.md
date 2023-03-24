@@ -17,24 +17,33 @@ Install with `npm install --save-dev @significa/svelte-ui`
 
 ## Tailwind
 
-In your tailwind configuration file (`tailwind.config.cjs`), import our tailwind plugin and update the `content` key to include our package.
+In your tailwind configuration file (`tailwind.config.cjs`), import our tailwind preset and update the `content` key to include our package.
 Optionally (but ideally), you can include our brand fonts by providing a path to your project's static font files.
 
 ```js
-const parseAlphaColor = (color) => color?.replace('<alpha-value>', '1');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{html,js,svelte,ts}',
     './node_modules/@significa/svelte-ui/**/*.{html,js,svelte,ts}' // add this
   ],
+  presets: [
+    require('@significa/svelte-ui/tailwind-preset') // add this
+  ],
   theme: {
     // your theme
-  },
-  plugins: [
-    // add our plugin. fonts are optional.
-    require('@significa/svelte-ui/tailwind')({
+  }
+};
+```
+
+### Including fonts
+
+If the project needs to include our brand fonts, you can call the preset defining custom fonts and their path:
+
+```js
+module.exports = {
+  presets: [
+    require('@significa/svelte-ui/tailwind-preset')({
       fonts: {
         sans: {
           name: 'Significa Sans',
