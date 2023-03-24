@@ -79,7 +79,7 @@
     variant="secondary"
     on:click={() =>
       notifications.promise(promise(), {
-        class: 'w-80',
+        style: 'width: 400px',
         loading: { message: 'Loading...' },
         success: { message: 'Success!' },
         error: { message: 'Error!' }

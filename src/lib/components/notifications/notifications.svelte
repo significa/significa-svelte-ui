@@ -2,51 +2,15 @@
   import clsx from 'clsx';
   import type { ComponentType } from 'svelte';
   import { flip } from 'svelte/animate';
-  import { circInOut, circOut } from 'svelte/easing';
-  import NotificationWrapper from './notification-wrapper.svelte';
+  import { circOut } from 'svelte/easing';
   import Notification from './notification.svelte';
   import { pausableTimeout } from './pausable-timeout';
   import { notifications } from './store';
-
-  function bounds(value: number, [outMin, outMax]: [number, number], [inMin, inMax] = [0, 1]) {
-    return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-  }
-
-  function animate(
-    node: HTMLElement,
-    params: { direction: 'in' | 'out'; position: typeof position }
-  ) {
-    const { height: h } = node.getBoundingClientRect();
-    const style = getComputedStyle(node);
-    const transform = style.transform === 'none' ? '' : style.transform;
-
-    return {
-      duration: params.direction === 'in' ? 300 : 200,
-      easing: params.direction === 'in' ? circInOut : circOut,
-      css: (t: number) => {
-        return `
-          ${params.direction === 'out' ? 'z-index: 1;' : ''}
-          transform-origin: ${params.position?.startsWith('top') ? 'top' : 'bottom'};
-          transform: ${transform} scale(${bounds(t, [0.6, 1])}) translateY(${
-          params.direction === 'out'
-            ? bounds(t, [params.position?.startsWith('top') ? h * -1 : h, 0])
-            : '0'
-        }px);
-          opacity: ${t}
-        `;
-      }
-    };
-  }
+  import type { Position } from './types';
 
   let className: undefined | string = undefined;
   export { className as class };
-  export let position:
-    | 'top-left'
-    | 'top-center'
-    | 'top-right'
-    | 'bottom-left'
-    | 'bottom-center'
-    | 'bottom-right' = 'bottom-right';
+  export let position: Position = 'bottom-right';
   export let gap: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let inset: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let defaultParams:
@@ -64,22 +28,23 @@
       class={clsx('notification', notification.class || defaultParams?.class)}
       use:pausableTimeout={{ ms: notification.timeout, reoccuredAt: notification.reoccuredAt }}
       on:timeout={() => notifications.remove(notification.id)}
-      in:animate={{ direction: 'in', position }}
-      out:animate={{ direction: 'out', position }}
       animate:flip={{ duration: 800, easing: circOut }}
       style={notification.style || defaultParams?.style}
     >
-      <NotificationWrapper {notification}>
-        {#if component || defaultParams?.component}
-          <svelte:component
-            this={component || defaultParams?.component}
-            {notification}
-            on:dismiss={({ detail: id }) => notifications.remove(id)}
-          />
-        {:else}
-          <Notification {notification} on:dismiss={({ detail: id }) => notifications.remove(id)} />
-        {/if}
-      </NotificationWrapper>
+      {#if component || defaultParams?.component}
+        <svelte:component
+          this={component || defaultParams?.component}
+          {position}
+          {notification}
+          on:dismiss={({ detail: id }) => notifications.remove(id)}
+        />
+      {:else}
+        <Notification
+          {position}
+          {notification}
+          on:dismiss={({ detail: id }) => notifications.remove(id)}
+        />
+      {/if}
     </div>
   {/each}
 </div>

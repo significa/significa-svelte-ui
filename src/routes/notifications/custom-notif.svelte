@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { NotificationType } from '$lib/components/notifications/store';
+  import type { NotificationType } from '$lib/components/notifications/types';
 
   export let notification: NotificationType;
 </script>

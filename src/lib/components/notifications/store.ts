@@ -1,18 +1,5 @@
-import type { ComponentType } from 'svelte';
 import { writable } from 'svelte/store';
-
-export type NotificationType = {
-  id: string;
-  message: string;
-  timeout: number;
-  description?: string;
-  createdAt?: number;
-  reoccuredAt?: number;
-  type?: 'loading' | 'success' | 'error';
-  class?: string;
-  style?: string;
-  component?: ComponentType;
-};
+import type { NotificationType } from './types';
 
 type NotificationParams = Omit<NotificationType, 'id' | 'timeout'> & {
   id?: string;
