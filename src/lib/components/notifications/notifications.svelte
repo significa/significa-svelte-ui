@@ -1,5 +1,6 @@
 <script lang="ts">
   import { cva, type VariantProps } from 'class-variance-authority';
+  import type { ComponentType } from 'svelte';
   import { flip } from 'svelte/animate';
   import { fly } from 'svelte/transition';
   import { twMerge } from 'tailwind-merge';
@@ -38,22 +39,29 @@
   export let position: VariantProps<typeof style>['position'] = 'bottom-right';
   export let gap: VariantProps<typeof style>['gap'] = 'md';
   export let inset: VariantProps<typeof style>['inset'] = 'md';
+  export let defaultParams:
+    | undefined
+    | {
+        class?: string;
+        style?: string;
+        component?: ComponentType;
+      } = undefined;
 </script>
 
 <div class={twMerge(style({ position, gap, inset }), className)}>
   {#each $notifications as { component, ...notification } (notification.id)}
     <div
-      class={twMerge('pointer-events-auto max-w-md', notification.class)}
+      class={twMerge('pointer-events-auto max-w-md', notification.class || defaultParams?.class)}
       use:pausableTimeout={{ ms: notification.timeout, reoccuredAt: notification.reoccuredAt }}
       on:timeout={() => notifications.remove(notification.id)}
       transition:fly={{ y: 100 }}
       animate:flip
-      style={notification.style}
+      style={notification.style || defaultParams?.style}
     >
       <NotificationWrapper {notification}>
-        {#if component}
+        {#if component || defaultParams?.component}
           <svelte:component
-            this={component}
+            this={component || defaultParams?.component}
             {notification}
             on:dismiss={({ detail: id }) => notifications.remove(id)}
           />
