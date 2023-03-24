@@ -18,13 +18,13 @@
   <Button
     size="sm"
     variant="secondary"
-    on:click={() => notifications.add({ message: 'This is a notification' })}>Default</Button
+    on:click={() => notifications({ message: 'This is a notification' })}>Default</Button
   >
   <Button
     size="sm"
     variant="secondary"
     on:click={() =>
-      notifications.add({
+      notifications({
         message: 'This is a notification',
         description:
           'This is the text below. It can be quite long if you keep on writing! Something more just to fill up the available space and make it break another line.',
@@ -34,33 +34,29 @@
   <Button
     size="sm"
     variant="secondary"
-    on:click={() => notifications.add({ message: 'Great success', type: 'success' })}
-    >Success</Button
+    on:click={() => notifications.success({ message: 'Great success' })}>Success</Button
   >
   <Button
     size="sm"
     variant="secondary"
     on:click={() =>
-      notifications.add({
+      notifications.success({
         message: 'Your message has been delivered!',
-        description: `Keep an eye on your inbox. If you didn't mistype your message, you should be getting an e-mail right now.`,
-        type: 'success'
+        description: `Keep an eye on your inbox. If you didn't mistype your message, you should be getting an e-mail right now.`
       })}>Success 2</Button
   >
   <Button
     size="sm"
     variant="secondary"
-    on:click={() => notifications.add({ message: 'Something went wrong', type: 'error' })}
-    >Error</Button
+    on:click={() => notifications.error({ message: 'Something went wrong' })}>Error</Button
   >
   <Button
     size="sm"
     variant="secondary"
     on:click={() =>
-      notifications.add({
+      notifications.error({
         message: `We couldn't deliver your message!`,
         description: `We must've forgotten to feed our pidgeons. Please try again or contact us directly.`,
-        type: 'error',
         timeout: 0
       })}>Error 2</Button
   >
@@ -68,7 +64,7 @@
     size="sm"
     variant="secondary"
     on:click={() =>
-      notifications.add({
+      notifications({
         id: 'copied-to-clipboard',
         message: `Copied to clipboard!`,
         type: 'success'
@@ -89,7 +85,7 @@
     size="sm"
     variant="secondary"
     on:click={() =>
-      notifications.add({
+      notifications({
         id: 'custom-component',
         component: CustomNotif,
         message: 'Hello from custom component'

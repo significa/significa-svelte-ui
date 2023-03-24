@@ -27,7 +27,7 @@
     <div
       class={clsx('notification', notification.class || defaultParams?.class)}
       use:pausableTimeout={{ ms: notification.timeout, reoccuredAt: notification.reoccuredAt }}
-      on:timeout={() => notifications.remove(notification.id)}
+      on:timeout={() => notifications.clear(notification.id)}
       animate:flip={{ duration: 800, easing: circOut }}
       style={notification.style || defaultParams?.style}
     >
@@ -36,13 +36,13 @@
           this={component || defaultParams?.component}
           {position}
           {notification}
-          on:dismiss={({ detail: id }) => notifications.remove(id)}
+          on:dismiss={({ detail: id }) => notifications.clear(id)}
         />
       {:else}
         <Notification
           {position}
           {notification}
-          on:dismiss={({ detail: id }) => notifications.remove(id)}
+          on:dismiss={({ detail: id }) => notifications.clear(id)}
         />
       {/if}
     </div>

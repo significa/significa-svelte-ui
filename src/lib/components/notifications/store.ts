@@ -42,8 +42,6 @@ const createNotificationsStore = () => {
   const replace = (id: string, params: NotificationParams) =>
     update((prev) => prev.map((n) => (n.id === id ? { ...n, ...params } : n)));
 
-  const remove = (id: string) => update((prev) => prev.filter((n) => n.id !== id));
-
   function promise<T>(promise: Promise<T>, params: PromiseNotificationParams) {
     const id = add({ ...params, ...params.loading, type: 'loading', timeout: 0 });
 
@@ -66,14 +64,19 @@ const createNotificationsStore = () => {
     return id;
   }
 
-  return {
+  const methods = {
     subscribe,
-    add,
+    success: (params: Omit<NotificationParams, 'type'>) => add({ ...params, type: 'success' }),
+    error: (params: Omit<NotificationParams, 'type'>) => add({ ...params, type: 'error' }),
+    loading: (params: Omit<NotificationParams, 'type'>) => add({ ...params, type: 'loading' }),
     promise,
     update,
-    remove,
+    clear: (id: string) => update((prev) => prev.filter((n) => n.id !== id)),
     clearAll: () => set([])
   };
+
+  // return the 'add' function with all the other methods as properties
+  return Object.assign(add, methods) as typeof add & typeof methods;
 };
 
 export const notifications = createNotificationsStore();
