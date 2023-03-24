@@ -40,9 +40,9 @@
   }
 
   let scale = tweened(1, { duration: 100 });
-  let lastreoccuredAt: number | undefined = undefined;
-  $: if (toast.reoccuredAt !== lastreoccuredAt) {
-    lastreoccuredAt = toast.reoccuredAt;
+  let lastreoccurredAt: number | undefined = undefined;
+  $: if (toast.reoccurredAt !== lastreoccurredAt) {
+    lastreoccurredAt = toast.reoccurredAt;
     $scale = 1.05;
     setTimeout(() => scale.set(1, { duration: 600 }), 200);
   }

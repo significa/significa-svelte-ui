@@ -21,7 +21,7 @@
   {#each $toastStore as { component: toastComponent, ...toast } (toast.id)}
     <div
       class={clsx('toast', toast.class || wrapper?.class)}
-      use:pausableTimeout={{ ms: toast.timeout, reoccuredAt: toast.reoccuredAt }}
+      use:pausableTimeout={{ ms: toast.timeout, reoccurredAt: toast.reoccurredAt }}
       on:timeout={() => toastStore.clear(toast.id)}
       animate:flip={{ duration: $reducedMotion ? 0 : 800, easing: circOut }}
       style={toast.style || wrapper?.style}

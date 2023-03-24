@@ -1,4 +1,4 @@
-type Params = { ms: number; reoccuredAt?: number };
+type Params = { ms: number; reoccurredAt?: number };
 
 export const pausableTimeout = (node: HTMLElement, params: Params) => {
   const callback = () => node.dispatchEvent(new CustomEvent('timeout'));
@@ -30,7 +30,7 @@ export const pausableTimeout = (node: HTMLElement, params: Params) => {
       /**
        * Reset the timeout if the time has changed or if the toast has reocurred.
        */
-      if (params.ms !== lastParams.ms || params.reoccuredAt !== lastParams.reoccuredAt) {
+      if (params.ms !== lastParams.ms || params.reoccurredAt !== lastParams.reoccurredAt) {
         pause();
         lastParams = params;
         remaining = params.ms;

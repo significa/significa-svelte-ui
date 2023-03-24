@@ -3,7 +3,7 @@ import type { Toast } from './types';
 
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
-type Params = PartialBy<Toast, 'id' | 'timeout'>;
+type Params = Omit<PartialBy<Toast, 'id' | 'timeout'>, 'createdAt' | 'reoccurredAt'>;
 
 type PromiseParams = Pick<Params, 'id' | 'class' | 'style' | 'component'> & {
   loading: Pick<Params, 'message' | 'description'>;
@@ -23,7 +23,7 @@ const createToastStore = () => {
 
     update((prev) => {
       if (prev.some((n) => n.id === id)) {
-        return prev.map((n) => (n.id === id ? { ...n, ...params, reoccuredAt: Date.now() } : n));
+        return prev.map((n) => (n.id === id ? { ...n, ...params, reoccurredAt: Date.now() } : n));
       }
 
       return [

@@ -6,7 +6,7 @@ export type Toast = {
   timeout: number;
   description?: string;
   createdAt?: number;
-  reoccuredAt?: number;
+  reoccurredAt?: number;
   type?: 'loading' | 'success' | 'error';
   class?: string;
   style?: string;
