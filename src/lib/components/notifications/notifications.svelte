@@ -1,44 +1,54 @@
 <script lang="ts">
-  import { cva, type VariantProps } from 'class-variance-authority';
+  import clsx from 'clsx';
   import type { ComponentType } from 'svelte';
   import { flip } from 'svelte/animate';
-  import { fly } from 'svelte/transition';
-  import { twMerge } from 'tailwind-merge';
+  import { circInOut, circOut } from 'svelte/easing';
   import NotificationWrapper from './notification-wrapper.svelte';
   import Notification from './notification.svelte';
   import { pausableTimeout } from './pausable-timeout';
   import { notifications } from './store';
 
-  const style = cva('pointer-events-none fixed z-[99999]', {
-    variants: {
-      position: {
-        'top-left': 'flex flex-col items-start',
-        'top-center': 'flex flex-col items-center',
-        'top-right': 'flex flex-col items-end',
-        'bottom-left': 'flex flex-col-reverse items-start',
-        'bottom-center': 'flex flex-col-reverse items-center',
-        'bottom-right': 'flex flex-col-reverse items-end'
-      },
-      gap: {
-        sm: 'gap-2',
-        md: 'gap-4',
-        lg: 'gap-6',
-        xl: 'gap-8'
-      },
-      inset: {
-        sm: 'inset-2',
-        md: 'inset-4',
-        lg: 'inset-6',
-        xl: 'inset-8'
+  function bounds(value: number, [outMin, outMax]: [number, number], [inMin, inMax] = [0, 1]) {
+    return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+  }
+
+  function animate(
+    node: HTMLElement,
+    params: { direction: 'in' | 'out'; position: typeof position }
+  ) {
+    const { height: h } = node.getBoundingClientRect();
+    const style = getComputedStyle(node);
+    const transform = style.transform === 'none' ? '' : style.transform;
+
+    return {
+      duration: params.direction === 'in' ? 300 : 200,
+      easing: params.direction === 'in' ? circInOut : circOut,
+      css: (t: number) => {
+        return `
+          ${params.direction === 'out' ? 'z-index: 1;' : ''}
+          transform-origin: ${params.position?.startsWith('top') ? 'top' : 'bottom'};
+          transform: ${transform} scale(${bounds(t, [0.6, 1])}) translateY(${
+          params.direction === 'out'
+            ? bounds(t, [params.position?.startsWith('top') ? h * -1 : h, 0])
+            : '0'
+        }px);
+          opacity: ${t}
+        `;
       }
-    }
-  });
+    };
+  }
 
   let className: undefined | string = undefined;
   export { className as class };
-  export let position: VariantProps<typeof style>['position'] = 'bottom-right';
-  export let gap: VariantProps<typeof style>['gap'] = 'md';
-  export let inset: VariantProps<typeof style>['inset'] = 'md';
+  export let position:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right' = 'bottom-right';
+  export let gap: 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  export let inset: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let defaultParams:
     | undefined
     | {
@@ -48,14 +58,15 @@
       } = undefined;
 </script>
 
-<div class={twMerge(style({ position, gap, inset }), className)}>
+<div class={clsx('notifications', position, `gap-${gap}`, `inset-${inset}`, className)}>
   {#each $notifications as { component, ...notification } (notification.id)}
     <div
-      class={twMerge('pointer-events-auto max-w-md', notification.class || defaultParams?.class)}
+      class={clsx('notification', notification.class || defaultParams?.class)}
       use:pausableTimeout={{ ms: notification.timeout, reoccuredAt: notification.reoccuredAt }}
       on:timeout={() => notifications.remove(notification.id)}
-      transition:fly={{ y: 100 }}
-      animate:flip
+      in:animate={{ direction: 'in', position }}
+      out:animate={{ direction: 'out', position }}
+      animate:flip={{ duration: 800, easing: circOut }}
       style={notification.style || defaultParams?.style}
     >
       <NotificationWrapper {notification}>
@@ -72,3 +83,85 @@
     </div>
   {/each}
 </div>
+
+<style>
+  .notifications {
+    pointer-events: none;
+    position: fixed;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: var(--notifications-flex-direction);
+    align-items: var(--notifications-align-items);
+    gap: var(--notifications-gap);
+    inset: var(--notifications-inset);
+  }
+
+  .notifications.top-left {
+    --notifications-flex-direction: column;
+    --notifications-align-items: flex-start;
+  }
+
+  .notifications.top-center {
+    --notifications-flex-direction: column;
+    --notifications-align-items: center;
+  }
+
+  .notifications.top-right {
+    --notifications-flex-direction: column;
+    --notifications-align-items: flex-end;
+  }
+
+  .notifications.bottom-left {
+    --notifications-flex-direction: column-reverse;
+    --notifications-align-items: flex-start;
+  }
+
+  .notifications.bottom-center {
+    --notifications-flex-direction: column-reverse;
+    --notifications-align-items: center;
+  }
+
+  .notifications.bottom-right {
+    --notifications-flex-direction: column-reverse;
+    --notifications-align-items: flex-end;
+  }
+
+  .notifications.gap-sm {
+    --notifications-gap: 0.5rem;
+  }
+
+  .notifications.gap-md {
+    --notifications-gap: 1rem;
+  }
+
+  .notifications.gap-lg {
+    --notifications-gap: 1.5rem;
+  }
+
+  .notifications.gap-xl {
+    --notifications-gap: 2rem;
+  }
+
+  .notifications.inset-sm {
+    --notifications-inset: 0.5rem;
+  }
+
+  .notifications.inset-md {
+    --notifications-inset: 1rem;
+  }
+
+  .notifications.inset-lg {
+    --notifications-inset: 1.5rem;
+  }
+
+  .notifications.inset-xl {
+    --notifications-inset: 2rem;
+  }
+
+  .notification {
+    pointer-events: auto;
+    z-index: 2;
+    max-width: 24rem;
+  }
+</style>

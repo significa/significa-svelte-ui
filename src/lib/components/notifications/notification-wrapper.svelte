@@ -4,12 +4,12 @@
 
   export let notification: NotificationType;
 
-  let scale = tweened(1, { duration: 0 });
+  let scale = tweened(1, { duration: 100 });
   let lastreoccuredAt: number | undefined = undefined;
   $: if (notification.reoccuredAt !== lastreoccuredAt) {
     lastreoccuredAt = notification.reoccuredAt;
-    $scale = 1.02;
-    setTimeout(() => scale.set(1, { duration: 500 }), 200);
+    $scale = 1.05;
+    setTimeout(() => scale.set(1, { duration: 600 }), 200);
   }
 </script>
 

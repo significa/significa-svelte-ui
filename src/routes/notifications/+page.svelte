@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from '$lib/components/button.svelte';
+  import Notifications from '$lib/components/notifications/notifications.svelte';
   import { notifications } from '$lib/components/notifications/store';
   import CustomNotif from './custom-notif.svelte';
 
@@ -12,7 +13,8 @@
   };
 </script>
 
-<div class="flex h-screen w-screen flex-col items-center justify-center gap-4">
+<div data-theme="light" class="flex h-screen w-screen flex-col items-center justify-center gap-4">
+  <Notifications />
   <Button
     size="sm"
     variant="secondary"
