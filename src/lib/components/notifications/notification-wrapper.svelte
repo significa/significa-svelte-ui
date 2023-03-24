@@ -1,8 +1,8 @@
 <script lang="ts">
   import { tweened } from 'svelte/motion';
-  import type { Notification } from './store';
+  import type { NotificationType } from './store';
 
-  export let notification: Notification;
+  export let notification: NotificationType;
 
   let scale = tweened(1, { duration: 0 });
   let lastreoccuredAt: number | undefined = undefined;

@@ -3,9 +3,9 @@
   import Button from '../button.svelte';
   import Icon from '../icon.svelte';
   import Spinner from '../spinner.svelte';
-  import type { Notification } from './store';
+  import type { NotificationType } from './store';
 
-  export let notification: Notification;
+  export let notification: NotificationType;
 
   const dispatch = createEventDispatcher<{ dismiss: string }>();
 </script>

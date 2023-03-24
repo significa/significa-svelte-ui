@@ -1,7 +1,7 @@
 import type { ComponentType } from 'svelte';
 import { writable } from 'svelte/store';
 
-export type Notification = {
+export type NotificationType = {
   id: string;
   message: string;
   timeout: number;
@@ -14,7 +14,7 @@ export type Notification = {
   component?: ComponentType;
 };
 
-type NotificationParams = Omit<Notification, 'id' | 'timeout'> & {
+type NotificationParams = Omit<NotificationType, 'id' | 'timeout'> & {
   id?: string;
   timeout?: number;
 };
@@ -33,7 +33,7 @@ const getTimeout = (timeout: NotificationParams['timeout'], type: NotificationPa
 };
 
 const createNotificationsStore = () => {
-  const { subscribe, set, update } = writable<Notification[]>([]);
+  const { subscribe, set, update } = writable<NotificationType[]>([]);
 
   const add = (params: NotificationParams) => {
     const id = params.id || crypto.randomUUID();
