@@ -1,6 +1,6 @@
 <script lang="ts">
   import { reducedMotion } from '$lib/stores/reduced-motion';
-  import { circInOut, circOut } from 'svelte/easing';
+  import { circIn, circInOut } from 'svelte/easing';
   import { tweened } from 'svelte/motion';
   import type { Toast, Position } from './types';
 
@@ -15,24 +15,19 @@
     node: HTMLElement,
     params: { direction: 'in' | 'out'; position: typeof position }
   ) {
-    const { height: h } = node.getBoundingClientRect();
     const style = getComputedStyle(node);
     const transform = style.transform === 'none' ? '' : style.transform;
 
     return {
       duration: params.direction === 'in' ? 300 : 200,
-      easing: params.direction === 'in' ? circInOut : circOut,
+      easing: params.direction === 'in' ? circInOut : circIn,
       css: (t: number) => {
         return $reducedMotion
           ? `opacity: ${t}`
           : `
           ${params.direction === 'out' ? 'z-index: 1;' : ''}
           transform-origin: ${params.position?.startsWith('top') ? 'top' : 'bottom'};
-          transform: ${transform} scale(${bounds(t, [0.6, 1])}) translateY(${
-              params.direction === 'out'
-                ? bounds(t, [params.position?.startsWith('top') ? h * -1 : h, 0])
-                : '0'
-            }px);
+          transform: ${transform} scale(${bounds(t, [0.6, 1])});
           opacity: ${t}
         `;
       }
