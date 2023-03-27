@@ -13,7 +13,7 @@ export type Toast = {
   component?: ComponentType;
 };
 
-export type Position =
+export type ToastPosition =
   | 'top-left'
   | 'top-center'
   | 'top-right'

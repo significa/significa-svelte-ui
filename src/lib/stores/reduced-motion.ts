@@ -5,6 +5,8 @@ export const reducedMotion = readable(
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
     : false,
   (set) => {
+    if (typeof window === 'undefined') return;
+
     const updateMotionPreference = (event: MediaQueryListEvent) => set(event.matches);
 
     const mediaQueryList = window.matchMedia('(prefers-reduced-motion: reduce)');
