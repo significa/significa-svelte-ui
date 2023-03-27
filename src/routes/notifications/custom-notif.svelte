@@ -1,7 +1,11 @@
 <script lang="ts">
-  import type { Toast } from '$lib/components/toasts/types';
+  import Transitions from '$lib/components/toasts/transitions.svelte';
+  import type { Position, Toast } from '$lib/components/toasts/types';
 
   export let toast: Toast;
+  export let position: Position;
 </script>
 
-<div class="border border-foreground bg-background p-4">{toast.message}</div>
+<Transitions {toast} {position}>
+  <div class="border border-foreground bg-background p-4">{toast.message}</div>
+</Transitions>

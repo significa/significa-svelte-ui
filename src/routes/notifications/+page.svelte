@@ -85,7 +85,6 @@
     variant="secondary"
     on:click={() =>
       toast({
-        id: 'custom-component',
         component: CustomNotif,
         message: 'Hello from custom component'
       })}>Custom component</Button
