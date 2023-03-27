@@ -1,9 +1,9 @@
 <script lang="ts">
   import Transitions from '$lib/components/toasts/transitions.svelte';
-  import type { Position, Toast } from '$lib/components/toasts/types';
+  import type { Toast, ToastPosition } from '$lib/components/toasts/types';
 
   export let toast: Toast;
-  export let position: Position;
+  export let position: ToastPosition;
 </script>
 
 <Transitions {toast} {position}>

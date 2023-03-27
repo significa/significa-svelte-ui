@@ -6,11 +6,11 @@
   import { circOut } from 'svelte/easing';
   import { pausableTimeout } from './pausable-timeout';
   import { toast as toastStore } from './store';
-  import type { Position } from './types';
+  import type { ToastPosition } from './types';
 
   let className: undefined | string = undefined;
   export { className as class };
-  export let position: Position = 'bottom-right';
+  export let position: ToastPosition = 'bottom-right';
   export let gap: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let inset: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   export let component: ComponentType;
@@ -29,8 +29,8 @@
       {#if toastComponent || component}
         <svelte:component
           this={toastComponent || component}
-          {position}
           {toast}
+          {position}
           on:dismiss={() => toastStore.clear(toast.id)}
         />
       {/if}

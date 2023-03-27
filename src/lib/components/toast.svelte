@@ -4,10 +4,10 @@
   import Icon from './icon.svelte';
   import Spinner from './spinner.svelte';
   import Transitions from './toasts/transitions.svelte';
-  import type { Toast, Position } from './toasts/types';
+  import type { Toast, ToastPosition } from './toasts/types';
 
   export let toast: Toast;
-  export let position: Position;
+  export let position: ToastPosition;
 
   const dispatch = createEventDispatcher<{ dismiss: undefined }>();
 </script>
