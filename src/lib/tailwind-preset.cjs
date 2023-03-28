@@ -29,6 +29,7 @@ const colors = {
     '--color-border': '0deg 0% 91%',
     '--color-border-active': '48deg 100% 57%',
 
+    '--color-brand': '48deg 100% 57%',
     '--color-outline': '48deg 99% 73%',
     '--color-outline-error': '353deg 93% 89%',
     '--color-error': '353deg 80% 48%',
@@ -49,6 +50,7 @@ const colors = {
     '--color-border': '0deg 0% 18%',
     '--color-border-active': '48deg 100% 32%',
 
+    '--color-brand': '48deg 100% 57%',
     '--color-outline': '49deg 89% 18%',
     '--color-outline-error': '0deg 30% 27%',
     '--color-error': '355deg 85% 58%',
@@ -69,6 +71,7 @@ const colors = {
     '--color-border': '48deg 100% 46%',
     '--color-border-active': '49deg 100% 40%',
 
+    '--color-brand': '48deg 100% 57%',
     '--color-outline': '48deg 100% 46%',
     '--color-outline-error': '40deg 83% 53%',
     '--color-error': '0deg 66% 41%',
@@ -189,6 +192,9 @@ module.exports = function (options = { fonts: {} }) {
         },
         drawing: {
           DEFAULT: 'hsl(var(--color-drawing) / <alpha-value>)'
+        },
+        brand: {
+          DEFAULT: 'hsl(var(--color-brand) / <alpha-value>)'
         }
       },
       borderRadius: {
