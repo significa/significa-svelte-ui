@@ -25,6 +25,7 @@
     on:mouseleave
     on:click
     on:focus
+    on:blur
     {id}
     class={twMerge(
       base({ error }),

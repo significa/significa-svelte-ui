@@ -19,6 +19,12 @@
   type="file"
   bind:files
   {multiple}
+  on:change
+  on:mouseenter
+  on:mouseleave
+  on:click
+  on:focus
+  on:blur
   class={twMerge(base({ error }), input({ size }), 'file-button', className)}
   {...$$restProps}
 />

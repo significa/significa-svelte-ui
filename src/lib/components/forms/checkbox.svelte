@@ -22,5 +22,6 @@
   on:mouseleave
   on:click
   on:focus
+  on:blur
   {...$$restProps}
 />

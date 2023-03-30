@@ -23,6 +23,7 @@
   on:mouseleave
   on:click
   on:focus
+  on:blur
   class={twMerge(base({ error }), input({ size }), 'select-chevron', className)}
   {...$$restProps}
 >

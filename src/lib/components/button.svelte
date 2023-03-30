@@ -96,6 +96,8 @@
   on:keydown
   on:keyup
   on:keypress
+  on:focus
+  on:blur
   {disabled}
   class={twMerge(button({ variant, size, loading }), className)}
   {...$$restProps}

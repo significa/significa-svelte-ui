@@ -17,6 +17,8 @@
   on:keydown
   on:keyup
   on:keypress
+  on:focus
+  on:blur
   class={twMerge(
     '[& > *]:pointer-events-none flex h-10 w-10 items-center justify-center rounded-full bg-foreground text-background outline-none transition-all hover:opacity-80 focus-visible:ring-4 active:scale-95',
     className
