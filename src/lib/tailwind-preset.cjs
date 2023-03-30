@@ -107,11 +107,11 @@ module.exports = function (options = { fonts: {} }) {
         lg: ['1.125rem', { lineHeight: '1.75rem' }],
         xl: ['1.25rem', { lineHeight: '1.75rem' }],
         '2xl': ['1.5rem', { lineHeight: '2rem' }],
-        '3xl': ['clamp(1.625rem, 0.465vw + 1.503rem, 1.875rem)', { lineHeight: '1.2' }],
+        '3xl': ['clamp(1.625rem, 0.465vw + 1.503rem, 1.875rem)', { lineHeight: '1.12' }],
         '4xl': [
           'clamp(1.75rem, 0.93vw + 1.506rem, 2.25rem)',
           {
-            lineHeight: '1.2',
+            lineHeight: '1.12',
             fontWeight: '600'
           }
         ],
@@ -211,6 +211,9 @@ module.exports = function (options = { fonts: {} }) {
         full: '99999px'
       },
       extend: {
+        borderColor: (theme) => ({
+          DEFAULT: theme('colors.border.DEFAULT')
+        }),
         outlineColor: {
           DEFAULT: 'hsl(var(--color-outline))'
         },
