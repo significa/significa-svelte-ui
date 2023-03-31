@@ -16,6 +16,10 @@ export const base = cva(
   focus:ring-4
   focus:ring-outline
   focus:outline-0
+  peer-focus:border-border-active
+  peer-focus:ring-4
+  peer-focus:ring-outline
+  peer-focus:outline-0
   checked:bg-outline
 
   disabled:opacity-60
