@@ -7,6 +7,7 @@ export { default as Checkbox } from './components/forms/checkbox.svelte';
 export { default as CheckboxGroup } from './components/forms/checkbox-group.svelte';
 export { default as CircleButton } from './components/circle-button.svelte';
 export { default as FileInput } from './components/forms/file-input.svelte';
+export { default as FileUpload } from './components/forms/file-upload.svelte';
 export { default as FloatingInput } from './components/forms/floating-input.svelte';
 export { default as FloatingSelect } from './components/forms/floating-select.svelte';
 export { default as FloatingTextarea } from './components/forms/floating-textarea.svelte';
@@ -22,6 +23,8 @@ export { default as Tag } from './components/tag.svelte';
 export { default as Textarea } from './components/forms/textarea.svelte';
 export { default as TextButton } from './components/text-button.svelte';
 export { default as ToastNotification } from './components/toast.svelte';
+
+export type { FileUploadItem } from './components/forms/file-upload.svelte';
 
 // Toaster
 export { default as Toaster } from './components/toasts/toaster.svelte';
