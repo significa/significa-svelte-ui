@@ -31,7 +31,7 @@
       base({ error }),
       input({ size: 'lg' }),
       'peer select-chevron',
-      value ? 'pt-6 pb-2' : 'text-transparent'
+      value ? 'pb-2 pt-6' : 'text-transparent'
     )}
     {...$$restProps}
   >

@@ -16,7 +16,7 @@
   <div
     role={toast.type === 'error' ? 'alert' : 'status'}
     aria-live="polite"
-    class="rounded-lg border border-border bg-background-panel py-2 px-4 shadow transition-shadow hover:shadow-md"
+    class="rounded-lg border border-border bg-background-panel px-4 py-2 shadow transition-shadow hover:shadow-md"
   >
     <div class="flex">
       {#if toast.type}
@@ -39,7 +39,7 @@
         {/if}
       </div>
       {#if toast.timeout === 0 && toast.type !== 'loading'}
-        <div class="ml-4 -mr-2">
+        <div class="-mr-2 ml-4">
           <Button variant="secondary" size="sm" icon="close" on:click={() => dispatch('dismiss')} />
         </div>
       {/if}
