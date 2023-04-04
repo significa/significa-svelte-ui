@@ -30,7 +30,7 @@
     class={twMerge(
       base({ error }),
       input({ size: 'lg' }),
-      `peer resize-none placeholder:text-transparent [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2`
+      `peer resize-none placeholder:text-transparent [&:not(:placeholder-shown)]:pb-2 [&:not(:placeholder-shown)]:pt-6`
     )}
     placeholder={label}
     {...$$restProps}

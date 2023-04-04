@@ -2,10 +2,11 @@
   import { reducedMotion } from '$lib/stores/reduced-motion';
   import { circIn, circInOut } from 'svelte/easing';
   import { tweened } from 'svelte/motion';
-  import type { Toast, ToastPosition } from './types';
+  import { getToasterContext } from './context';
+  import type { Toast } from './types';
 
   export let toast: undefined | Toast = undefined;
-  export let position: undefined | ToastPosition = undefined;
+  const position = getToasterContext()?.position;
 
   function bounds(value: number, [outMin, outMax]: [number, number], [inMin, inMax] = [0, 1]) {
     return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
