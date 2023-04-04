@@ -4,15 +4,14 @@
   import Icon from './icon.svelte';
   import Spinner from './spinner.svelte';
   import Transitions from './toasts/transitions.svelte';
-  import type { Toast, ToastPosition } from './toasts/types';
+  import type { Toast } from './toasts/types';
 
   export let toast: Toast;
-  export let position: ToastPosition;
 
   const dispatch = createEventDispatcher<{ dismiss: undefined }>();
 </script>
 
-<Transitions {toast} {position}>
+<Transitions {toast}>
   <div
     role={toast.type === 'error' ? 'alert' : 'status'}
     aria-live="polite"

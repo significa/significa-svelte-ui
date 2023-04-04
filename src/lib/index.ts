@@ -30,3 +30,4 @@ export type { FileUploadItem } from './components/forms/file-upload.svelte';
 export { default as Toaster } from './components/toasts/toaster.svelte';
 export { toast } from './components/toasts/store';
 export type { Toast, ToastPosition } from './components/toasts/types';
+export { getToasterContext } from './components/toasts/context';

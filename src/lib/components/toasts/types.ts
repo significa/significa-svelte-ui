@@ -1,4 +1,4 @@
-import type { ComponentType } from 'svelte';
+import type { ComponentType, SvelteComponentTyped } from 'svelte';
 
 export type Toast = {
   id: string;
@@ -10,7 +10,7 @@ export type Toast = {
   type?: 'loading' | 'success' | 'error';
   class?: string;
   style?: string;
-  component?: ComponentType;
+  component?: ComponentType<SvelteComponentTyped<{ toast: Toast }>>;
 };
 
 export type ToastPosition =
@@ -20,3 +20,5 @@ export type ToastPosition =
   | 'bottom-left'
   | 'bottom-center'
   | 'bottom-right';
+
+export type ToastSpace = 'sm' | 'md' | 'lg' | 'xl';

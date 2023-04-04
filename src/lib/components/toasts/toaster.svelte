@@ -1,20 +1,26 @@
 <script lang="ts">
   import { reducedMotion } from '$lib/stores/reduced-motion';
   import clsx from 'clsx';
-  import type { ComponentType } from 'svelte';
+  import { setContext, type ComponentType, type SvelteComponentTyped } from 'svelte';
   import { flip } from 'svelte/animate';
   import { circOut } from 'svelte/easing';
   import { pausableTimeout } from './pausable-timeout';
   import { toast as toastStore } from './store';
-  import type { ToastPosition } from './types';
+  import type { Toast, ToastPosition, ToastSpace } from './types';
 
   let className: undefined | string = undefined;
   export { className as class };
   export let position: ToastPosition = 'bottom-right';
-  export let gap: 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  export let inset: 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  export let component: ComponentType;
+  export let gap: ToastSpace = 'md';
+  export let inset: ToastSpace = 'md';
+  export let component: ComponentType<SvelteComponentTyped<{ toast: Toast }>>;
   export let wrapper: undefined | { class?: string; style?: string } = undefined;
+
+  setContext('@significa/toast', {
+    position,
+    gap,
+    inset
+  });
 </script>
 
 <div class={clsx('toasts', position, `gap-${gap}`, `inset-${inset}`, className)}>
@@ -30,7 +36,6 @@
         <svelte:component
           this={toastComponent || component}
           {toast}
-          {position}
           on:dismiss={() => toastStore.clear(toast.id)}
         />
       {/if}
