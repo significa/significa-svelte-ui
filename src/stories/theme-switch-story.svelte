@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Switch from '../lib/components/switch.svelte';
+  import ThemeSwitch from '../lib/components/theme-switch.svelte';
   let theme: 'dark' | 'light' = 'light';
 
   const switchTheme = () => {
@@ -11,4 +11,4 @@
   };
 </script>
 
-<Switch {theme} on:toogle={() => switchTheme()} />
+<ThemeSwitch {theme} on:toogle={() => switchTheme()} />

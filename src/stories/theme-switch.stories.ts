@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/svelte';
 
-import Switch from './switch-story.svelte';
+import ThemeSwitch from './theme-switch-story.svelte';
 
 const meta = {
   title: 'UI/Switch',
-  component: Switch,
+  component: ThemeSwitch,
   argTypes: {}
-} satisfies Meta<Switch>;
+} satisfies Meta<ThemeSwitch>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
