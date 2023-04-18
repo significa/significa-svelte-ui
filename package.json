@@ -3,7 +3,7 @@
   "version": "0.0.1-development",
   "repository": "github:significa/significa-svelte-ui",
   "publishConfig": {
-    "@significa:registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "scripts": {
     "dev": "npm run storybook",
