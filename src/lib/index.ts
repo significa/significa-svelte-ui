@@ -23,6 +23,7 @@ export { default as Tag } from './components/tag.svelte';
 export { default as Textarea } from './components/forms/textarea.svelte';
 export { default as TextButton } from './components/text-button.svelte';
 export { default as ToastNotification } from './components/toast.svelte';
+export { default as ThemeSwitch } from './components/theme-switch.svelte';
 
 export type { FileUploadItem } from './components/forms/file-upload.svelte';
 
