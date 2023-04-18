@@ -60,7 +60,7 @@
     background: theme(colors.background.DEFAULT);
     border-radius: theme(borderRadius.full);
     overflow: hidden;
-    transition: 0.3s;
+    transition: all 0.3s;
   }
 
   .circleInner {
