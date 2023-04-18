@@ -48,8 +48,7 @@
     width: 50px;
     height: 26px;
     background: theme(colors.background.offset);
-    display: flex;
-    border-radius: 100px;
+    border-radius: theme(borderRadius.full);
   }
 
   .circle {
@@ -59,7 +58,7 @@
     width: 24px;
     height: 24px;
     background: theme(colors.background.DEFAULT);
-    border-radius: 90px;
+    border-radius: theme(borderRadius.full);
     overflow: hidden;
     transition: 0.3s;
   }
@@ -68,7 +67,6 @@
     width: 100%;
     height: 100%;
     transform: translateX(-100%);
-    padding: 4px 2px;
     transition: transform 0.5s;
   }
 
