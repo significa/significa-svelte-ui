@@ -22,6 +22,7 @@
   on:click
   on:focus
   on:blur
+  on:input
   class={twMerge(base({ error }), input({ size }), className)}
   {...$$restProps}
 />
