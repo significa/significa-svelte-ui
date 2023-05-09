@@ -24,6 +24,7 @@
     on:click
     on:focus
     on:blur
+    on:input
     {id}
     class={twMerge(
       base({ error }),
