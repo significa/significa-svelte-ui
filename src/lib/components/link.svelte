@@ -34,6 +34,7 @@
       : '',
     className
   )}
+  on:click
   {href}
   {...$$restProps}
 >
