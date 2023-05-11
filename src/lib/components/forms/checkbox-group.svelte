@@ -22,6 +22,4 @@
     }
   }}
   {...$$restProps}
->
-  <slot />
-</Checkbox>
+/>
