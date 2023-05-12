@@ -10,6 +10,7 @@
   export type IconOptions =
     | '3dots'
     | 'arrow-down'
+    | 'arrow-external'
     | 'arrow-left'
     | 'arrow-right'
     | 'arrow-up'
