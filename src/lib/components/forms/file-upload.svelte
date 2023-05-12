@@ -30,7 +30,11 @@
   export let inputProps: HTMLInputAttributes = {};
 
   type ChangeEvent = Event & { currentTarget: EventTarget & HTMLInputElement };
-  const dispatch = createEventDispatcher<{ change: ChangeEvent; error: FileUploadItem }>();
+  const dispatch = createEventDispatcher<{
+    change: ChangeEvent;
+    error: FileUploadItem;
+    success: FileUploadItem;
+  }>();
   const onChange = (e: ChangeEvent) => {
     dispatch('change', e);
 
@@ -87,6 +91,7 @@
         },
         body: file.file
       });
+      dispatch('success', file);
       updateFile(file, { status: 'success', url });
     } catch (error) {
       dispatch('error', file);
