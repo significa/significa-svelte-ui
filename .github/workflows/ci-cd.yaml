@@ -22,3 +22,7 @@ jobs:
       packages: write
     with:
       lint_command: npm run validate
+      publish_to_npm_registry: true
+      publish_to_github_registry: true
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
