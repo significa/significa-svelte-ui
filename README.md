@@ -79,7 +79,8 @@ module.exports = {
 
 # Development
 
-1. Ensure you are using a compatible node version (see [.nvmrc](./.nvmrc) for the main one).
+1. Ensure you are using a compatible node version (see [.nvmrc](./.nvmrc)
+   and [`node_versions` in `ci-cd.yaml`](./.github/workflows/ci-cd.yaml)).
 2. Install the dependencies with `npm install`.
 3. Start Storybook's component preview server with `npm run storybook`.
    Access it at `http://localhost:6006/`.
