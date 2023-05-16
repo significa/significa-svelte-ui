@@ -1,4 +1,4 @@
-name: CI/CD
+name: Storybook
 
 on:
   push:
@@ -14,21 +14,8 @@ on:
   repository_dispatch:
 
 jobs:
-  test-and-publish:
-    name: Test and publish
-    uses: significa/actions/.github/workflows/npm-library.yaml@main
-    permissions:
-      contents: read
-      packages: write
-    with:
-      lint_command: npm run validate
-      publish_to_npm_registry: true
-      publish_to_github_registry: true
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
   deploy-storybook:
-    name: Deploy to Storyblok
+    name: Deploy to Vercel
     permissions:
       contents: read
       packages: read
