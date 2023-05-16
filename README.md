@@ -77,7 +77,7 @@ module.exports = {
 };
 ```
 
-# Development
+## Development
 
 1. Ensure you are using a compatible node version (see [.nvmrc](./.nvmrc)
    and [`node_versions` in `ci-cd.yaml`](./.github/workflows/ci-cd.yaml)).
