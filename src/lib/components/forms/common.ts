@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 export const base = cva(
   `
   appearance-none
-  outline-0
+  outline-none
 
   bg-foreground/2
   border
@@ -15,11 +15,11 @@ export const base = cva(
   focus:border-border-active
   focus:ring-4
   focus:ring-outline
-  focus:outline-0
+  focus:outline-none
   peer-focus:border-border-active
   peer-focus:ring-4
   peer-focus:ring-outline
-  peer-focus:outline-0
+  peer-focus:outline-none
   checked:bg-outline
 
   disabled:opacity-60
