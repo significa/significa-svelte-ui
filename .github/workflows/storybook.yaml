@@ -1,0 +1,32 @@
+name: Storybook
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  release:
+    types:
+      - published
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  deploy-storybook:
+    name: Deploy to Vercel
+    permissions:
+      contents: read
+      packages: read
+      deployments: write
+    uses: significa/actions/.github/workflows/vercel-app.yaml@vercel-deployment-alias
+    with:
+      lint_command: null
+      test_command: null
+      staging_domain: ${{ vars.STAGING_DOMAIN }}
+      production_domain: ${{ vars.PRODUCTION_DOMAIN }}
+    secrets:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
