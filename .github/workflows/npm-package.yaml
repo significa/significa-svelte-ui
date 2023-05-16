@@ -1,4 +1,4 @@
-name: CI/CD
+name: NPM package
 
 on:
   push:
@@ -24,5 +24,6 @@ jobs:
       lint_command: npm run validate
       publish_to_npm_registry: true
       publish_to_github_registry: true
+      node_versions: '[16, 18, 19]'
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
