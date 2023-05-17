@@ -9,7 +9,7 @@
   /* we use a store to make the context reactive */
   const expandedWritable = writable<string | null>(expanded);
   /* sync the store with the prop */
-  $: expanded = $expandedWritable;
+  $: expandedWritable.set(expanded);
 
   setContext('accordion-group-expanded', expandedWritable);
 </script>
