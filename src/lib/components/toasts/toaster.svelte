@@ -1,6 +1,6 @@
 <script lang="ts">
   import { reducedMotion } from '$lib/stores/reduced-motion';
-  import clsx from 'clsx';
+  import { cx } from 'class-variance-authority';
   import { setContext, type ComponentType, type SvelteComponentTyped } from 'svelte';
   import { flip } from 'svelte/animate';
   import { circOut } from 'svelte/easing';
@@ -23,10 +23,10 @@
   });
 </script>
 
-<div class={clsx('toasts', position, `gap-${gap}`, `inset-${inset}`, className)}>
+<div class={cx('toasts', position, `gap-${gap}`, `inset-${inset}`, className)}>
   {#each $toastStore as { component: toastComponent, ...toast } (toast.id)}
     <div
-      class={clsx('toast', toast.class || wrapper?.class)}
+      class={cx('toast', toast.class || wrapper?.class)}
       use:pausableTimeout={{ ms: toast.timeout, reoccurredAt: toast.reoccurredAt }}
       on:timeout={() => toastStore.clear(toast.id)}
       animate:flip={{ duration: $reducedMotion ? 0 : 800, easing: circOut }}

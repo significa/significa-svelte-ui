@@ -2,8 +2,7 @@
   import Icon from './icon.svelte';
   import type { IconOptions } from './icon.svelte';
   import Spinner from './spinner.svelte';
-  import { cva, type VariantProps } from 'class-variance-authority';
-  import clsx from 'clsx';
+  import { cva, type VariantProps, cx } from 'class-variance-authority';
   import { twMerge } from 'tailwind-merge';
 
   const button = cva(
@@ -104,7 +103,7 @@
 >
   {#if icon}
     <Icon
-      class={clsx(
+      class={cx(
         icon &&
           arrow && [
             'transition-all',
@@ -119,7 +118,7 @@
   {/if}
   {#if $$slots.default}
     <span
-      class={clsx(
+      class={cx(
         icon &&
           arrow && [
             'transition-all',
@@ -137,7 +136,7 @@
   {/if}
   {#if arrow}
     <Icon
-      class={clsx(
+      class={cx(
         icon &&
           arrow && [
             'absolute',
@@ -156,7 +155,7 @@
   {/if}
   {#if loading}
     <div
-      class={clsx(
+      class={cx(
         'btn-spinner',
         'absolute',
         'left-1/2',

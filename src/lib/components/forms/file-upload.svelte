@@ -10,8 +10,8 @@
 
 <script lang="ts">
   import type { HTMLInputAttributes } from 'svelte/elements';
-  import type { VariantProps } from 'class-variance-authority';
-  import clsx from 'clsx';
+  import { cx, type VariantProps } from 'class-variance-authority';
+
   import { twMerge } from 'tailwind-merge';
   import CircleButton from '../circle-button.svelte';
   import Icon from '../icon.svelte';
@@ -122,7 +122,7 @@
       {...inputProps}
     />
     <div
-      class={clsx(base(), inputStyle({ size }), 'cursor-pointer', files.length && 'rounded-b-none')}
+      class={cx(base(), inputStyle({ size }), 'cursor-pointer', files.length && 'rounded-b-none')}
     >
       <div class="flex items-center gap-2 text-foreground-secondary">
         <Icon icon="attachment" />
@@ -141,7 +141,7 @@
     >
       {#each files as file}
         <div
-          class={clsx(
+          class={cx(
             'group flex items-center justify-between transition-colors hover:bg-foreground/2',
             size === 'sm' ? 'p-2' : 'p-3'
           )}

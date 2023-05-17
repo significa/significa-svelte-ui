@@ -60,7 +60,6 @@
   "peerDependencies": {
     "autoprefixer": "^10.4.14",
     "class-variance-authority": "^0.5.1",
-    "clsx": "^1.2.1",
     "postcss": "^8.4.21",
     "svelte": "^3.55.1",
     "tailwind-merge": "^1.11.0",
@@ -80,7 +79,6 @@
     "@typescript-eslint/parser": "^5.57.1",
     "autoprefixer": "^10.4.14",
     "class-variance-authority": "^0.5.1",
-    "clsx": "^1.2.1",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-storybook": "^0.6.11",

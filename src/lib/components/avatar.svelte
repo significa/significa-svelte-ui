@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clsx from 'clsx';
+  import { cx } from 'class-variance-authority';
 
   let className: undefined | string = undefined;
   export { className as class };
@@ -9,8 +9,8 @@
 </script>
 
 <div
-  class={clsx('bg-foreground/10 bg-cover bg-center bg-no-repeat', size, className)}
-  style={clsx(image ? `background-image: url(${image})` : '', style)}
+  class={cx('bg-foreground/10 bg-cover bg-center bg-no-repeat', size, className)}
+  style={cx(image ? `background-image: url(${image})` : '', style)}
   {...$$restProps}
 />
 
