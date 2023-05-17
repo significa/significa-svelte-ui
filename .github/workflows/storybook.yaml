@@ -20,7 +20,7 @@ jobs:
       contents: read
       packages: read
       deployments: write
-    uses: significa/actions/.github/workflows/vercel-app.yaml@vercel-deployment-alias
+    uses: significa/actions/.github/workflows/vercel-app.yaml@main
     with:
       lint_command: null
       test_command: null
