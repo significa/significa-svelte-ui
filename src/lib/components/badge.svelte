@@ -7,7 +7,7 @@
 
 <span
   class={twMerge(
-    'rounded-md bg-foreground-tertiary/50 px-1 py-0.5 text-xs tabular-nums',
+    'rounded-md bg-foreground-tertiary/50 px-1.5 py-0.5 text-xs tabular-nums',
     className
   )}><slot /></span
 >
