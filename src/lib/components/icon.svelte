@@ -27,6 +27,7 @@
     | 'close'
     | 'comparison'
     | 'configuration'
+    | 'copy'
     | 'document'
     | 'egg'
     | 'expand'
@@ -40,7 +41,8 @@
     | 'pdf'
     | 'play'
     | 'sun'
-    | 'theme';
+    | 'theme'
+    | 'trash';
 </script>
 
 <script lang="ts">
