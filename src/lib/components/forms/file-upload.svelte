@@ -6,6 +6,17 @@
     url?: string;
     controller?: AbortController;
   };
+  const truncateText = (text: string, maxLength: number) => {
+    if (!text) return text;
+    if (maxLength <= 0) return text;
+
+    if (text && text?.trim().length < maxLength) return text.trim();
+
+    const dots = '...';
+    const truncatedText = text.trim().substring(0, maxLength - dots.length);
+
+    return (truncatedText + dots).trim();
+  };
 </script>
 
 <script lang="ts">
@@ -154,7 +165,8 @@
                 class="h-6 w-6 rounded-2xs object-cover object-center"
               />
             {/if}
-            <span class="text-sm text-foreground-secondary">{file.file.name}</span>
+            <span class="text-sm text-foreground-secondary">{truncateText(file.file.name, 20)}</span
+            >
           </div>
           <div class="text-foreground-tertiary">
             <div class="flex h-6 w-6 items-center justify-center group-hover:hidden">
