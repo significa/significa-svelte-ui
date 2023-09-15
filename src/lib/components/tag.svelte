@@ -59,6 +59,8 @@
 
 <svelte:element
   this={href ? 'a' : typeof active === 'boolean' ? 'button' : 'span'}
+  role="button"
+  tabindex={0}
   on:click
   on:mouseenter
   on:mouseleave
