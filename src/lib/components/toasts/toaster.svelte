@@ -1,7 +1,7 @@
 <script lang="ts">
   import { reducedMotion } from '$lib/stores/reduced-motion';
   import clsx from 'clsx';
-  import { setContext, type ComponentType, type SvelteComponentTyped } from 'svelte';
+  import { setContext, type ComponentType, type SvelteComponent } from 'svelte';
   import { flip } from 'svelte/animate';
   import { circOut } from 'svelte/easing';
   import { pausableTimeout } from './pausable-timeout';
@@ -13,7 +13,7 @@
   export let position: ToastPosition = 'bottom-right';
   export let gap: ToastSpace = 'md';
   export let inset: ToastSpace = 'md';
-  export let component: ComponentType<SvelteComponentTyped<{ toast: Toast }>>;
+  export let component: ComponentType<SvelteComponent<{ toast: Toast }>>;
   export let wrapper: undefined | { class?: string; style?: string } = undefined;
 
   setContext('@significa/toast', {
@@ -27,8 +27,11 @@
   {#each $toastStore as { component: toastComponent, ...toast } (toast.id)}
     <div
       class={clsx('toast', toast.class || wrapper?.class)}
-      use:pausableTimeout={{ ms: toast.timeout, reoccurredAt: toast.reoccurredAt }}
-      on:timeout={() => toastStore.clear(toast.id)}
+      use:pausableTimeout={{
+        ms: toast.timeout,
+        reoccurredAt: toast.reoccurredAt,
+        callback: () => toastStore.clear(toast.id)
+      }}
       animate:flip={{ duration: $reducedMotion ? 0 : 800, easing: circOut }}
       style={toast.style || wrapper?.style}
     >

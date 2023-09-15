@@ -1,7 +1,6 @@
-type Params = { ms: number; reoccurredAt?: number };
+type Params = { ms: number; reoccurredAt?: number; callback: () => void };
 
 export const pausableTimeout = (node: HTMLElement, params: Params) => {
-  const callback = () => node.dispatchEvent(new CustomEvent('timeout'));
   let lastParams = params;
   let remaining = params.ms;
   let now: number;
@@ -16,7 +15,7 @@ export const pausableTimeout = (node: HTMLElement, params: Params) => {
     now = Date.now();
 
     if (remaining > 0) {
-      t = setTimeout(callback, remaining);
+      t = setTimeout(params.callback, remaining);
     }
   };
 
