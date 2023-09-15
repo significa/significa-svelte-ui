@@ -154,7 +154,7 @@
                 class="h-6 w-6 rounded-2xs object-cover object-center"
               />
             {/if}
-            <span class="text-sm text-foreground-secondary">{file.file.name}</span>
+            <span class="truncate text-sm text-foreground-secondary">{file.file.name}</span>
           </div>
           <div class="text-foreground-tertiary">
             <div class="flex h-6 w-6 items-center justify-center group-hover:hidden">
