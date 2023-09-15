@@ -53,6 +53,7 @@
 
 {#if icons[icon]}
   <i data-icon={icon} aria-hidden="true" class={className} {...$$restProps}>
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html icons[icon]}
   </i>
 {/if}

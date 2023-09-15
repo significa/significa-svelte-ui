@@ -1,6 +1,7 @@
 <script lang="ts">
   import Checkbox from './checkbox.svelte';
 
+  // eslint-disable-next-line no-undef
   type T = $$Generic<string>;
 
   export let element: undefined | HTMLInputElement = undefined;

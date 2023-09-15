@@ -2,6 +2,7 @@
   import Select from '$lib/components/forms/select.svelte';
   import type { ComponentProps } from 'svelte';
 
+  // eslint-disable-next-line no-undef
   type T = $$Generic<string>;
 
   type $$Props = ComponentProps<Select<T>> & {

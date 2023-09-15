@@ -51,7 +51,7 @@
     <section
       id={`accordion-panel-${id}`}
       aria-labelledby={`accordion-header-${id}`}
-      transition:slide={{ duration: 300, easing: circInOut }}
+      transition:slide|global={{ duration: 300, easing: circInOut }}
     >
       <slot />
     </section>

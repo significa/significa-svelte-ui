@@ -12,6 +12,8 @@
 
 <svelte:element
   this={as}
+  role="button"
+  tabindex={0}
   on:click
   on:mouseenter
   on:mouseleave
