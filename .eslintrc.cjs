@@ -35,6 +35,7 @@ module.exports = {
     ]
   },
   globals: {
-    NodeJS: true
+    NodeJS: true,
+    $$Generic: 'readonly'
   }
 };

@@ -2,7 +2,6 @@
   import FloatingSelect from '$lib/components/forms/floating-select.svelte';
   import type { ComponentProps } from 'svelte';
 
-  // eslint-disable-next-line no-undef
   type T = $$Generic<string>;
 
   type $$Props = ComponentProps<FloatingSelect<T>> & {

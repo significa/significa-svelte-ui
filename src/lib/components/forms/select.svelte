@@ -3,7 +3,6 @@
   import { twMerge } from 'tailwind-merge';
   import { base, input } from './common';
 
-  // eslint-disable-next-line no-undef
   type T = $$Generic<string>;
 
   export let element: undefined | HTMLSelectElement = undefined;
