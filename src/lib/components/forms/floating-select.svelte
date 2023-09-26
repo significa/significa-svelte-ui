@@ -3,7 +3,6 @@
   import { base, input } from './common';
   import FloatingLabel from './floating-label.svelte';
 
-  // eslint-disable-next-line no-undef
   type T = $$Generic<string>;
 
   export let element: undefined | HTMLSelectElement = undefined;

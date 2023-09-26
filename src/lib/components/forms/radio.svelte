@@ -2,7 +2,6 @@
   import { twMerge } from 'tailwind-merge';
   import { base } from './common';
 
-  // eslint-disable-next-line no-undef
   type T = $$Generic<string>;
 
   export let element: undefined | HTMLInputElement = undefined;
