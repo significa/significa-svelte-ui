@@ -7,4 +7,4 @@
   $: console.log(selected);
 </script>
 
-<MultiSelect {options} bind:selected />
+<MultiSelect {options} bind:selected selectedLabel="Select a label" />

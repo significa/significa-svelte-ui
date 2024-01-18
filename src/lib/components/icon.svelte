@@ -40,6 +40,7 @@
     | 'pause'
     | 'pdf'
     | 'play'
+    | 'plus'
     | 'sun'
     | 'theme'
     | 'trash';

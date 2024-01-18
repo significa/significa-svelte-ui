@@ -7,7 +7,7 @@
 
   const {
     elements: { trigger, menu, option },
-    states: { selectedLabel, open, selected: meltSelected },
+    states: { selectedLabel: meltSelectedLabel, open, selected: meltSelected },
     helpers: { isSelected }
   } = createSelect<string, true>({
     forceVisible: true,
@@ -22,29 +22,30 @@
   export let icon: undefined | IconOptions = undefined;
   export let options: string[] = [];
   export let selected: ListboxOption<string>[] | undefined = [];
+  export let selectedLabel: undefined | string = '';
   $: selected = $meltSelected;
 </script>
 
 <div class="flex flex-col gap-1">
   <button
-    class="flex h-12 min-w-[220px] items-center justify-between rounded-sm border border-background-offset bg-background-panel px-5 py-2 text-sm font-semibold hover:opacity-90"
+    class="flex h-12 min-w-[220px] items-center justify-between rounded-sm border border-background-offset bg-background-panel px-5 py-2 text-sm font-semibold hover:opacity-90 focus:border-border-active focus:outline-none focus:ring-4 focus:ring-outline"
     {...$trigger}
     use:trigger
     aria-label="Food"
   >
-    {$selectedLabel || 'Select'}
+    {$meltSelectedLabel || selectedLabel || 'Select'}
     <Icon icon={icon || 'chevron-down'} />
   </button>
   {#if $open}
     <div
-      class="z-10 mt-5 flex max-h-[300px] flex-col overflow-y-auto rounded-sm border border-background-offset bg-background-panel px-2 py-1"
+      class="z-10 mt-1 flex max-h-[300px] flex-col overflow-y-auto rounded-sm border border-background-offset bg-background-panel p-2"
       {...$menu}
       use:menu
       transition:fly={{ y: -12 }}
     >
       {#each options as value}
         <div
-          class="relative flex cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold hover:cursor-pointer hover:rounded-xs hover:bg-background-offset hover:ring-1 hover:ring-border focus:z-10"
+          class="relative flex cursor-pointer items-center justify-between rounded-xs px-3 py-2.5 text-sm font-semibold hover:cursor-pointer hover:bg-background-offset hover:ring-1 hover:ring-border focus:z-10 data-[highlighted]:bg-background-offset data-[highlighted]:ring-1 data-[highlighted]:ring-border"
           {...$option({ value, label: value })}
           use:option
         >
