@@ -7,7 +7,7 @@
 
   const {
     elements: { trigger, menu, option },
-    states: { selectedLabel: meltSelectedLabel, open, selected: meltSelected },
+    states: { open, selected: meltSelected },
     helpers: { isSelected }
   } = createSelect<string, true>({
     forceVisible: true,
@@ -32,7 +32,7 @@
     {...$trigger}
     use:trigger
   >
-    {$meltSelectedLabel || selectedLabel || 'Select'}
+    {selectedLabel || 'Select'}
     <Icon icon={icon || 'chevron-down'} />
   </button>
   {#if $open}
