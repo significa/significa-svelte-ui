@@ -4,7 +4,6 @@
   const options = ['Caramel', 'Chocolate', 'Strawberry', 'Cookies & Cream'];
 
   let selected: ListboxOption<string>[] | undefined;
-  $: console.log(selected);
 </script>
 
 <MultiSelect {options} bind:selected selectedLabel="Select a label" />
