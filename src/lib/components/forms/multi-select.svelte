@@ -24,6 +24,7 @@
   export let selected: ListboxOption<string>[] | undefined = [];
   export let selectedLabel: undefined | string = '';
   $: selected = $meltSelected;
+  $: meltSelected.set(selected);
 </script>
 
 <div class="flex flex-col gap-1">
