@@ -4,6 +4,7 @@
   import Icon, { type IconOptions } from '../icon.svelte';
   import type { ListboxOption } from '@melt-ui/svelte/dist/builders/listbox/types';
   import { fly } from 'svelte/transition';
+  import clsx from 'clsx';
 
   const {
     elements: { trigger, menu, option },
@@ -19,6 +20,8 @@
     multiple: true
   });
 
+  let className: undefined | string = undefined;
+  export { className as class };
   export let icon: undefined | IconOptions = undefined;
   export let options: string[] = [];
   export let selected: ListboxOption<string>[] | undefined = [];
@@ -27,7 +30,7 @@
   $: meltSelected.set(selected);
 </script>
 
-<div class="flex flex-col gap-1">
+<div class={clsx('flex flex-col gap-1', className)}>
   <button
     class="flex h-12 min-w-[220px] items-center justify-between rounded-sm border border-background-offset bg-background-panel px-5 py-2 text-sm font-semibold hover:opacity-90 hover:transition-all focus:border-border-active focus:outline-none focus:ring-4 focus:ring-outline focus:transition-all"
     {...$trigger}
