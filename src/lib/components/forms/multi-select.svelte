@@ -32,12 +32,12 @@
 
 <div class={clsx('flex flex-col gap-1', className)}>
   <button
-    class="flex h-12 min-w-[220px] items-center justify-between rounded-sm border border-background-offset bg-background-panel px-5 py-2 text-sm font-semibold hover:opacity-90 hover:transition-all focus:border-border-active focus:outline-none focus:ring-4 focus:ring-outline focus:transition-all"
+    class="flex h-12 min-w-[220px] items-center justify-between rounded-sm border border-border bg-background-panel px-5 py-2 text-sm font-semibold hover:opacity-90 hover:transition-all focus:border-border-active focus:outline-none focus:ring-4 focus:ring-outline focus:transition-all"
     {...$trigger}
     use:trigger
   >
     {selectedLabel || 'Select'}
-    <Icon icon={icon || 'chevron-down'} />
+    <Icon class="text-foreground-secondary" icon={icon || 'plus'} />
   </button>
   {#if $open}
     <div
