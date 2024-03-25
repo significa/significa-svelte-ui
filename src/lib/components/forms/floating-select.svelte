@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { getUUID } from '$lib/utils/uuid';
+
   import { twMerge } from 'tailwind-merge';
   import { base, input } from './common';
   import FloatingLabel from './floating-label.svelte';
@@ -11,7 +13,7 @@
   export { className as class };
 
   export let label: string;
-  export let id: string = crypto.randomUUID();
+  export let id: string = getUUID();
   export let error = false;
   export let value: undefined | T = undefined;
 </script>

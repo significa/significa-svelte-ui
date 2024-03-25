@@ -3,12 +3,13 @@
   import { circInOut } from 'svelte/easing';
   import { getContext } from 'svelte';
   import type { Writable } from 'svelte/store';
+  import { getUUID } from '$lib/utils/uuid';
 
   /* 
     User can provide an id 
     useful when using groups and wants to start with a specific accordion expanded
   */
-  export let id: string = crypto.randomUUID();
+  export let id: string = getUUID();
   /* Only works when not in a group */
   export let expanded = false;
 
