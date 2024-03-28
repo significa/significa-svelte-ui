@@ -3,6 +3,7 @@
   import { twMerge } from 'tailwind-merge';
   import { base, input } from './common';
   import FloatingLabel from './floating-label.svelte';
+  import { getRandomId } from '$lib/utils/get-random-id';
 
   export let element: undefined | HTMLTextAreaElement = undefined;
 
@@ -10,7 +11,7 @@
   export { className as class };
 
   export let label: string;
-  export let id: string = crypto.randomUUID();
+  export let id: string = getRandomId();
   export let error = false;
   export let value = '';
 </script>
