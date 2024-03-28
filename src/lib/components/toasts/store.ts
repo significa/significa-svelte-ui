@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import type { Toast } from './types';
-import { getUUID } from '$lib/utils/uuid';
+import { getRandomId } from '$lib/utils/get-random-id';
 
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
@@ -20,7 +20,7 @@ const createToastStore = () => {
   const { subscribe, set, update } = writable<Toast[]>([]);
 
   const add = (params: Params) => {
-    const id = params.id || getUUID();
+    const id = params.id || getRandomId();
 
     update((prev) => {
       if (prev.some((n) => n.id === id)) {

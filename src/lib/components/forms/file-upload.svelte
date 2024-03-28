@@ -18,6 +18,7 @@
   import Spinner from '../spinner.svelte';
   import { base, input as inputStyle } from './common';
   import { createEventDispatcher } from 'svelte';
+  import { getRandomId } from '$lib/utils/get-random-id';
 
   export let placeholder = 'Select your files';
   export let files: FileUploadItem[] = [];
@@ -42,7 +43,7 @@
       files = [
         ...files,
         ...(Array.from(e.currentTarget.files).map((file) => ({
-          id: crypto.randomUUID(),
+          id: getRandomId(),
           file,
           status: 'queued'
         })) satisfies FileUploadItem[])

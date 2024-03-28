@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getUUID } from '$lib/utils/uuid';
+  import { getRandomId } from '$lib/utils/get-random-id';
 
   import { twMerge } from 'tailwind-merge';
   import { base, input } from './common';
@@ -13,7 +13,7 @@
   export { className as class };
 
   export let label: string;
-  export let id: string = getUUID();
+  export let id: string = getRandomId();
   export let error = false;
   export let value: undefined | T = undefined;
 </script>
