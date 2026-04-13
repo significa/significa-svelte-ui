@@ -29,6 +29,8 @@
     | 'configuration'
     | 'copy'
     | 'document'
+    | 'door'
+    | 'car'
     | 'egg'
     | 'expand'
     | 'hamburger'
